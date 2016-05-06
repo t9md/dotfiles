@@ -1,0 +1,143 @@
+"*":
+  "autocomplete-plus":
+    suppressActivationForEditorClasses: [
+      "vim-mode-plus.normal-mode"
+      "vim-mode-plus.visual-mode"
+      "vim-mode-plus.operator-pending-mode"
+      "vim-mode-plus.insert-mode.replace"
+      "search-and-replace"
+    ]
+  "clip-history": {}
+  core:
+    closeEmptyWindows: false
+    disabledPackages: [
+      "package-that-throws-an-exception"
+      "package-with-broken-package-json"
+      "package-with-broken-keymap"
+      "recent-finder"
+      "toggle"
+      "about"
+      "autocomplete-snippets"
+      "background-tips"
+      "welcome"
+      "goto-scope"
+      "autocomplete-emojis"
+      "term2"
+      "paner"
+      "isearch"
+      "phrase"
+      "script"
+      "package-generator"
+      "metrics"
+      "vim-mode"
+    ]
+    openEmptyEditorOnStart: false
+    themes: [
+      "one-dark-ui"
+      "one-dark-vivid-syntax"
+    ]
+  "cursor-history":
+    excludeClosedBuffer: true
+    flashOnLand: true
+    searchAllPanes: false
+  dev:
+    trackActivePaneItem: false
+    trackDidAddPane: false
+    trackDidOpen: false
+  editor:
+    fontFamily: "Ricty"
+    fontSize: 16
+    invisibles: {}
+    lineHeight: 1.3
+    scrollPastEnd: true
+    showIndentGuide: true
+  "exception-reporting":
+    userId: "e4cd677f-7184-fb31-7448-ec0b8eb79d92"
+  "find-and-replace":
+    openProjectFindResultsInRightPane: true
+    scrollToResultOnLiveSearch: true
+  "keymap-disabler": {}
+  "lazy-motion": {}
+  linter:
+    gutterEnabled: false
+    showErrorPanel: false
+  "project-find-navigation":
+    hideProjectFindPanel: false
+  "project-folder":
+    closeItemsForRemovedProject: true
+    gitProjectDirectories: [
+      "~/go/src"
+    ]
+    hideLoadedFolderFromAddList: false
+  "quick-highlight": {}
+  "run-in-atom":
+    clearConsole: false
+    openDeveloperToolsOnRun: false
+  smalls:
+    flashType: "match"
+  "symbols-view":
+    quickJumpToFileSymbol: false
+  "theme-switch":
+    profiles: [
+      "one-light-ui one-light-syntax"
+      "one-light-ui duotone-light-syntax"
+      "one-dark-ui one-dark-vivid-syntax"
+      "one-dark-ui duotone-dark-syntax"
+    ]
+  "tree-view":
+    focusOnReveal: false
+    hideVcsIgnoredFiles: true
+  try:
+    basename: "tryit"
+    root: "~/tryit"
+  "vim-mode-plus":
+    devReloadPackages: [
+      "vim-mode-plus-move-selected-text"
+    ]
+    flashOnOperateBlacklist: [
+      "JasmineIncreaseFocus"
+      "JasmineDecreaseFocus"
+      "ReplaceWithExecution"
+      "ReplaceWithExecutionKeepOriginalText"
+    ]
+    flashOnUndoRedo: true
+    flashOnUndoRedoDuration: 150
+    flashScreenOnSearchHasNoMatch: false
+    hideTabBarOnMaximizePane: false
+    highlightSearch: true
+    highlightSearchExcludeScopes: [
+      "search-and-replace"
+    ]
+    ignoreCaseForSearch: true
+    ignoreCaseForSearchCurrentWord: true
+    incrementalSearch: true
+    setCursorToStartOfChangeOnUndoRedo: true
+    showHoverSearchCounter: true
+    stayOnTransformString: true
+    stayOnYank: true
+    throwErrorOnNonEmptySelectionInNormalMode: true
+    useClipboardAsDefaultRegister: true
+    useSmartcaseForSearch: true
+  "vim-mode-plus-jasmine-increase-focus":
+    autoSave: true
+    focusTexts: [
+      "f"
+      "ff"
+      "fff"
+      "x"
+    ]
+  "vim-mode-plus-move-selected-text": {}
+  "vim-mode-plus-replace-with-execution":
+    registerToSelectList: true
+  welcome:
+    showOnStartup: false
+".coffee.source":
+  editor:
+    autoIndentOnPaste: false
+    tabLength: 2
+".go.source":
+  editor:
+    tabLength: 2
+".litcoffee.source":
+  editor:
+    tabLength: 4

@@ -1,0 +1,413 @@
+# Dirty, include very trah of experiments.
+'.platform-darwin':
+  'ctrl-4': 'vim-mode-plus:current-buffer-range'
+  # Move the current pane item to the target split pane
+  'cmd-ctrl-shift-left':  'window:move-active-item-to-pane-on-left'
+  'cmd-ctrl-shift-right': 'window:move-active-item-to-pane-on-right'
+  'cmd-ctrl-shift-up':    'window:move-active-item-to-pane-above'
+  'cmd-ctrl-shift-down':  'window:move-active-item-to-pane-below'
+
+'atom-workspace:not([mini])':
+  'ctrl-[':       'core:cancel'
+  'ctrl-g':       'core:cancel'
+
+  'ctrl-cmd-e i': 'application:open-your-init-script'
+  'ctrl-cmd-e c': 'application:open-your-config'
+  'ctrl-cmd-e k': 'application:open-your-keymap'
+  'ctrl-cmd-e s': 'application:open-your-stylesheet'
+  'ctrl-cmd-e n': 'application:open-your-snippets'
+  # 'ctrl-cmd-p':   'project-folder:add'
+  'ctrl-i':       'cursor-history:next'
+  'ctrl-o':       'cursor-history:prev'
+  'ctrl-cmd-i':   'cursor-history:next-within-editor'
+  'ctrl-cmd-o':   'cursor-history:prev-within-editor'
+  'shift-f8':     'cursor-history:clear'
+  'cmd-2':       'pane:split-down-and-copy-active-item'
+  'cmd-3':       'pane:split-right-and-copy-active-item'
+  # 'cmd-shift-c': 'user:inspect-element'
+  'cmd-p':       'user:fuzzy-finder-with-same-project'
+  'ctrl-cmd-f':  'project-find-navigation:activate-results-pane'
+  'ctrl-cmd-f':  'project-find:focus-results-pane'
+  'ctrl-cmd-n':  'project-find-navigation:next'
+  'ctrl-cmd-p':  'project-find-navigation:prev'
+  'down': 'project-find:find-next'
+  'up': 'project-find:find-previous'
+
+  'ctrl-alt-p':  'project-folder:add'
+
+'atom-text-editor.vim-mode-plus':
+  # 'f10': 'vim-mode-plus:toggle-dev-environment'
+  # 'f10': 'vim-mode-plus:toggle-reload-packages-on-save'
+  'f10': 'vim-mode-plus:reload-packages'
+  'f9': 'search-and-replace:start'
+
+'atom-text-editor.vim-mode-plus.visual-mode.blockwise':
+  'G': 'DONT_MOVE_TO_LAST_LINE'
+
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+
+  'g cmd-d': 'vim-mode-plus:add-selection'
+  'g m': 'vim-mode-plus:mark-range'
+  'g h': 'vim-mode-plus-user:quick-highlight'
+
+  # 'space m': 'vim-mode-plus:mark-range'
+  # '/ r': 'vim-mode-plus:mark-range'
+  # 'M': 'vim-mode-plus:mark-range'
+  # 'm r': 'vim-mode-plus:mark-range'
+
+  # 'm ^m r': 'dev:hello'
+
+  # 'ctrl-r ^ctrl-r': 'vim-mode-plus:mark-range'
+  # 'ctrl-j ^ctrl-j j j': 'dev:hello'
+
+  # 'right': 'editor:move-to-beginning-of-next-word'
+  # 'left': 'editor:move-to-beginning-of-previous-word'
+  # 'w': 'vim-mode-plus:move-to-next-smart-word'
+  'b': 'vim-mode-plus:move-to-previous-smart-word'
+  'e': 'vim-mode-plus:move-to-end-of-smart-word'
+  # 'w': 'vim-mode-plus:move-to-next-alphanumeric-word'
+  # 'b': 'vim-mode-plus:move-to-previous-alphanumeric-word'
+  # 'e': 'vim-mode-plus:move-to-end-of-alphanumeric-word'
+  'g C': 'vim-mode-plus:camel-case'
+  # 'g p': 'vim-mode-plus:swap-with-register'
+  'g p': 'vim-mode-plus:put-after-and-select'
+  'g P': 'vim-mode-plus:put-before-and-select'
+  # 'g P': 'vim-mode-plus:yank-and-put-before'
+
+  'ctrl-cmd-w': 'vim-mode-plus:move-to-next-subword'
+  'ctrl-cmd-b': 'vim-mode-plus:move-to-previous-subword'
+
+  # 'g k': 'vim-mode-plus:move-up-to-non-blank'
+  # 'g j': 'vim-mode-plus:move-down-to-non-blank'
+  # 'ctrl-s': 'vim-mode-plus:transform-string-by-select-list'
+  'ctrl-s': 'vim-mode-plus:transform-smart-word-by-select-list'
+  # 'f5': 'vim-mode-plus:tranform-string-by-external-command'
+
+  # 'ctrl-cmd-k': 'vim-mode-plus:move-up-to-non-blank'
+  # 'ctrl-cmd-j': 'vim-mode-plus:move-down-to-non-blank'
+  'ctrl-cmd-k': 'vim-mode-plus:move-up-to-edge'
+  '[': 'vim-mode-plus:move-up-to-edge'
+  'ctrl-cmd-j': 'vim-mode-plus:move-down-to-edge'
+  ']': 'vim-mode-plus:move-down-to-edge'
+  'g k': 'vim-mode-plus:move-up-to-edge'
+  'g j': 'vim-mode-plus:move-down-to-edge'
+  # 'g _': 'vim-mode-plus:snake-case'
+  'g %': 'vim-mode-plus:encode-uri-component'
+
+
+  # '[': 'vim-mode-plus:move-to-previous-fold-start'
+  # ']': 'vim-mode-plus:move-to-next-fold-start'
+  # '(': 'vim-mode-plus:move-to-previous-sentence'
+  #  ')': 'vim-mode-plus:move-to-next-sentence'
+
+  # '(': 'vim-mode-plus:move-to-previous-function'
+  # ')': 'vim-mode-plus:move-to-next-function'
+  '(': 'vim-mode-plus-user:move-to-previous-symbol'
+  ')': 'vim-mode-plus-user:move-to-next-symbol'
+
+  # 'g n': 'vim-mode-plus:move-to-next-number'
+  # 'g N': 'vim-mode-plus:move-to-previous-number'
+
+  'cmd-up': 'vim-mode-plus:move-to-previous-fold-start-with-same-indent'
+  'cmd-down': 'vim-mode-plus:move-to-next-fold-start-with-same-indent'
+  'g r':   'vim-mode-plus:reverse'
+
+
+  # 'g [':   'vim-mode-plus:move-to-previous-fold-start'
+  # 'g ]':   'vim-mode-plus:move-to-next-fold-start'
+  # 'cmd-{':   'vim-mode-plus:move-to-previous-fold-end'
+  # 'cmd-}':   'vim-mode-plus:move-to-next-fold-end'
+
+  # '[ [': 'vim-mode-plus:move-to-previous-fold-start'
+  # '] [': 'vim-mode-plus:move-to-next-fold-start'
+  # '[ ]': 'vim-mode-plus:move-to-previous-fold-end'
+  # '] ]': 'vim-mode-plus:move-to-next-fold-end'
+
+'atom-workspace atom-text-editor:not([mini])':
+  'ctrl-cmd-c': 'user:clear-console'
+  'ctrl-cmd-r': 'run-in-atom:run-in-atom'
+  'ctrl-up': 'check-up'
+  'ctrl-down': 'check-down'
+
+  # 'cmd-L':       'paner:very-right' # Conflict split-selection-into-line.
+  'ctrl-;':      'smalls:start'
+  'cmd-i':       'transformer:run'
+  'shift-cmd-i': 'transformer:compile'
+
+'atom-text-editor.smalls.search':
+  ';': 'smalls:jump'
+
+# 'atom-text-editor.vim-mode.normal-mode':
+#   'f j': 'dev:hello'
+
+'atom-text-editor.vim-mode-plus.normal-mode[data-grammar="source coffee"],
+  atom-text-editor.vim-mode-plus.normal-mode[data-grammar="source js"]':
+  # '=': 'vim-mode-plus-user:jasmine-increase-focus'
+  # '-': 'vim-mode-plus-user:jasmine-increase-focus'
+  'ctrl--': 'vim-mode-plus-user:jasmine-decrease-focus'
+
+'atom-text-editor.vim-mode-plus.normal-mode':
+#   'f': 'vim-mode-plus:find-fast'
+  # 'f':  'vim-mode-plus:find'
+
+  # 'f j': 'dev:hello'
+  # 'f f': 'vim-mode-plus:find-char-f'
+  # 'f d': 'vim-mode-plus:find-char-d'
+
+  'g I': 'vim-mode-plus:insert-at-start-of-target'
+  'g A': 'vim-mode-plus:insert-at-end-of-target'
+  # 's': 'smalls:start'
+
+  # 'q': 'vim-mode-plus:start-recording-macro'
+  # 'Q': 'vim-mode-plus:stop-recording-macro'
+  '@': 'vim-mode-plus:execute-macro'
+  'cmd-shift-up': 'theme-switch:prev'
+  'cmd-shift-down': 'theme-switch:next'
+
+  # 'ctrl-shift-cmd-left': 'window:move-active-item-to-pane-on-left'
+  # 'ctrl-shift-cmd-right': 'window:move-active-item-to-pane-on-right'
+  # 'ctrl-shift-cmd-above': 'window:move-active-item-to-pane-above'
+  # 'ctrl-shift-cmd-below': 'window:move-active-item-to-pane-below'
+
+  'g c':    'vim-mode-plus:select-latest-change'
+  'g a':    'vim-mode-plus:insert-after-by-motion'
+
+  'ctrl-{': 'vim-mode-plus:insert-at-previous-fold-start'
+  'ctrl-}': 'vim-mode-plus:insert-at-next-fold-start'
+
+  'ctrl-g': 'vim-mode-plus:reset-normal-mode'
+  # 'z a':       'vim-mode-plus:toggle-fold',
+  'cmd-z':     'vim-mode-plus:toggle-fold'
+  'ctrl-j':    'window:focus-pane-below'
+  'ctrl-k':    'window:focus-pane-above'
+  'ctrl-h':    'window:focus-pane-on-left'
+  'ctrl-l':    'window:focus-pane-on-right'
+  'space j':    'window:focus-pane-below'
+  'space k':    'window:focus-pane-above'
+  'space h':    'window:focus-pane-on-left'
+  'space l':    'window:focus-pane-on-right'
+  'space q':    'core:close'
+  'space g l': 'go-to-line:toggle'
+  'space p':  'project-folder:add'
+  # 'space n': 'editor:toggle-line-numbers'
+  'space n l': 'vim-mode-plus-user:search-and-replace-search-in-file'
+  'space i': 'user:toggle-show-invisible'
+  'space I': 'editor:toggle-indent-guide'
+  'space W': 'editor:toggle-soft-wrap'
+  'space /': 'vim-mode-plus:clear-highlight-search'
+  'space r r': 'vim-mode-plus:mark-range'
+  'space r c': 'vim-mode-plus:clear-range-marker'
+  'space w': 'core:save'
+  'space s r':  'window:run-package-specs'
+
+  'g f':       'open-this:here'
+  'ctrl-w f':  'open-this:split-down'
+  'ctrl-w F':  'open-this:split-right'
+  'ctrl-w x': 'vim-mode-plus:exchange-pane-item'
+  'g x':       'link:open'
+
+
+  # 'space W':   'user:toggle-vmp-wrapLeftRightMotion'
+  'T': 'try:paste'
+  'space t': 'try:paste'
+
+  's': 'lazy-motion:forward'
+  'ctrl-p': 'lazy-motion:forward-again'
+
+  'y s': 'vim-mode-plus:surround'
+  'y s w': 'vim-mode-plus:surround-word'
+  'y m s':  'vim-mode-plus:map-surround'
+  # 'S': 'vim-mode-plus:surround-word'
+  'S': 'vim-mode-plus:surround-smart-word'
+  # 'ctrl-s': 'vim-mode-plus:transform-smart-word-by-input'
+  # 'ctrl-s': 'vim-mode-plus:transform-string-by-select-list'
+  # 'd s':       'vim-mode-plus:delete-surround'
+  # 'c s':       'vim-mode-plus:change-surround'
+
+  'd s': 'vim-mode-plus:delete-surround-any-pair'
+  # 'd s': 'vim-mode-plus:delete-surround'#-any-pair-allow-forwarding'
+  'c s': 'vim-mode-plus:change-surround-any-pair'
+  # 'c s': 'vim-mode-plus:change-surround-any-pair-allow-forwarding'
+
+  'ctrl-g s': 'vim-mode-plus:split-string'
+  'ctrl-g j': 'vim-mode-plus:join-by-input-with-keeping-space'
+  # '\\':        'vim-mode-plus:surround-inner-word'
+
+  # '-':          'toggle:there'
+  # 'ctrl-cmd-n': 'theme-switch:next',
+  # ':':          'go-to-line:toggle'
+  # ':':          'user-ex-command-open'
+  ':': 'vim-mode-plus-ex-mode:open'
+  '!': 'vim-mode-plus-ex-mode:toggle-setting'
+  # ";": 'vim-mode-plus:inner-any-pair-allow-forwarding'
+  # "'": 'vim-mode-plus:inner-any-quote',
+  # '"': 'vim-mode-plus:move-to-previous-string'
+  # "'": 'vim-mode-plus:move-to-next-string'
+  # ",": 'vim-mode-plus:a-comma-word'
+
+'atom-text-editor[mini]':
+  'ctrl-u': 'editor:delete-to-beginning-of-line'
+  'ctrl-w': 'editor:delete-to-beginning-of-word'
+
+'.platform-darwin atom-text-editor.isearch[mini]':
+  ']':         'isearch:search-forward'
+  '[':         'isearch:search-backward'
+  ';':         'core:confirm'
+  'ctrl-p':    'isearch:fill-history-prev'
+  'ctrl-n':    'isearch:fill-history-next'
+  'cmd-e':     'isearch:fill-cursor-word'
+
+'atom-text-editor.lazy-motion':
+  ']':      'lazy-motion:forward'
+  '[':      'lazy-motion:backward'
+  ';':      'core:confirm'
+  'cmd-e':  'lazy-motion:set-cursor-word'
+
+# 'atom-text-editor.vim-mode-plus.normal-mode[data-grammar="source gfm"],
+#   atom-text-editor.vim-mode-plus.visual-mode[data-grammar="source gfm"]':
+#     'f5': 'vim-mode-plus-user:replace-with-execution'
+#     'shift-f5': 'vim-mode-plus-user:replace-with-execution-keep-original-text'
+
+'atom-text-editor.vim-mode-plus.normal-mode, atom-text-editor.vim-mode-plus.visual-mode':
+  'up':  'project-find:find-previous'
+  'down':  'project-find:find-next'
+
+  # 'shift-f5': 'vim-mode-plus-user:replace-with-execution'
+  # 'f5': 'vim-mode-plus-user:insert-hosts'
+  # 'f5': 'vim-mode-plus-user:replace-with-execution-keep-original-text'
+  # 'f5': 'vim-mode-plus-user:replace-with-execution'
+  # 'shift-f5': 'vim-mode-plus-user:replace-with-execution-keep-original-text'
+
+  '_': 'vim-mode-plus:replace-with-register'
+  # 'ctrl-cmd-r':      'lazy-motion:backward'
+  # 'ctrl-p':      'lazy-motion:forward-again'
+  'shift-cmd-e': 'lazy-motion:forward-cursor-word'
+  'space m': 'quick-highlight:toggle'
+  'space M': 'quick-highlight:clear'
+
+# 'atom-text-editor.vim-mode-plus.yank-pending, atom-text-editor.vim-mode-plus.delete-pending':
+#   'p': 'vim-mode-plus:inner-paragraph'
+#   '/': 'vim-mode-plus:inner-comment'
+#
+# 'atom-text-editor.vim-mode-plus.toggle-line-comments-pending':
+#   '/': 'vim-mode-plus:inner-comment'
+
+'atom-text-editor.vim-mode-plus.operator-pending-mode,
+atom-text-editor.vim-mode-plus.visual-mode':
+  "I": 'vim-mode-plus:move-to-first-character-of-line'
+
+  # ';': 'vim-mode-plus:inner-any-pair'
+  # ''': 'vim-mode-plus:inner-any-pair-allow-forwarding'
+  ";": 'vim-mode-plus:inner-any-pair'
+  # ",": 'vim-mode-plus:a-argument'
+  # ",": 'vim-mode-plus:a-comma-word'
+  'p': 'vim-mode-plus:inner-paragraph'
+  # '/': 'vim-mode-plus:inner-comment'
+
+  "'": 'vim-mode-plus:inner-any-quote',
+  ":": 'vim-mode-plus:a-any-pair-allow-forwarding'
+
+  # "'": 'vim-mode-plus:inner-any-quote'
+  # 'cmd-l':  'vim-mode-plus:inner-paragraph'
+  's': 'vim-mode-plus:surround'
+  # 'f': 'vim-mode-plus:inner-fold'
+  # 'F': 'vim-mode-plus:a-fold'
+  # 'ctrl-g': 'vim-mode-plus:reset-normal-mode'
+  'i }':  'vim-mode-plus:inner-curly-bracket-allow-forwarding'
+  'a }':  'vim-mode-plus:a-curly-bracket-allow-forwarding'
+
+  'i >':  'vim-mode-plus:inner-angle-bracket-allow-forwarding'
+  'a >':  'vim-mode-plus:a-angle-bracket-allow-forwarding'
+
+  'i ]':  'vim-mode-plus:inner-square-bracket-allow-forwarding'
+  'a ]':  'vim-mode-plus:a-square-bracket-allow-forwarding'
+
+  'i )':  'vim-mode-plus:inner-parenthesis-allow-forwarding'
+  'a )':  'vim-mode-plus:a-parenthesis-allow-forwarding'
+
+
+'atom-text-editor.vim-mode-plus.insert-mode':
+  'j k': 'vim-mode-plus:activate-normal-mode'
+  'cmd-f':  'editor:move-to-end-of-word'
+  'cmd-b':  'editor:move-to-beginning-of-word'
+  'cmd-d':  'editor:delete-to-end-of-word'
+  'cmd-m':  'editor:select-word'
+  'ctrl-y': 'clip-history:paste'
+  'cmd-y': 'clip-history:paste-newer'
+  'ctrl-Y': 'clip-history:paste-last'
+  'ctrl-i': 'vim-mode-plus:insert-last-inserted'
+  'ctrl-{': 'vim-mode-plus:move-to-previous-fold-start'
+  'ctrl-}': 'vim-mode-plus:move-to-next-fold-start'
+
+  # 'ctrl-y': 'vim-mode-plus:copy-from-line-above'
+  # 'ctrl-e': 'vim-mode-plus:copy-from-line-below'
+
+'atom-text-editor.vim-mode-plus.visual-mode':
+  'S': 'vim-mode-plus:surround'
+  'g I': 'vim-mode-plus:insert-at-start-of-target'
+  'I': 'vim-mode-plus:insert-at-start-of-target'
+  'g A': 'vim-mode-plus:insert-at-end-of-target'
+  'A': 'vim-mode-plus:insert-at-end-of-target'
+
+  'ctrl-t': 'vim-mode-plus-user:toggle-overwrite'
+  'ctrl-k': 'vim-mode-plus-user:move-selected-text-up'
+  'ctrl-j': 'vim-mode-plus-user:move-selected-text-down'
+  'ctrl-h': 'vim-mode-plus-user:move-selected-text-left'
+  'ctrl-l': 'vim-mode-plus-user:move-selected-text-right'
+
+  'cmd-K': 'vim-mode-plus-user:duplicate-selected-text-up'
+  'cmd-J': 'vim-mode-plus-user:duplicate-selected-text-down'
+  'cmd-H': 'vim-mode-plus-user:duplicate-selected-text-left'
+  'cmd-L': 'vim-mode-plus-user:duplicate-selected-text-right'
+
+  'T':      'try:paste'
+  'cmd-c':  'vim-mode-plus:yank'
+
+'.select-list':
+  ';':      'core:confirm'
+  'ctrl-l': 'pane:split-right'
+  'ctrl-j': 'pane:split-down'
+  'ctrl-g': 'core:cancel'
+
+'.markdown-preview':
+  'j': 'core:move-down'
+  'k': 'core:move-up'
+
+'.preview-pane result-view list-tree':
+  'j':   'core:move-down'
+  'k':   'core:move-up'
+  'g g': 'core:move-to-top'
+  'G':   'core:move-to-bottom'
+
+'atom-text-editor.vim-mode-plus-search':
+  'ctrl-g': 'vim-mode-plus:search-cancel'
+
+'atom-text-editor.vim-mode-plus-search:not(.literal-mode)':
+  '[': 'vim-mode-plus:search-visit-prev'
+  ']': 'vim-mode-plus:search-visit-next'
+  ';': 'vim-mode-plus:search-confirm'
+  'space': 'vim-mode-plus:search-insert-wild-pattern'
+
+'atom-text-editor.vim-mode-plus-search':
+  'cmd-enter': 'vim-mode-plus-user:project-find-from-search'
+  'ctrl-o': 'vim-mode-plus-user:search-and-replace'
+  # 'space': 'vim-mode-plus:search-insert-wild-pattern'
+
+'atom-text-editor.vim-mode-plus-input':
+  'ctrl-g': 'vim-mode-plus:input-cancel'
+
+'atom-text-editor.vim-mode-plus.operator-pending-mode':
+  # 'c': 'vim-mode-plus:inner-word'
+  'c': 'vim-mode-plus:inner-smart-word'
+  'C': 'vim-mode-plus:inner-whole-word'
+  # 'r': 'vim-mode-plus:marked-range'
+
+
+'atom-text-editor.autocomplete-active':
+  'ctrl-g': 'autocomplete-plus:cancel'
+
+# Tree-view navigation
+# -------------------------
+'.tree-view':
+  'g g': 'core:move-to-top'
+  'shift-g': 'core:move-to-bottom'

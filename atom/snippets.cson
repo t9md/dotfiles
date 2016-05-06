@@ -1,0 +1,90 @@
+'*':
+  sign:
+    'prefix': '['
+    'body': "[t9md]$1"
+  vmplink:
+    prefix: 'vmplink'
+    body: "[vim-mode-plus](https://atom.io/packages/vim-mode-plus)"
+'.source.gfm':
+  'code':
+    'prefix': '`c'
+    'body': """
+    ```coffeescript
+    $1
+    ``
+    """
+'.source.coffee':
+  'console log':
+    prefix: 'l'
+    body: 'console.log '
+  'Undescore Plus':
+    prefix: '_'
+    body: '_ = require \'underscore-plus\''
+  vmp:
+    prefix: 'vmp'
+    body: "vim-mode-plus"
+  p:
+    prefix: 'p'
+    body: """
+    {inspect} = require 'util'
+    p = (args...) -> console.log inspect(args...)
+    """
+  dev:
+    prefix: 'dev'
+    body: """
+    editor = atom.workspace.getActiveTextEditor()
+    cursor = editor.getLastCursor()
+    cursorPosition = cursor.getBufferPosition()
+    selection = editor.getLastSelection()
+
+    fun = (arg) ->
+      console.log arg
+
+    disposable?.dispose()
+    disposable = atom.commands.add 'atom-workspace',
+      'check-up': ->
+        fun('up')
+      'check-down': ->
+        fun('down')
+    """
+  cursor:
+    prefix: 'c'
+    body: 'cursor'
+  selection:
+    prefix: 's'
+    body: 'selection'
+  ensure:
+    prefix: 'e'
+    body: "ensure '$1', text: '$2' cursor: [${3:0}, ${4:0}]$5"
+  'class':
+    prefix: 'cla'
+    body: """
+    class Base
+      constructor: (args) ->
+
+    class C1 extends Base
+      constructor: (args) ->
+
+    class C2 extends C1
+      constructor: (args) ->
+    """
+  require:
+    prefix: 'r'
+    body: '${1:sys} $3= require \'${2:${1:sys}}\'$4'
+'.source.json':
+  keywords:
+    prefix: 'key'
+    body: """
+      "keywords": [
+        "codeshare"
+      ],
+    """
+  activationCommands:
+    prefix: 'act'
+    body: """
+      "activationCommands": {
+        "atom-workspace": [
+          "some:command"
+        ]
+      },
+    """
