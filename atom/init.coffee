@@ -32,10 +32,6 @@ consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
     command: 'coffee'
     args: ['-csb', '--no-header']
 
-  class CoffeeCompile extends TransformStringByExternalCommand
-    command: 'coffee'
-    args: ['-csb', '--no-header']
-
   class CoffeeEval extends TransformStringByExternalCommand
     command: 'coffee'
     args: ['-se']
