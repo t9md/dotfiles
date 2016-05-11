@@ -1,50 +1,18 @@
 {Range} = require 'atom'
 path = require 'path'
 
-atom.commands.add 'atom-workspace',
-  'user:inspect-element': ->
-    atom.openDevTools()
-    atom.executeJavaScriptInDevTools('DevToolsAPI.enterInspectElementMode()')
-
-atom.commands.add 'atom-workspace',
-  'user:hello': ->
-    console.log "HELLO!!"
-
-atom.commands.add 'atom-workspace',
-  'user:clear-console': ->
-    console.clear()
-
-atom.commands.add 'atom-workspace',
-  'user:toggle-show-invisible': ->
-    value = atom.config.get('editor.showInvisibles')
-    atom.config.set('editor.showInvisibles', not value)
-
-# init.coffee
-# -------------------------
 # General service comsumer factory
-getConsumer = (packageName, provider) ->
-  (fn) ->
-    atom.packages.onDidActivatePackage (pack) ->
-      return unless pack.name is packageName
-      service = pack.mainModule[provider]()
-      fn(service)
+# -------------------------
+consumeService = (packageName, providerName, fn) ->
+  disposable = atom.packages.onDidActivatePackage (pack) ->
+    return unless pack.name is packageName
+    service = pack.mainModule[providerName]()
+    fn(service)
+    disposable.dispose()
 
-# get vim-mode-plus service API provider
-consumeVimModePlus = getConsumer 'vim-mode-plus', 'provideVimModePlus'
-requireVimModePlus = (path) ->
-  packPath = atom.packages.resolvePackagePath('vim-mode-plus')
-  require "#{packPath}/lib/#{path}"
-
-consumeVimModePlus ({Base}) ->
-  # MoveToNextWord = Base.getClass('MoveToNextWord')
-  # class MoveToNextAlphanumericWord extends MoveToNextWord
-  #   wordRegex: /\w+/
-  #   @registerCommand()
-  #
-  # MoveToPreviousWord = Base.getClass('MoveToPreviousWord')
-  # class MoveToPreviousAlphanumericWord extends MoveToPreviousWord
-  #   wordRegex: /\w+/
-  #   @registerCommand()
+getEditorState = null
+consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
+  {Base, getEditorState} = service
 
   TransformStringByExternalCommand = Base.getClass('TransformStringByExternalCommand')
   class Sort extends TransformStringByExternalCommand
@@ -95,24 +63,56 @@ consumeVimModePlus ({Base}) ->
     # via transform-string-by-select-list command.
     # TransformStringBySelectList::transformers.push(transformer)
 
+narrowSearch = null
+consumeService 'narrow-search', 'provideNarrowSearch', ({search}) ->
+  narrowSearch = search
+
+narrowSearchFromVimModePlusSearch = ->
+  vimState = getEditorState(atom.workspace.getActiveTextEditor())
+  text = vimState.searchInput.editor.getText()
+  vimState.searchInput.confirm()
+  console.log 'searching', text
+  narrowSearch(text)
+
+hotReloadPackages = ->
+  atom.project.getPaths().forEach (projectPath) ->
+    packName = path.basename(projectPath)
+    packName = packName.replace(/^atom-/, '')
+    pack = atom.packages.getLoadedPackage(packName)
+
+    if pack?
+      console.log "deactivating #{packName}"
+      atom.packages.deactivatePackage(packName)
+      atom.packages.unloadPackage(packName)
+
+      Object.keys(require.cache)
+        .filter (p) ->
+          p.indexOf(projectPath + path.sep) is 0
+        .forEach (p) ->
+          delete require.cache[p]
+
+      atom.packages.loadPackage(packName)
+      atom.packages.activatePackage(packName)
+      console.log "activated #{packName}"
+
+inspectElement = ->
+  atom.openDevTools()
+  atom.executeJavaScriptInDevTools('DevToolsAPI.enterInspectElementMode()')
+
+hello = ->
+  console.log "hello!"
+
+clearConsole = ->
+  console.clear()
+
+toggleInvisible = ->
+  param = 'editor.showInvisibles'
+  atom.config.set(param, not atom.config.get(param))
+
 atom.commands.add 'atom-workspace',
-  'user:package-hot-reload': ->
-    atom.project.getPaths().forEach (projectPath) ->
-      packName = path.basename(projectPath)
-      packName = packName.replace(/^atom-/, '')
-      pack = atom.packages.getLoadedPackage(packName)
-
-      if pack?
-        console.log "deactivating #{packName}"
-        atom.packages.deactivatePackage(packName)
-        atom.packages.unloadPackage(packName)
-
-        Object.keys(require.cache)
-          .filter (p) ->
-            p.indexOf(projectPath + path.sep) is 0
-          .forEach (p) ->
-            delete require.cache[p]
-
-        atom.packages.loadPackage(packName)
-        atom.packages.activatePackage(packName)
-        console.log "activated #{packName}"
+  'user:inspect-element': -> inspectElement()
+  'user:hello': -> hello()
+  'user:clear-console': -> clearConsole()
+  'user:toggle-show-invisible': -> toggleInvisible()
+  'user:package-hot-reload': -> hotReloadPackages()
+  'user:narrow-search': -> narrowSearchFromVimModePlusSearch()

@@ -5,7 +5,7 @@
       "vim-mode-plus.visual-mode"
       "vim-mode-plus.operator-pending-mode"
       "vim-mode-plus.insert-mode.replace"
-      "search-and-replace"
+      "narrow"
     ]
   "clip-history": {}
   core:
@@ -22,14 +22,17 @@
       "welcome"
       "goto-scope"
       "autocomplete-emojis"
-      "term2"
       "paner"
       "isearch"
       "phrase"
       "script"
       "package-generator"
       "metrics"
+      "vim-mode-plus-move-to-symbols"
       "vim-mode"
+      "atom-fuzzy-grep"
+      "language-elm"
+      "markdown-table-formatter"
     ]
     openEmptyEditorOnStart: false
     themes: [
@@ -45,8 +48,9 @@
     trackDidAddPane: false
     trackDidOpen: false
   editor:
+    atomicSoftTabs: false
     fontFamily: "Ricty"
-    fontSize: 16
+    fontSize: 17
     invisibles: {}
     lineHeight: 1.3
     scrollPastEnd: true
@@ -57,6 +61,21 @@
     openProjectFindResultsInRightPane: true
     scrollToResultOnLiveSearch: true
   "keymap-disabler": {}
+  keystroke:
+    commands: [
+      {
+        name: "change-inner-word"
+        keystroke: "c i w"
+      }
+      {
+        name: "delete-current-word"
+        keystroke: "ctrl-shift-w backspace"
+      }
+      {
+        name: "delete-to-eol-twice"
+        keystroke: "D j l ."
+      }
+    ]
   "lazy-motion": {}
   linter:
     gutterEnabled: false
@@ -99,6 +118,8 @@
       "JasmineDecreaseFocus"
       "ReplaceWithExecution"
       "ReplaceWithExecutionKeepOriginalText"
+      "SplitCharacter"
+      "SurroundSmartWord"
     ]
     flashOnUndoRedo: true
     flashOnUndoRedoDuration: 150
@@ -106,13 +127,16 @@
     hideTabBarOnMaximizePane: false
     highlightSearch: true
     highlightSearchExcludeScopes: [
-      "search-and-replace"
+      "narrow"
     ]
     ignoreCaseForSearch: true
     ignoreCaseForSearchCurrentWord: true
     incrementalSearch: true
     setCursorToStartOfChangeOnUndoRedo: true
     showHoverSearchCounter: true
+    startInInsertModeScopes: [
+      "narrow"
+    ]
     stayOnTransformString: true
     stayOnYank: true
     throwErrorOnNonEmptySelectionInNormalMode: true
