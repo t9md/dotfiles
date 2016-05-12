@@ -390,7 +390,10 @@
 
 'atom-text-editor.vim-mode-plus-search':
   'cmd-enter': 'vim-mode-plus-user:project-find-from-search'
-  'ctrl-o': 'user:narrow-search'
+  # 'ctrl-o': 'vim-mode-plus-user:narrow-lines-from-search'
+  # 'ctrl-cmd-o': 'vim-mode-plus-user:narrow-search-from-search'
+  # 'ctrl-o': 'user:narrow-lines'
+  # 'ctrl-cmd-g': 'user:narrow-search'
   # 'space': 'vim-mode-plus:search-insert-wild-pattern'
 
 'atom-text-editor.vim-mode-plus-input':

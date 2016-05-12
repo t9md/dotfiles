@@ -59,16 +59,11 @@ consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
     # via transform-string-by-select-list command.
     # TransformStringBySelectList::transformers.push(transformer)
 
-narrowSearch = null
-consumeService 'narrow', 'provideNarrow', ({search}) ->
-  narrowSearch = search
+getEditor = ->
+  atom.workspace.getActiveTextEditor()
 
-narrowSearchFromVimModePlusSearch = ->
-  vimState = getEditorState(atom.workspace.getActiveTextEditor())
-  text = vimState.searchInput.editor.getText()
-  vimState.searchInput.confirm()
-  console.log 'searching', text
-  narrowSearch(text)
+getActiveVimState = ->
+  getEditorState(getEditor())
 
 hotReloadPackages = ->
   atom.project.getPaths().forEach (projectPath) ->
@@ -111,4 +106,3 @@ atom.commands.add 'atom-workspace',
   'user:clear-console': -> clearConsole()
   'user:toggle-show-invisible': -> toggleInvisible()
   'user:package-hot-reload': -> hotReloadPackages()
-  'user:narrow-search': -> narrowSearchFromVimModePlusSearch()
