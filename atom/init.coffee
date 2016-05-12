@@ -60,7 +60,7 @@ consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
     # TransformStringBySelectList::transformers.push(transformer)
 
 narrowSearch = null
-consumeService 'narrow-search', 'provideNarrowSearch', ({search}) ->
+consumeService 'narrow', 'provideNarrow', ({search}) ->
   narrowSearch = search
 
 narrowSearchFromVimModePlusSearch = ->

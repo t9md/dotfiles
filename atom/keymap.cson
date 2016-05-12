@@ -142,7 +142,7 @@
   'ctrl--': 'vim-mode-plus-user:jasmine-decrease-focus'
 
 'atom-text-editor.vim-mode-plus.normal-mode':
-  'f j': 'dev:hello'
+  # 'f j': 'dev:hello'
   # 'j'
   # 'C': 'keystroke:change-inner-word'
 
@@ -204,7 +204,10 @@
   'space p':  'project-folder:add'
   'space ;':   'smalls:start'
   'space n l': 'narrow:lines'
+  'space n f': 'narrow:fold'
+  'space o': 'narrow:fold'
   'space n s': 'narrow:search'
+  'f9': 'narrow:focus'
 
   # toggle-setting: t
   # -------------------------
