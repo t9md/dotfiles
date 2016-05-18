@@ -1,4 +1,12 @@
 "*":
+  "atom-material-ui":
+    tabs:
+      compactTabs: true
+    treeView:
+      compactList: true
+    ui:
+      animations: false
+      panelContrast: true
   "autocomplete-plus":
     suppressActivationForEditorClasses: [
       "vim-mode-plus.normal-mode"
@@ -15,7 +23,6 @@
       "package-with-broken-package-json"
       "package-with-broken-keymap"
       "recent-finder"
-      "toggle"
       "about"
       "autocomplete-snippets"
       "background-tips"
@@ -28,11 +35,10 @@
       "script"
       "package-generator"
       "metrics"
-      "vim-mode-plus-move-to-symbols"
-      "vim-mode"
       "atom-fuzzy-grep"
       "language-elm"
       "markdown-table-formatter"
+      "vim-mode"
     ]
     openEmptyEditorOnStart: false
     themes: [
@@ -50,7 +56,7 @@
   editor:
     atomicSoftTabs: false
     fontFamily: "Ricty"
-    fontSize: 17
+    fontSize: 19
     invisibles: {}
     lineHeight: 1.3
     scrollPastEnd: true
@@ -80,6 +86,11 @@
   linter:
     gutterEnabled: false
     showErrorPanel: false
+  narrow:
+    FoldKeepItemsOrderOnFuzzyFilter: true
+    FoldUseFuzzyFilter: true
+    LinesKeepItemsOrderOnFuzzyFilter: true
+    LinesUseFuzzyFilter: true
   "project-find-navigation":
     hideProjectFindPanel: false
   "project-folder":
@@ -102,7 +113,10 @@
       "one-light-ui duotone-light-syntax"
       "one-dark-ui one-dark-vivid-syntax"
       "one-dark-ui duotone-dark-syntax"
+      "atom-material-ui atom-material-syntax"
     ]
+  toggle: {}
+  "toggle-quotes": {}
   "tree-view":
     focusOnReveal: false
     hideVcsIgnoredFiles: true
@@ -121,8 +135,6 @@
       "SplitCharacter"
       "SurroundSmartWord"
     ]
-    flashOnUndoRedo: true
-    flashOnUndoRedoDuration: 150
     flashScreenOnSearchHasNoMatch: false
     hideTabBarOnMaximizePane: false
     highlightSearch: true
@@ -132,11 +144,7 @@
     ignoreCaseForSearch: true
     ignoreCaseForSearchCurrentWord: true
     incrementalSearch: true
-    setCursorToStartOfChangeOnUndoRedo: true
     showHoverSearchCounter: true
-    startInInsertModeScopes: [
-      "narrow"
-    ]
     stayOnTransformString: true
     stayOnYank: true
     throwErrorOnNonEmptySelectionInNormalMode: true
