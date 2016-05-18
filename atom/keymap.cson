@@ -1,102 +1,78 @@
 # Dirty, include very trah of experiments.
 '.platform-darwin':
   'ctrl-4': 'vim-mode-plus:current-buffer-range'
+
   # Move the current pane item to the target split pane
-  'cmd-ctrl-shift-left':  'window:move-active-item-to-pane-on-left'
+  'cmd-ctrl-shift-left': 'window:move-active-item-to-pane-on-left'
   'cmd-ctrl-shift-right': 'window:move-active-item-to-pane-on-right'
-  'cmd-ctrl-shift-up':    'window:move-active-item-to-pane-above'
-  'cmd-ctrl-shift-down':  'window:move-active-item-to-pane-below'
+  'cmd-ctrl-shift-up': 'window:move-active-item-to-pane-above'
+  'cmd-ctrl-shift-down': 'window:move-active-item-to-pane-below'
 
 'atom-workspace:not([mini])':
+  'ctrl--': 'toggle:here'
   'ctrl-[': 'core:cancel'
   'ctrl-g': 'core:cancel'
 
+  # Open my local config
   'ctrl-cmd-e i': 'application:open-your-init-script'
   'ctrl-cmd-e c': 'application:open-your-config'
   'ctrl-cmd-e k': 'application:open-your-keymap'
   'ctrl-cmd-e s': 'application:open-your-stylesheet'
   'ctrl-cmd-e n': 'application:open-your-snippets'
-  # 'ctrl-cmd-p':   'project-folder:add'
-  'ctrl-i':       'cursor-history:next'
-  'ctrl-o':       'cursor-history:prev'
-  'ctrl-cmd-i':   'cursor-history:next-within-editor'
-  'ctrl-cmd-o':   'cursor-history:prev-within-editor'
-  'shift-f8':     'cursor-history:clear'
-  'cmd-2':       'pane:split-down-and-copy-active-item'
-  'cmd-3':       'pane:split-right-and-copy-active-item'
-  # 'cmd-shift-c': 'user:inspect-element'
-  'cmd-p':       'user:fuzzy-finder-with-same-project'
-  'ctrl-cmd-f':  'project-find-navigation:activate-results-pane'
-  'ctrl-cmd-f':  'project-find:focus-results-pane'
-  'ctrl-cmd-n':  'project-find-navigation:next'
-  'ctrl-cmd-p':  'project-find-navigation:prev'
-  'down': 'project-find:find-next'
-  'up': 'project-find:find-previous'
 
-  'ctrl-alt-p':  'project-folder:add'
+  # [cursor history]
+
+  'ctrl-i': 'cursor-history:next'
+  'ctrl-o': 'cursor-history:prev'
+  'ctrl-cmd-i': 'cursor-history:next-within-editor'
+  'ctrl-cmd-o': 'cursor-history:prev-within-editor'
+  'shift-f8': 'cursor-history:clear'
+  'cmd-2': 'pane:split-down-and-copy-active-item'
+  'cmd-3': 'pane:split-right-and-copy-active-item'
+
+  # [project-folder]
+  'ctrl-alt-p': 'project-folder:add'
+
+  # 'cmd-shift-c': 'user:inspect-element'
+
+  'ctrl-cmd-f': 'project-find-navigation:activate-results-pane'
+
+  # Experiment my local fork of project-find
+  # 'ctrl-cmd-f':  'project-find:focus-results-pane'
+  # 'ctrl-cmd-n':  'project-find-navigation:next'
+  # 'ctrl-cmd-p':  'project-find-navigation:prev'
+
 
 'atom-text-editor.vim-mode-plus.visual-mode.blockwise':
+  # t9md/atom-vim-mode-plus#214
   'G': 'DONT_MOVE_TO_LAST_LINE'
 
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
-
   'g cmd-d': 'vim-mode-plus:add-selection'
   'g m': 'vim-mode-plus:mark-range'
   'g h': 'vim-mode-plus-user:quick-highlight'
   'g s': 'vim-mode-plus:split-character'
 
-  # 'space m': 'vim-mode-plus:mark-range'
-  # '/ r': 'vim-mode-plus:mark-range'
-  # 'M': 'vim-mode-plus:mark-range'
-  # 'm r': 'vim-mode-plus:mark-range'
-
-  # 'm ^m r': 'dev:hello'
-
-  # 'ctrl-r ^ctrl-r': 'vim-mode-plus:mark-range'
-  # 'ctrl-j ^ctrl-j j j': 'dev:hello'
-
-  # 'right': 'editor:move-to-beginning-of-next-word'
-  # 'left': 'editor:move-to-beginning-of-previous-word'
   'w': 'vim-mode-plus:move-to-next-smart-word'
   'b': 'vim-mode-plus:move-to-previous-smart-word'
   'e': 'vim-mode-plus:move-to-end-of-smart-word'
-  # 'w': 'vim-mode-plus:move-to-next-alphanumeric-word'
-  # 'b': 'vim-mode-plus:move-to-previous-alphanumeric-word'
-  # 'e': 'vim-mode-plus:move-to-end-of-alphanumeric-word'
+
   'g C': 'vim-mode-plus:camel-case'
-  # 'g p': 'vim-mode-plus:swap-with-register'
   'g p': 'vim-mode-plus:put-after-and-select'
   'g P': 'vim-mode-plus:put-before-and-select'
-  # 'g P': 'vim-mode-plus:yank-and-put-before'
 
-  'ctrl-cmd-w': 'vim-mode-plus:move-to-next-subword'
-  'ctrl-cmd-b': 'vim-mode-plus:move-to-previous-subword'
-
-  # 'g k': 'vim-mode-plus:move-up-to-non-blank'
-  # 'g j': 'vim-mode-plus:move-down-to-non-blank'
   # 'ctrl-s': 'vim-mode-plus:transform-string-by-select-list'
   'ctrl-s': 'vim-mode-plus:transform-smart-word-by-select-list'
   # 'f5': 'vim-mode-plus:tranform-string-by-external-command'
 
-  # 'ctrl-cmd-k': 'vim-mode-plus:move-up-to-non-blank'
-  # 'ctrl-cmd-j': 'vim-mode-plus:move-down-to-non-blank'
-  'ctrl-cmd-k': 'vim-mode-plus:move-up-to-edge'
   '[': 'vim-mode-plus:move-up-to-edge'
-  'ctrl-cmd-j': 'vim-mode-plus:move-down-to-edge'
   ']': 'vim-mode-plus:move-down-to-edge'
   'g k': 'vim-mode-plus:move-up-to-edge'
   'g j': 'vim-mode-plus:move-down-to-edge'
-  # 'g _': 'vim-mode-plus:snake-case'
+  'g _': 'vim-mode-plus:snake-case'
+  'g space': 'vim-mode-plus:compact-spaces'
   'g %': 'vim-mode-plus:encode-uri-component'
 
-
-  # '[': 'vim-mode-plus:move-to-previous-fold-start'
-  # ']': 'vim-mode-plus:move-to-next-fold-start'
-  # '(': 'vim-mode-plus:move-to-previous-sentence'
-  #  ')': 'vim-mode-plus:move-to-next-sentence'
-
-  # '(': 'vim-mode-plus:move-to-previous-function'
-  # ')': 'vim-mode-plus:move-to-next-function'
   '(': 'vim-mode-plus-user:move-to-previous-symbol'
   ')': 'vim-mode-plus-user:move-to-next-symbol'
 
@@ -105,18 +81,12 @@
 
   'cmd-up': 'vim-mode-plus:move-to-previous-fold-start-with-same-indent'
   'cmd-down': 'vim-mode-plus:move-to-next-fold-start-with-same-indent'
-  'g r':   'vim-mode-plus:reverse'
-
+  'g r': 'vim-mode-plus:reverse'
 
   # 'g [':   'vim-mode-plus:move-to-previous-fold-start'
   # 'g ]':   'vim-mode-plus:move-to-next-fold-start'
   # 'cmd-{':   'vim-mode-plus:move-to-previous-fold-end'
   # 'cmd-}':   'vim-mode-plus:move-to-next-fold-end'
-
-  # '[ [': 'vim-mode-plus:move-to-previous-fold-start'
-  # '] [': 'vim-mode-plus:move-to-next-fold-start'
-  # '[ ]': 'vim-mode-plus:move-to-previous-fold-end'
-  # '] ]': 'vim-mode-plus:move-to-next-fold-end'
 
 'atom-workspace atom-text-editor:not([mini])':
   'ctrl-cmd-c': 'user:clear-console'
@@ -124,9 +94,8 @@
   'ctrl-up': 'check-up'
   'ctrl-down': 'check-down'
 
-  # 'cmd-L':       'paner:very-right' # Conflict split-selection-into-line.
-  'ctrl-;':      'smalls:start'
-  'cmd-i':       'transformer:run'
+  'ctrl-;': 'smalls:start'
+  'cmd-i': 'transformer:run'
   'shift-cmd-i': 'transformer:compile'
 
 'atom-text-editor.smalls.search':
@@ -142,6 +111,10 @@
   'ctrl--': 'vim-mode-plus-user:jasmine-decrease-focus'
 
 'atom-text-editor.vim-mode-plus.normal-mode':
+  # '-': 'toggle:visit'
+  '-': 'toggle:here'
+  '-': 'toggle:there'
+  # '-': 'toggle:visit'
   # 'f j': 'dev:hello'
   # 'j'
   # 'C': 'keystroke:change-inner-word'
@@ -167,24 +140,26 @@
   # 'ctrl-shift-cmd-above': 'window:move-active-item-to-pane-above'
   # 'ctrl-shift-cmd-below': 'window:move-active-item-to-pane-below'
 
-  'g c':    'vim-mode-plus:select-latest-change'
-  'g a':    'vim-mode-plus:insert-after-by-motion'
+  'g c': 'vim-mode-plus:select-latest-change'
+  'g a': 'vim-mode-plus:insert-after-by-motion'
 
   'ctrl-{': 'vim-mode-plus:insert-at-previous-fold-start'
   'ctrl-}': 'vim-mode-plus:insert-at-next-fold-start'
 
   'ctrl-g': 'vim-mode-plus:reset-normal-mode'
   # 'z a':       'vim-mode-plus:toggle-fold',
-  'cmd-z':     'vim-mode-plus:toggle-fold'
-  'ctrl-j':    'window:focus-pane-below'
-  'ctrl-k':    'window:focus-pane-above'
-  'ctrl-h':    'window:focus-pane-on-left'
-  'ctrl-l':    'window:focus-pane-on-right'
-  'space j':    'window:focus-pane-below'
-  'space k':    'window:focus-pane-above'
-  'space h':    'window:focus-pane-on-left'
-  'space l':    'window:focus-pane-on-right'
-  'space q':    'core:close'
+  'cmd-z': 'vim-mode-plus:toggle-fold'
+  'ctrl-j': 'window:focus-pane-below'
+  'ctrl-k': 'window:focus-pane-above'
+  'ctrl-h': 'window:focus-pane-on-left'
+  'ctrl-l': 'window:focus-pane-on-right'
+  'space j': 'window:focus-pane-below'
+  'space k': 'window:focus-pane-above'
+  'space h': 'window:focus-pane-on-left'
+  'space l': 'window:focus-pane-on-right'
+  'space w': 'window:focus-next-pane'
+
+  'space q': 'core:close'
   'space g l': 'go-to-line:toggle'
 
   # open-on-github, github-diff: g
@@ -201,12 +176,13 @@
   'space g p': 'git-diff:move-to-previous-diff'
   'space g d': 'git-diff:toggle-diff-list'
 
-  'space p':  'project-folder:add'
-  'space ;':   'smalls:start'
+  'space p': 'project-folder:add'
+  'space ;': 'smalls:start'
   'space n l': 'narrow:lines'
   'space n f': 'narrow:fold'
   'space o': 'narrow:fold'
-  'space n s': 'narrow:search'
+  'space n s c': 'narrow:search-current-project'
+  'space n s s': 'narrow:search'
   'f9': 'narrow:focus'
 
   # toggle-setting: t
@@ -223,7 +199,7 @@
   'c s': 'vim-mode-plus:change-surround-any-pair'
   'y s': 'vim-mode-plus:surround'
   'y s w': 'vim-mode-plus:surround-word'
-  'y s m':  'vim-mode-plus:map-surround'
+  'y s m': 'vim-mode-plus:map-surround'
 
   # transform-string: s
   # -------------------------
@@ -244,14 +220,13 @@
   'space r c': 'vim-mode-plus:clear-range-marker'
 
   'space /': 'vim-mode-plus:clear-highlight-search'
-  'space w': 'core:save'
   'f10': 'window:run-package-specs'
 
-  'g f':       'open-this:here'
-  'ctrl-w f':  'open-this:split-down'
-  'ctrl-w F':  'open-this:split-right'
+  'g f': 'open-this:here'
+  'ctrl-w f': 'open-this:split-down'
+  'ctrl-w F': 'open-this:split-right'
   'ctrl-w x': 'vim-mode-plus:exchange-pane-item'
-  'g x':       'link:open'
+  'g x': 'link:open'
 
   'T': 'try:paste'
   's': 'lazy-motion:forward'
@@ -276,8 +251,8 @@
 #     'shift-f5': 'vim-mode-plus-user:replace-with-execution-keep-original-text'
 
 'atom-text-editor.vim-mode-plus.normal-mode, atom-text-editor.vim-mode-plus.visual-mode':
-  'up':  'project-find:find-previous'
-  'down':  'project-find:find-next'
+  'up': 'project-find:find-previous'
+  'down': 'project-find:find-next'
 
   '_': 'vim-mode-plus:replace-with-register'
   'space m': 'quick-highlight:toggle'
@@ -311,26 +286,26 @@
   # 'f': 'vim-mode-plus:inner-fold'
   # 'F': 'vim-mode-plus:a-fold'
   # 'ctrl-g': 'vim-mode-plus:reset-normal-mode'
-  'i }':  'vim-mode-plus:inner-curly-bracket-allow-forwarding'
-  'a }':  'vim-mode-plus:a-curly-bracket-allow-forwarding'
+  'i }': 'vim-mode-plus:inner-curly-bracket-allow-forwarding'
+  'a }': 'vim-mode-plus:a-curly-bracket-allow-forwarding'
 
-  'i >':  'vim-mode-plus:inner-angle-bracket-allow-forwarding'
-  'a >':  'vim-mode-plus:a-angle-bracket-allow-forwarding'
+  'i >': 'vim-mode-plus:inner-angle-bracket-allow-forwarding'
+  'a >': 'vim-mode-plus:a-angle-bracket-allow-forwarding'
 
-  'i ]':  'vim-mode-plus:inner-square-bracket-allow-forwarding'
-  'a ]':  'vim-mode-plus:a-square-bracket-allow-forwarding'
+  'i ]': 'vim-mode-plus:inner-square-bracket-allow-forwarding'
+  'a ]': 'vim-mode-plus:a-square-bracket-allow-forwarding'
 
-  'i )':  'vim-mode-plus:inner-parenthesis-allow-forwarding'
-  'a )':  'vim-mode-plus:a-parenthesis-allow-forwarding'
+  'i )': 'vim-mode-plus:inner-parenthesis-allow-forwarding'
+  'a )': 'vim-mode-plus:a-parenthesis-allow-forwarding'
 
 
 'atom-text-editor.vim-mode-plus.insert-mode':
   'ctrl-cmd-c': 'keystroke:delete-current-word'
   'j k': 'vim-mode-plus:activate-normal-mode'
-  'cmd-f':  'editor:move-to-end-of-word'
-  'cmd-b':  'editor:move-to-beginning-of-word'
-  'cmd-d':  'editor:delete-to-end-of-word'
-  'cmd-m':  'editor:select-word'
+  'cmd-f': 'editor:move-to-end-of-word'
+  'cmd-b': 'editor:move-to-beginning-of-word'
+  'cmd-d': 'editor:delete-to-end-of-word'
+  'cmd-m': 'editor:select-word'
   'ctrl-y': 'clip-history:paste'
   'cmd-y': 'clip-history:paste-newer'
   'ctrl-Y': 'clip-history:paste-last'
@@ -360,11 +335,11 @@
   'cmd-H': 'vim-mode-plus-user:duplicate-selected-text-left'
   'cmd-L': 'vim-mode-plus-user:duplicate-selected-text-right'
 
-  'T':      'try:paste'
-  'cmd-c':  'vim-mode-plus:yank'
+  'T': 'try:paste'
+  'cmd-c': 'vim-mode-plus:yank'
 
 '.select-list':
-  ';':      'core:confirm'
+  ';': 'core:confirm'
   'ctrl-l': 'pane:split-right'
   'ctrl-j': 'pane:split-down'
   'ctrl-g': 'core:cancel'
@@ -374,10 +349,10 @@
   'k': 'core:move-up'
 
 '.preview-pane result-view list-tree':
-  'j':   'core:move-down'
-  'k':   'core:move-up'
+  'j': 'core:move-down'
+  'k': 'core:move-up'
   'g g': 'core:move-to-top'
-  'G':   'core:move-to-bottom'
+  'G': 'core:move-to-bottom'
 
 'atom-text-editor.vim-mode-plus-search':
   'ctrl-g': 'vim-mode-plus:search-cancel'
@@ -416,4 +391,12 @@
   'shift-g': 'core:move-to-bottom'
 
 '.project-folder atom-text-editor[mini]':
+
   'cmd-enter': 'project-folder:replace'
+
+# Narrow
+# -------------------------
+'atom-text-editor.narrow.vim-mode-plus.normal-mode[data-grammar="source narrow"]':
+  'ctrl-z': 'window:move-active-item-to-pane-on-left'
+
+  ';': 'core:confirm'
