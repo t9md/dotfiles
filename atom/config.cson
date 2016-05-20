@@ -15,7 +15,10 @@
       "vim-mode-plus.insert-mode.replace"
       "narrow"
     ]
-  "clip-history": {}
+  "clip-history":
+    adjustIndent: false
+    doNormalPasteWhenMultipleCursors: false
+    flashPersist: true
   core:
     closeEmptyWindows: false
     disabledPackages: [
@@ -56,7 +59,7 @@
   editor:
     atomicSoftTabs: false
     fontFamily: "Ricty"
-    fontSize: 19
+    fontSize: 24
     invisibles: {}
     lineHeight: 1.3
     scrollPastEnd: true
