@@ -1,6 +1,7 @@
 # Dirty, include very trah of experiments.
 '.platform-darwin':
   'ctrl-4': 'vim-mode-plus:current-buffer-range'
+  'cmd-p': 'project-folder:add'
 
   # Move the current pane item to the target split pane
   'cmd-ctrl-shift-left': 'window:move-active-item-to-pane-on-left'
@@ -51,13 +52,14 @@
   'g h': 'vim-mode-plus-user:quick-highlight'
   'g s': 'vim-mode-plus:split-character'
 
-  'w': 'vim-mode-plus:move-to-next-smart-word'
+  # 'w': 'vim-mode-plus:move-to-next-smart-word'
   'b': 'vim-mode-plus:move-to-previous-smart-word'
   'e': 'vim-mode-plus:move-to-end-of-smart-word'
 
   'g C': 'vim-mode-plus:camel-case'
-  'g p': 'vim-mode-plus:put-after-and-select'
-  'g P': 'vim-mode-plus:put-before-and-select'
+  'g p': 'vim-mode-plus:pascal-case'
+  # 'g p': 'vim-mode-plus:put-after-and-select'
+  # 'g P': 'vim-mode-plus:put-before-and-select'
 
   # 'ctrl-s': 'vim-mode-plus:transform-string-by-select-list'
   'ctrl-s': 'vim-mode-plus:transform-smart-word-by-select-list'
@@ -113,7 +115,7 @@
   'ctrl-{': 'vim-mode-plus:insert-at-previous-fold-start'
   'ctrl-}': 'vim-mode-plus:insert-at-next-fold-start'
 
-  'ctrl-g': 'vim-mode-plus:reset-normal-mode'
+  # 'ctrl-g': 'vim-mode-plus:reset-normal-mode'
   'cmd-z': 'vim-mode-plus:toggle-fold'
 
   'ctrl-j': 'window:focus-pane-below'
@@ -194,6 +196,7 @@
   'f10': 'window:run-package-specs'
   'g x': 'link:open'
   'T': 'try:paste'
+  'space T': 'try:open-file'
   's': 'lazy-motion:forward'
   ':': 'vim-mode-plus-ex-mode:open'
   '!': 'vim-mode-plus-ex-mode:toggle-setting'
@@ -311,7 +314,7 @@
   '[': 'vim-mode-plus:search-visit-prev'
   ']': 'vim-mode-plus:search-visit-next'
   ';': 'vim-mode-plus:search-confirm'
-  'space': 'vim-mode-plus:search-insert-wild-pattern'
+  # 'space': 'vim-mode-plus:search-insert-wild-pattern'
 
 'atom-text-editor.vim-mode-plus-search':
   'cmd-enter': 'vim-mode-plus-user:project-find-from-search'

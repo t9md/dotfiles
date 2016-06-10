@@ -15,10 +15,7 @@
       "vim-mode-plus.insert-mode.replace"
       "narrow"
     ]
-  "clip-history":
-    adjustIndent: false
-    doNormalPasteWhenMultipleCursors: false
-    flashPersist: true
+  "clip-history": {}
   core:
     closeEmptyWindows: false
     disabledPackages: [
@@ -35,12 +32,11 @@
       "paner"
       "isearch"
       "phrase"
-      "script"
       "package-generator"
       "metrics"
       "atom-fuzzy-grep"
       "language-elm"
-      "markdown-table-formatter"
+      "script"
       "vim-mode"
     ]
     openEmptyEditorOnStart: false
@@ -49,6 +45,7 @@
       "one-dark-vivid-syntax"
     ]
   "cursor-history":
+    columnDeltaToRemember: 5
     excludeClosedBuffer: true
     flashOnLand: true
     searchAllPanes: false
@@ -58,8 +55,9 @@
     trackDidOpen: false
   editor:
     atomicSoftTabs: false
+    autoIndentOnPaste: false
     fontFamily: "Ricty"
-    fontSize: 24
+    fontSize: 18
     invisibles: {}
     lineHeight: 1.3
     scrollPastEnd: true
@@ -120,12 +118,14 @@
     ]
   toggle: {}
   "toggle-quotes": {}
+  transformer: {}
   "tree-view":
     focusOnReveal: false
     hideVcsIgnoredFiles: true
   try:
     basename: "tryit"
     root: "~/tryit"
+    searchAllPanes: true
   "vim-mode-plus":
     devReloadPackages: [
       "vim-mode-plus-move-selected-text"
@@ -147,6 +147,7 @@
     ignoreCaseForSearch: true
     ignoreCaseForSearchCurrentWord: true
     incrementalSearch: true
+    showHoverOnOperate: true
     showHoverSearchCounter: true
     stayOnTransformString: true
     stayOnYank: true
@@ -168,7 +169,7 @@
     showOnStartup: false
 ".coffee.source":
   editor:
-    autoIndentOnPaste: false
+    autoIndentOnPaste: true
     tabLength: 2
 ".go.source":
   editor:
