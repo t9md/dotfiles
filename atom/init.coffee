@@ -12,7 +12,12 @@ consumeService = (packageName, providerName, fn) ->
 
 getEditorState = null
 consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
-  {Base, getEditorState} = service
+  {Base, getEditorState, observeVimStates} = service
+
+  # observeVimStates (vimState) ->
+  #   vimState.modeManager.onDidDeactivateMode ({mode}) ->
+  #     if mode is 'insert'
+  #       vimState.editor.clearSelections()
 
   TransformStringByExternalCommand = Base.getClass('TransformStringByExternalCommand')
   class Sort extends TransformStringByExternalCommand

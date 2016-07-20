@@ -1,4 +1,5 @@
 # Dirty, include very trah of experiments.
+# 'body'
 '.platform-darwin':
   'ctrl-4': 'vim-mode-plus:current-buffer-range'
   'cmd-p': 'project-folder:add'
@@ -10,7 +11,8 @@
   'cmd-ctrl-shift-down': 'window:move-active-item-to-pane-below'
 
 'atom-workspace:not([mini])':
-  'ctrl--': 'toggle:here'
+  'ctrl--': 'choose-pane:start'
+  # 'ctrl--': 'toggle:here'
   'ctrl-[': 'core:cancel'
   'ctrl-g': 'core:cancel'
 
@@ -47,12 +49,14 @@
   'G': 'DONT_MOVE_TO_LAST_LINE'
 
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  '-': 'choose-pane:start'
+
   'g cmd-d': 'vim-mode-plus:add-selection'
   'g m': 'vim-mode-plus:mark-range'
   'g h': 'vim-mode-plus-user:quick-highlight'
   'g s': 'vim-mode-plus:split-character'
 
-  # 'w': 'vim-mode-plus:move-to-next-smart-word'
+  'w': 'vim-mode-plus:move-to-next-smart-word'
   'b': 'vim-mode-plus:move-to-previous-smart-word'
   'e': 'vim-mode-plus:move-to-end-of-smart-word'
 
@@ -102,9 +106,16 @@
   'ctrl--': 'vim-mode-plus-user:jasmine-decrease-focus'
 
 'atom-text-editor.vim-mode-plus.normal-mode':
-  '-': 'toggle:there'
+  'ctrl-p': 'recent-finder:toggle'
+  # '-': 'toggle:there'
   'g I': 'vim-mode-plus:insert-at-start-of-target'
   'g A': 'vim-mode-plus:insert-at-end-of-target'
+
+  'm m': 'bookmarks:toggle-bookmark'
+  'm n': 'bookmarks:jump-to-next-bookmark'
+  'm p': 'bookmarks:jump-to-previous-bookmark'
+  'm l': 'bookmarks:view-all'
+  'm c': 'bookmarks:clear-bookmarks'
 
   'cmd-shift-up': 'theme-switch:prev'
   'cmd-shift-down': 'theme-switch:next'
@@ -253,6 +264,12 @@
   'a )': 'vim-mode-plus:a-parenthesis-allow-forwarding'
 
 'atom-text-editor.vim-mode-plus.insert-mode':
+  'ctrl-s': 'vim-mode-plus:surround-smart-word'
+  # 'ctrl-o': 'vim-mode-plus:activate-normal-mode-once'
+
+  'ctrl-i': 'cursor-history:prev'
+  'ctrl-o': 'cursor-history:prev'
+
   'ctrl-cmd-c': 'keystroke:delete-current-word'
   'j k': 'vim-mode-plus:activate-normal-mode' # jk to escape
   'cmd-f': 'editor:move-to-end-of-word'
@@ -262,7 +279,7 @@
   'ctrl-y': 'clip-history:paste'
   'cmd-y': 'clip-history:paste-newer'
   'ctrl-Y': 'clip-history:paste-last'
-  'ctrl-i': 'vim-mode-plus:insert-last-inserted'
+  'ctrl-.': 'vim-mode-plus:insert-last-inserted'
   'ctrl-{': 'vim-mode-plus:move-to-previous-fold-start'
   'ctrl-}': 'vim-mode-plus:move-to-next-fold-start'
 
@@ -298,6 +315,7 @@
   'ctrl-g': 'core:cancel'
 
 '.markdown-preview':
+  '-': 'choose-pane:start'
   'j': 'core:move-down'
   'k': 'core:move-up'
 
@@ -332,11 +350,15 @@
 # Tree-view navigation
 # -------------------------
 '.tree-view':
+  '-': 'choose-pane:start'
   'g g': 'core:move-to-top'
   'shift-g': 'core:move-to-bottom'
 
 '.project-folder atom-text-editor[mini]':
   'cmd-enter': 'project-folder:replace'
+
+'atom-text-editor#choose-pane-editor':
+  '-': 'choose-pane:last-focused'
 
 # Narrow
 # -------------------------
