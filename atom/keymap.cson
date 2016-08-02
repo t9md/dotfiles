@@ -1,7 +1,5 @@
-# Dirty, include very trah of experiments.
-# 'body'
+# Dirty, include garbages of experiments.
 '.platform-darwin':
-  'ctrl-4': 'vim-mode-plus:current-buffer-range'
   'cmd-p': 'project-folder:add'
 
   # Move the current pane item to the target split pane
@@ -41,8 +39,8 @@
 
   # Experiment my local fork of project-find
   # 'ctrl-cmd-f': 'project-find:focus-results-pane'
-  # 'ctrl-cmd-n': 'project-find-navigation:next'
-  # 'ctrl-cmd-p': 'project-find-navigation:prev'
+  'ctrl-cmd-n': 'project-find-navigation:next'
+  'ctrl-cmd-p': 'project-find-navigation:prev'
 
 'atom-text-editor.vim-mode-plus.visual-mode.blockwise':
   # t9md/atom-vim-mode-plus#214
@@ -129,15 +127,15 @@
   # 'ctrl-g': 'vim-mode-plus:reset-normal-mode'
   'cmd-z': 'vim-mode-plus:toggle-fold'
 
-  'ctrl-j': 'window:focus-pane-below'
-  'ctrl-k': 'window:focus-pane-above'
-  'ctrl-h': 'window:focus-pane-on-left'
-  'ctrl-l': 'window:focus-pane-on-right'
-  'space j': 'window:focus-pane-below'
-  'space k': 'window:focus-pane-above'
-  'space h': 'window:focus-pane-on-left'
-  'space l': 'window:focus-pane-on-right'
-  'space w': 'window:focus-next-pane'
+  # 'ctrl-j': 'window:focus-pane-below'
+  # 'ctrl-k': 'window:focus-pane-above'
+  # 'ctrl-h': 'window:focus-pane-on-left'
+  # 'ctrl-l': 'window:focus-pane-on-right'
+
+  'ctrl-j': 'focus-pane-or-panel-below'
+  'ctrl-k': 'focus-pane-or-panel-above'
+  'ctrl-h': 'focus-pane-or-panel-on-left'
+  'ctrl-l': 'focus-pane-or-panel-on-right'
 
   'space q': 'core:close'
   'space g l': 'go-to-line:toggle'
@@ -353,6 +351,16 @@
   '-': 'choose-pane:start'
   'g g': 'core:move-to-top'
   'shift-g': 'core:move-to-bottom'
+  'ctrl-h': 'focus-pane-or-panel-on-left'
+  'ctrl-l': 'focus-pane-or-panel-on-right'
+
+'.platform-darwin .find-and-replace atom-text-editor':
+  'ctrl-j': 'focus-pane-or-panel-below'
+  'ctrl-k': 'focus-pane-or-panel-above'
+
+'.platform-darwin .project-find atom-text-editor':
+  'ctrl-j': 'focus-pane-or-panel-below'
+  'ctrl-k': 'focus-pane-or-panel-above'
 
 '.project-folder atom-text-editor[mini]':
   'cmd-enter': 'project-folder:replace'

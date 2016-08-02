@@ -16,7 +16,8 @@
       "vim-mode-plus.insert-mode.replace"
       "narrow"
     ]
-  "choose-pane": {}
+  "choose-pane":
+    labelChars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   "clip-history": {}
   core:
     closeEmptyWindows: false
@@ -41,6 +42,7 @@
       "vim-mode"
       "autocomplete-haskell"
       "haskell-ghc-mod"
+      "minimap"
     ]
     openEmptyEditorOnStart: false
     themes: [
@@ -61,7 +63,7 @@
     atomicSoftTabs: false
     autoIndentOnPaste: false
     fontFamily: "Ricty"
-    fontSize: 17
+    fontSize: 20
     invisibles: {}
     lineHeight: 1.3
     scrollPastEnd: true
@@ -92,6 +94,7 @@
   linter:
     gutterEnabled: false
     showErrorPanel: false
+  minimap: {}
   narrow:
     FoldKeepItemsOrderOnFuzzyFilter: true
     FoldUseFuzzyFilter: true
@@ -154,7 +157,6 @@
     ignoreCaseForSearch: true
     ignoreCaseForSearchCurrentWord: true
     incrementalSearch: true
-    showHoverOnOperate: true
     showHoverSearchCounter: true
     stayOnTransformString: true
     stayOnYank: true
