@@ -8,7 +8,26 @@ atom-text-editor::shadow div.lines div:last-child .line:last-child {
   }
 }
 
+.cursor-line-background(@mode, @color) {
+  atom-text-editor.vim-mode-plus.@{mode}.is-focused::shadow {
+    & .lines .line.cursor-line {
+      background-color: @color
+    }
+  }
+}
+.cursor-line-background(normal-mode, fadeout(gray, 80%));
+// .cursor-line-background(insert-mode, fadeout(green, 80%));
+// .cursor-line-background(operator-pending-mode, fadeout(yellow, 80%));
+
+// atom-text-editor::shadow .is-focused .cursors .cursor {
+//   opacity: 1;
+// }
+
 .tree-view {
   font-family: @font-family-p;
   font-size: 1.3em;
+}
+
+.tabs-layout-overlay {
+  transition: none;
 }

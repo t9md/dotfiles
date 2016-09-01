@@ -31,20 +31,28 @@
       "welcome"
       "goto-scope"
       "autocomplete-emojis"
-      "paner"
       "isearch"
       "phrase"
       "package-generator"
       "metrics"
-      "atom-fuzzy-grep"
       "language-elm"
       "disable-keybindings"
-      "vim-mode"
       "autocomplete-haskell"
       "haskell-ghc-mod"
+      "script"
+      "atom-beautify"
+      "color-picker"
+      "keymap-disabler"
+      "markdown-table-formatter"
       "minimap"
+      "markdown-toc"
+      "vim-mode"
     ]
     openEmptyEditorOnStart: false
+    packagesWithKeymapsDisabled: [
+      "blame"
+      "markdown-toc"
+    ]
     themes: [
       "one-dark-ui"
       "one-dark-vivid-syntax"
@@ -52,9 +60,9 @@
   "cursor-history":
     columnDeltaToRemember: 5
     excludeClosedBuffer: true
-    flashOnLand: true
     searchAllPanes: false
   dev:
+    _group___abc2: {}
     trackActivePaneItem: false
     trackDidAddPane: false
     trackDidOpen: false
@@ -63,16 +71,18 @@
     atomicSoftTabs: false
     autoIndentOnPaste: false
     fontFamily: "Ricty"
-    fontSize: 20
+    fontSize: 21
     invisibles: {}
     lineHeight: 1.3
     scrollPastEnd: true
     showIndentGuide: true
+    showInvisibles: true
   "exception-reporting":
     userId: "e4cd677f-7184-fb31-7448-ec0b8eb79d92"
   "find-and-replace":
     openProjectFindResultsInRightPane: true
     scrollToResultOnLiveSearch: true
+  "fold-comments": {}
   "keymap-disabler": {}
   keystroke:
     commands: [
@@ -100,6 +110,8 @@
     FoldUseFuzzyFilter: true
     LinesKeepItemsOrderOnFuzzyFilter: true
     LinesUseFuzzyFilter: true
+  paner:
+    debug: true
   "project-find-navigation":
     hideProjectFindPanel: false
   "project-folder":
@@ -115,7 +127,9 @@
     clearConsole: false
     openDeveloperToolsOnRun: false
   smalls:
+    flashOnLand: false
     flashType: "match"
+    labelChars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   "symbols-view":
     quickJumpToFileSymbol: false
   "theme-switch":
@@ -131,7 +145,6 @@
   transformer: {}
   "tree-view":
     focusOnReveal: false
-    hideVcsIgnoredFiles: true
   try:
     basename: "tryit"
     root: "~/tryit"
@@ -158,7 +171,6 @@
     ignoreCaseForSearchCurrentWord: true
     incrementalSearch: true
     showHoverSearchCounter: true
-    stayOnTransformString: true
     stayOnYank: true
     throwErrorOnNonEmptySelectionInNormalMode: true
     useClipboardAsDefaultRegister: true
