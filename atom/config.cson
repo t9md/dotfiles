@@ -43,10 +43,10 @@
       "atom-beautify"
       "color-picker"
       "keymap-disabler"
-      "markdown-table-formatter"
       "minimap"
       "markdown-toc"
       "vim-mode"
+      "markdown-table-formatter"
     ]
     openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
@@ -71,12 +71,11 @@
     atomicSoftTabs: false
     autoIndentOnPaste: false
     fontFamily: "Ricty"
-    fontSize: 21
+    fontSize: 20
     invisibles: {}
     lineHeight: 1.3
     scrollPastEnd: true
     showIndentGuide: true
-    showInvisibles: true
   "exception-reporting":
     userId: "e4cd677f-7184-fb31-7448-ec0b8eb79d92"
   "find-and-replace":
@@ -150,6 +149,8 @@
     root: "~/tryit"
     searchAllPanes: true
   "vim-mode-plus":
+    clearHighlightSearchOnResetNormalMode: true
+    clearRangeMarkerOnResetNormalMode: true
     devReloadPackages: [
       "vim-mode-plus-move-selected-text"
     ]
@@ -171,6 +172,7 @@
     ignoreCaseForSearchCurrentWord: true
     incrementalSearch: true
     showHoverSearchCounter: true
+    stayOnTransformString: true
     stayOnYank: true
     throwErrorOnNonEmptySelectionInNormalMode: true
     useClipboardAsDefaultRegister: true
