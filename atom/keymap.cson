@@ -1,14 +1,11 @@
 # Dirty, include garbages of experiments.
-'.platform-darwin':
-  'cmd-p': 'project-folder:add'
-
-  # Move the current pane item to the target split pane
+'atom-workspace:not([mini])':
   'cmd-ctrl-shift-left': 'window:move-active-item-to-pane-on-left'
   'cmd-ctrl-shift-right': 'window:move-active-item-to-pane-on-right'
   'cmd-ctrl-shift-up': 'window:move-active-item-to-pane-above'
   'cmd-ctrl-shift-down': 'window:move-active-item-to-pane-below'
 
-'atom-workspace:not([mini])':
+  'cmd-p': 'project-folder:add'
   'cmd-x': 'paner:swap-pane'
   'cmd-X': 'paner:send-item'
   'cmd-K': 'paner:very-top'
@@ -39,10 +36,9 @@
 
   # [project-folder]
   'ctrl-alt-p': 'project-folder:add'
-
   'ctrl-cmd-f': 'project-find-navigation:activate-results-pane'
 
-  # Experiment my local fork of project-find
+  # [project-find-navigation]
   'ctrl-cmd-n': 'project-find-navigation:next'
   'ctrl-cmd-p': 'project-find-navigation:prev'
 
@@ -50,21 +46,37 @@
   # t9md/atom-vim-mode-plus#214
   'G': 'DONT_MOVE_TO_LAST_LINE'
 
+'atom-text-editor.vim-mode-plus.normal-mode.occurrence-preset':
+  'i': 'vim-mode-plus:insert-at-start-of-occurrence'
+  'a': 'vim-mode-plus:insert-at-end-of-occurrence'
+
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'enter': 'vim-mode-plus:toggle-persistent-selection'
+  'm': 'vim-mode-plus:toggle-preset-occurrence'
+
   'ctrl-/': 'vim-mode-plus:toggle-line-comments'
-  # 'g i': 'vim-mode-plus:insert-at-start-of-target'
-  # 'g a': 'vim-mode-plus:insert-at-end-of-target'
-  'g i': 'vim-mode-plus:insert-at-start-of-occurrence'
-  'g a': 'vim-mode-plus:insert-at-end-of-occurrence'
+  'f6': 'vim-mode-plus:map-surround'
+
+  'f5': 'vim-mode-plus-user:replace-with-execution'
+  'shift-f5': 'vim-mode-plus-user:replace-with-execution-keep-original-text'
+
+
+  'g i': 'vim-mode-plus:insert-at-start-of-target'
+  'g a': 'vim-mode-plus:insert-at-end-of-target'
+  # 'g I': 'vim-mode-plus:insert-at-start-of-occurrence-in-paragraph'
+  'ctrl-shift-i': 'vim-mode-plus:insert-at-start-of-occurrence-in-paragraph'
+  'ctrl-shift-a': 'vim-mode-plus:insert-at-end-of-occurrence-in-paragraph'
+  # 'ctrl-shift-c': 'vim-mode-plus:change-occurrence-in-paragraph'
+  # 'g A': 'vim-mode-plus:insert-at-end-of-occurrence-in-paragraph'
+  'g d': 'vim-mode-plus:select-occurrence'
   '-': 'choose-pane:start'
   # 'm m': 'choose-pane:focus-last-focused'
 
-  'g m': 'vim-mode-plus:toggle-range-marker'
-  'm': 'vim-mode-plus:toggle-range-marker-on-inner-word'
-  'g M': 'vim-mode-plus:clear-range-marker'
+  'g m': 'vim-mode-plus:toggle-persistent-selection'
+  'g M': 'vim-mode-plus:clear-persistent-selection'
 
-  'g enter': 'vim-mode-plus:create-range-marker'
-  'space enter': 'vim-mode-plus:clear-range-marker'
+  'g enter': 'vim-mode-plus:create-persistent-selection'
+  'space enter': 'vim-mode-plus:clear-persistent-selection'
 
   'g h': 'vim-mode-plus-user:quick-highlight'
   'g s': 'vim-mode-plus:split-character'
@@ -80,16 +92,16 @@
   # 'g P': 'vim-mode-plus:put-before-and-select'
 
   'ctrl-s': 'vim-mode-plus:transform-string-by-select-list'
-  'ctrl-s': 'vim-mode-plus:transform-smart-word-by-select-list'
+  # 'ctrl-s': 'vim-mode-plus:transform-smart-word-by-select-list'
   # 'f5': 'vim-mode-plus:tranform-string-by-external-command'
 
-  '[': 'vim-mode-plus:move-up-to-edge'
-  ']': 'vim-mode-plus:move-down-to-edge'
+  # '[': 'vim-mode-plus:move-up-to-edge'
+  # ']': 'vim-mode-plus:move-down-to-edge'
   'g _': 'vim-mode-plus:snake-case'
   'g %': 'vim-mode-plus:encode-uri-component'
 
-  '(': 'vim-mode-plus-user:move-to-previous-symbol'
-  ')': 'vim-mode-plus-user:move-to-next-symbol'
+  # '(': 'vim-mode-plus-user:move-to-previous-symbol'
+  # ')': 'vim-mode-plus-user:move-to-next-symbol'
 
   # 'g n': 'vim-mode-plus:move-to-next-number'
   # 'g N': 'vim-mode-plus:move-to-previous-number'
@@ -97,9 +109,14 @@
   'cmd-up': 'vim-mode-plus:move-to-previous-fold-start-with-same-indent'
   'cmd-down': 'vim-mode-plus:move-to-next-fold-start-with-same-indent'
   'g r': 'vim-mode-plus:reverse'
+  'g s': 'vim-mode-plus:sort'
+
 
 'atom-workspace atom-text-editor:not([mini])':
   'ctrl-cmd-c': 'user:clear-console'
+  # 'ctrl-cmd-c': 'user:clear-console'
+  # 'ctrl-cmd-c': 'vim-mode-plus:clear-debug-output'
+
   'ctrl-cmd-r': 'run-in-atom:run-in-atom'
 
   # for dev use.s
@@ -116,24 +133,24 @@
 'atom-text-editor.smalls.search':
   ';': 'smalls:jump'
 
-# 'atom-text-editor.vim-mode-plus.normal-mode[data-grammar="source coffee"],
-#   atom-text-editor.vim-mode-plus.normal-mode[data-grammar="source js"]':
-#   # '=': 'vim-mode-plus-user:jasmine-increase-focus'
-#   # '-': 'vim-mode-plus-user:jasmine-increase-focus'
-#   'ctrl--': 'vim-mode-plus-user:jasmine-decrease-focus'
-
 'atom-text-editor.vim-mode-plus.normal-mode':
+  # 'ctrl-/': 'vim-mode-plus:insert-by-search'
+  # 'f': 'vim-mode-plus:search-current-line'
+  # 'g i': 'vim-mode-plus:insert-at-start-of-search-current-line'
+  # 'F': 'vim-mode-plus:search-current-line-backwards'
+  # 'f': 'vim-mode-plus:se
+  # 'c c': 'vim-mode-plus:change-occurrence-in-a-current-lne'
   'g i': 'vim-mode-plus:insert-at-start-of-occurrence'
 
   'cmd-L': 'paner:very-right'
   'f7': 'vim-mode-plus:reload-packages'
-  # 'enter': 'vim-mode-plus:toggle-range-marker-at-cursor'
+  # 'enter': 'vim-mode-plus:toggle-persistent-selection-at-cursor'
 
   'ctrl-p': 'recent-finder:toggle'
 
   # '-': 'toggle:there'
-  'g I': 'vim-mode-plus:insert-at-start-of-target'
-  'g A': 'vim-mode-plus:insert-at-end-of-target'
+  # 'g I': 'vim-mode-plus:insert-at-start-of-target'
+  # 'g A': 'vim-mode-plus:insert-at-end-of-target'
   "g '": 'vim-mode-plus:move-to-next-string'
 
   'cmd-shift-up': 'theme-switch:prev'
@@ -143,8 +160,8 @@
 
   'ctrl-{': 'vim-mode-plus:insert-at-previous-fold-start'
   'ctrl-}': 'vim-mode-plus:insert-at-next-fold-start'
-  '{': 'vim-mode-plus:move-to-previous-fold-start'
-  '}': 'vim-mode-plus:move-to-next-fold-start'
+  # '{': 'vim-mode-plus:move-to-previous-fold-start'
+  # '}': 'vim-mode-plus:move-to-next-fold-start'
 
 
   'cmd-z': 'vim-mode-plus:toggle-fold'
@@ -179,7 +196,7 @@
   'space n s c': 'narrow:search-current-project'
   'space n s s': 'narrow:search'
   'f9': 'toggle:there'
-  # 'f8': 'dev:propagate'
+  'f8': 'vim-mode-plus:a-function-or-inner-paragraph'
 
   # toggle-setting: t
   # -------------------------
@@ -191,11 +208,11 @@
   # surround: ys
   # -------------------------
   'S': 'vim-mode-plus:surround-smart-word'
-  'd s': 'vim-mode-plus:delete-surround-any-pair'
-  'c s': 'vim-mode-plus:change-surround-any-pair'
-  'y s': 'vim-mode-plus:surround'
-  'y s w': 'vim-mode-plus:surround-word'
-  'y s m': 'vim-mode-plus:map-surround'
+  's': 'vim-mode-plus:surround'
+  's d': 'vim-mode-plus:delete-surround-any-pair'
+  's c': 'vim-mode-plus:change-surround-any-pair'
+  's w': 'vim-mode-plus:surround-word'
+  's m': 'vim-mode-plus:map-surround'
 
   # [open-this]
   'g f': 'open-this:here'
@@ -206,10 +223,11 @@
   # -------------------------
   'space /': 'vim-mode-plus:clear-highlight-search'
   'f10': 'window:run-package-specs'
+  'shift-f9': 'vim-mode-plus:toggle-debug'
   'g x': 'link:open'
   'T': 'try:paste'
   'space T': 'try:open-file'
-  's': 'lazy-motion:forward'
+  # 's': 'lazy-motion:forward'
   ':': 'vim-mode-plus-ex-mode:open'
   '!': 'vim-mode-plus-ex-mode:toggle-setting'
 
@@ -223,12 +241,9 @@
   ';': 'core:confirm'
   'cmd-e': 'lazy-motion:set-cursor-word'
 
-# 'atom-text-editor.vim-mode-plus.normal-mode[data-grammar="source gfm"]':
-#   'f8': 'markdown-toc-auto:insert-toc-at-top'
-
-# atom-text-editor.vim-mode-plus.visual-mode[data-grammar="source gfm"]':
-#  'f5': 'vim-mode-plus-user:replace-with-execution'
-#  'shift-f5': 'vim-mode-plus-user:replace-with-execution-keep-original-text'
+'atom-text-editor.vim-mode-plus.visual-mode[data-grammar="source gfm"]':
+  'f5': 'vim-mode-plus-user:replace-with-execution'
+  'shift-f5': 'vim-mode-plus-user:replace-with-execution-keep-original-text'
 
 'atom-text-editor.vim-mode-plus.normal-mode, atom-text-editor.vim-mode-plus.visual-mode':
   '_': 'vim-mode-plus:replace-with-register'
@@ -241,7 +256,9 @@
 
 'atom-text-editor.vim-mode-plus.operator-pending-mode, atom-text-editor.vim-mode-plus.visual-mode':
   ";": 'vim-mode-plus:inner-any-pair'
+
   'p': 'vim-mode-plus:inner-paragraph'
+  # '/': 'vim-mode-plus:inner-comment'
 
   "'": 'vim-mode-plus:inner-any-quote'
   ":": 'vim-mode-plus:inner-any-pair-allow-forwarding'
@@ -261,9 +278,10 @@
 
 'atom-text-editor.vim-mode-plus.insert-mode':
   'ctrl-s': 'vim-mode-plus:surround-smart-word'
+  'ctrl-/': 'autocomplete-plus:activate'
 
   'ctrl-i': 'cursor-history:prev'
-  'ctrl-o': 'cursor-history:prev'
+  # 'ctrl-o': 'cursor-history:prev'
 
   # 'ctrl-cmd-c': 'keystroke:delete-current-word'
   'j k': 'vim-mode-plus:activate-normal-mode' # jk to escape
@@ -298,7 +316,6 @@
 
   'T': 'try:paste'
   'cmd-c': 'vim-mode-plus:yank'
-  'enter': 'vim-mode-plus:create-range-marker'
 
 '.select-list':
   ';': 'core:confirm'
@@ -308,7 +325,7 @@
 
 '.markdown-preview':
   '-': 'choose-pane:start'
-  'm m': 'choose-pane:focus-last-focused'
+  # 'm m': 'choose-pane:focus-last-focused'
   'j': 'core:move-down'
   'k': 'core:move-up'
 
@@ -324,8 +341,10 @@
 'atom-text-editor.vim-mode-plus-search:not(.literal-mode)':
   '[': 'vim-mode-plus:search-visit-prev'
   ']': 'vim-mode-plus:search-visit-next'
-  ';': 'vim-mode-plus:search-confirm'
-  # 'space': 'vim-mode-plus:search-insert-wild-pattern'
+  ';': 'vim-mode-plus:search-land-to-start'
+  'ctrl-e': 'vim-mode-plus:search-land-to-end'
+  ';': 'core:confirm'
+  'ctrl-space': 'vim-mode-plus:search-insert-wild-pattern'
 
 'atom-text-editor.vim-mode-plus-search':
   'cmd-enter': 'vim-mode-plus-user:project-find-from-search'
@@ -344,7 +363,7 @@
 # -------------------------
 '.tree-view':
   '-': 'choose-pane:start'
-  'm m': 'choose-pane:focus-last-focused'
+  # 'm m': 'choose-pane:focus-last-focused'
   'g g': 'core:move-to-top'
   'shift-g': 'core:move-to-bottom'
   'ctrl-h': 'focus-pane-or-panel:focus-on-left'

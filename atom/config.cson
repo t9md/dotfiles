@@ -9,6 +9,7 @@
       animations: false
       panelContrast: true
   "autocomplete-plus":
+    minimumWordLength: 4
     suppressActivationForEditorClasses: [
       "vim-mode-plus.normal-mode"
       "vim-mode-plus.visual-mode"
@@ -36,7 +37,6 @@
       "package-generator"
       "metrics"
       "language-elm"
-      "disable-keybindings"
       "autocomplete-haskell"
       "haskell-ghc-mod"
       "script"
@@ -46,7 +46,9 @@
       "minimap"
       "markdown-toc"
       "vim-mode"
-      "markdown-table-formatter"
+      "disable-keybindings"
+      "narrow"
+      "outline-selection"
     ]
     openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
@@ -71,7 +73,7 @@
     atomicSoftTabs: false
     autoIndentOnPaste: false
     fontFamily: "Ricty"
-    fontSize: 20
+    fontSize: 15
     invisibles: {}
     lineHeight: 1.3
     scrollPastEnd: true
@@ -103,6 +105,9 @@
   linter:
     gutterEnabled: false
     showErrorPanel: false
+  "markdown-table-formatter":
+    autoSelectEntireDocument: false
+    formatOnSave: false
   minimap: {}
   narrow:
     FoldKeepItemsOrderOnFuzzyFilter: true
@@ -144,15 +149,23 @@
   transformer: {}
   "tree-view":
     focusOnReveal: false
+    hideVcsIgnoredFiles: true
   try:
     basename: "tryit"
     root: "~/tryit"
     searchAllPanes: true
   "vim-mode-plus":
+    autoSetPersistentSelectionAsTarget: false
     clearHighlightSearchOnResetNormalMode: true
+    clearMultipleCursorsOnEscapeInsertMode: false
+    clearPersistentSelectionOnResetNormalMode: true
     clearRangeMarkerOnResetNormalMode: true
+    debug: true
+    debugOutput: "console"
+    debugOutputFilePath: "~/github/atom-vim-mode-plus/debug.log"
     devReloadPackages: [
       "vim-mode-plus-move-selected-text"
+      "vim-mode-plus-replace-with-execution"
     ]
     flashOnOperateBlacklist: [
       "JasmineIncreaseFocus"
@@ -168,15 +181,16 @@
     highlightSearchExcludeScopes: [
       "narrow"
     ]
-    ignoreCaseForSearch: true
     ignoreCaseForSearchCurrentWord: true
     incrementalSearch: true
     showHoverSearchCounter: true
+    stayOnDelete: true
     stayOnTransformString: true
     stayOnYank: true
     throwErrorOnNonEmptySelectionInNormalMode: true
     useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
+    useSmartcaseForSearchCurrentWord: true
   "vim-mode-plus-jasmine-increase-focus":
     autoSave: true
     focusTexts: [

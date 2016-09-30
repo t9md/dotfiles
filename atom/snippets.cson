@@ -29,6 +29,19 @@
     {inspect} = require 'util'
     p = (args...) -> console.log inspect(args...)
     """
+  d:
+    prefix: 'd'
+    body: 'debug "${1:hello}"'
+  debug:
+    prefix: 'dbg'
+    body: """
+    {debug} = require '../lib/utils'
+    settings = require '../lib/settings'
+    settings.set('debug', true)
+    settings.set('debugOutput', "file")
+    settings.set('debugOutputFilePath', "~/github/atom-vim-mode-plus/debug.log")
+    debug editor.getText()
+    """
   dev:
     prefix: 'dev'
     body: """

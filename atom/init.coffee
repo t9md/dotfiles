@@ -15,35 +15,48 @@ consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
   {Base, getEditorState, observeVimStates} = service
 
   # observeVimStates (vimState) ->
-  #   vimState.modeManager.onDidDeactivateMode ({mode}) ->
-  #     if mode is 'insert'
-  #       vimState.editor.clearSelections()
+  #   vimState.modeManager.onDidActivateMode (event) ->
+  #     console.log 'activate', event
+  #   vimState.modeManager.onDidDeactivateMode (event) ->
+  #     console.log 'de-activate', event
+
+  register = (klass) ->
+    klass.commandPrefix = 'vim-mode-plus-user'
+    klass.registerCommand()
+    klass.registerToSelectList()
 
   TransformStringByExternalCommand = Base.getClass('TransformStringByExternalCommand')
-  class Sort extends TransformStringByExternalCommand
-    command: 'sort'
+  # class Sort extends TransformStringByExternalCommand
+  #   command: 'sort'
+  #   register(this)
 
-  class SortNumerical extends Sort
+  class SortNumerical extends TransformStringByExternalCommand
     command: 'sort'
     args: ['-n']
+    register(this)
 
   class ReverseSort extends SortNumerical
+    register(this)
     args: ['-r']
 
   class ReverseSortNumerical extends ReverseSort
+    register(this)
     args: ['-rn']
 
   class CoffeeCompile extends TransformStringByExternalCommand
+    register(this)
     command: 'coffee'
     args: ['-csb', '--no-header']
 
   class CoffeeEval extends TransformStringByExternalCommand
+    register(this)
     command: 'coffee'
     args: ['-se']
     getStdin: (selection) ->
       "console.log #{selection.getText()}"
 
   class CoffeeInspect extends TransformStringByExternalCommand
+    register(this)
     command: 'coffee'
     args: ['-se']
     getStdin: (selection) ->
@@ -51,19 +64,6 @@ consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
       {inspect} = require 'util'
       console.log #{selection.getText()}
       """
-
-  userTransformers = [
-    Sort, SortNumerical, ReverseSort, ReverseSortNumerical
-    CoffeeCompile, CoffeeEval, CoffeeInspect
-  ]
-  TransformStringBySelectList = Base.getClass('TransformStringBySelectList')
-  for klass in userTransformers
-    klass.commandPrefix = 'vim-mode-plus-user'
-    klass.registerCommand()
-    klass.registerToSelectList()
-    # Push user transformer to transformers so that I can choose my transformers
-    # via transform-string-by-select-list command.
-    # TransformStringBySelectList::transformers.push(transformer)
 
 getEditor = ->
   atom.workspace.getActiveTextEditor()
@@ -106,54 +106,15 @@ toggleInvisible = ->
   param = 'editor.showInvisibles'
   atom.config.set(param, not atom.config.get(param))
 
-# class ReplaceString extends TransformString
-#   @extend()
-#   requireInput: true
-#   input: null
-#
-#   initialize: ->
-#     @focusInput(charsMax: 10)
-#
-#   initialize: ->
-#     @onDidConfirmInput (input) =>
-#       return unless @input
-#       [@from, @to] = input.split('')
-#       @processOperation()
-#       # @onConfirm(input)
-#     # @onDidChangeInput (input) => @addHover(input)
-#     # @onDidCancelInput => @cancelOperation()
-#     # if @requireTarget
-#     #   @onDidSetTarget =>
-#     #     @vimState.input.focus({@charsMax})
-#     # else
-#     #   @vimState.input.focus({@charsMax})
-#
-#   getNewText: (text) ->
-#     from = ///#{_.escapeRegExp(@from)}///g
-#     text.replace(from, @to)
+# [idea] better Tab
+# if tab is on leading white space, move to first character of line
+# else invoke editor.indent
+# for command in commands
+#   do (command) =>
+#     name = "#{@prefix}:#{command}"
+#     blockwiseCommands[name] = (event) => @blockOperation(event, command)
+# event.abortKeyBinding()
 
-
-  # initialize: ->
-  #   @setTarget @new("MoveToRelativeLineWithMinimum", {min: 1})
-  #
-  # mutateSelection: (selection) ->
-  #   [startRow, endRow] = selection.getBufferRowRange()
-  #   swrap(selection).expandOverLine()
-  #   rows = for row in [startRow..endRow]
-  #     text = @editor.lineTextForBufferRow(row)
-  #     if @trim and row isnt startRow
-  #       text.trimLeft()
-  #     else
-  #       text
-  #   selection.insertText @join(rows) + "\n"
-  #
-  # join: (rows) ->
-  #   rows.join(" #{@input} ")
-
-
-
-# atom.commands.add 'atom-text-editor', 'click', (event) ->
-#   console.log 'clicked'
 
 atom.commands.add 'atom-workspace',
   'user:inspect-element': -> inspectElement()
