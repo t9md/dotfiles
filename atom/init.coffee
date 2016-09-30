@@ -106,15 +106,17 @@ toggleInvisible = ->
   param = 'editor.showInvisibles'
   atom.config.set(param, not atom.config.get(param))
 
-# [idea] better Tab
-# if tab is on leading white space, move to first character of line
-# else invoke editor.indent
-# for command in commands
-#   do (command) =>
-#     name = "#{@prefix}:#{command}"
-#     blockwiseCommands[name] = (event) => @blockOperation(event, command)
-# event.abortKeyBinding()
+moveToFirstCharacterOfLineOrIndent = (event, editor) ->
+  cursorMoved = null
+  for cursor in editor.getCursors()
+    if cursor.isAtBeginningOfLine()
+      point = cursor.getBufferPosition()
+      cursor.moveToFirstCharacterOfLine()
+      if not cursorMoved? and not point.isEqual(cursor.getBufferPosition())
+        cursorMoved = true
 
+  unless cursorMoved
+    event.abortKeyBinding()
 
 atom.commands.add 'atom-workspace',
   'user:inspect-element': -> inspectElement()
@@ -122,3 +124,7 @@ atom.commands.add 'atom-workspace',
   'user:clear-console': -> clearConsole()
   'user:toggle-show-invisible': -> toggleInvisible()
   'user:package-hot-reload': -> hotReloadPackages()
+
+atom.commands.add 'atom-text-editor',
+  'user:move-to-first-character-of-line-or-indent': (event) ->
+    moveToFirstCharacterOfLineOrIndent(event, this.getModel())

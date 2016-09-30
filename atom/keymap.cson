@@ -277,6 +277,7 @@
   'a )': 'vim-mode-plus:a-parenthesis-allow-forwarding'
 
 'atom-text-editor.vim-mode-plus.insert-mode':
+  'tab': 'user:move-to-first-character-of-line-or-indent'
   'ctrl-s': 'vim-mode-plus:surround-smart-word'
   'ctrl-/': 'autocomplete-plus:activate'
 
