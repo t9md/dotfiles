@@ -1,4 +1,5 @@
-# Dirty, include garbages of experiments.
+# My keymaps always include garbages. If it's not work give up!.
+
 'atom-workspace:not([mini])':
   'cmd-ctrl-shift-left': 'window:move-active-item-to-pane-on-left'
   'cmd-ctrl-shift-right': 'window:move-active-item-to-pane-on-right'
@@ -46,11 +47,14 @@
   # t9md/atom-vim-mode-plus#214
   'G': 'DONT_MOVE_TO_LAST_LINE'
 
-'atom-text-editor.vim-mode-plus.normal-mode.occurrence-preset':
-  'i': 'vim-mode-plus:insert-at-start-of-occurrence'
-  'a': 'vim-mode-plus:insert-at-end-of-occurrence'
+# 'atom-text-editor.vim-mode-plus.normal-mode.has-occurrence':
+#   'i': 'vim-mode-plus:insert-at-start-of-inner-smart-word'
+#   'a': 'vim-mode-plus:insert-at-end-of-inner-smart-word'
 
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'right': 'vim-mode-plus:move-three-column-right'
+  'left': 'vim-mode-plus:move-three-column-left'
+
   'enter': 'vim-mode-plus:toggle-persistent-selection'
   'm': 'vim-mode-plus:toggle-preset-occurrence'
 
@@ -61,11 +65,10 @@
   'shift-f5': 'vim-mode-plus-user:replace-with-execution-keep-original-text'
 
 
-  'g i': 'vim-mode-plus:insert-at-start-of-target'
-  'g a': 'vim-mode-plus:insert-at-end-of-target'
+  # 'g i': 'vim-mode-plus:insert-at-start-of-target'
+  # 'g a': 'vim-mode-plus:insert-at-end-of-target'
+
   # 'g I': 'vim-mode-plus:insert-at-start-of-occurrence-in-paragraph'
-  'ctrl-shift-i': 'vim-mode-plus:insert-at-start-of-occurrence-in-paragraph'
-  'ctrl-shift-a': 'vim-mode-plus:insert-at-end-of-occurrence-in-paragraph'
   # 'ctrl-shift-c': 'vim-mode-plus:change-occurrence-in-paragraph'
   # 'g A': 'vim-mode-plus:insert-at-end-of-occurrence-in-paragraph'
   'g d': 'vim-mode-plus:select-occurrence'
@@ -83,7 +86,7 @@
 
   'w': 'vim-mode-plus:move-to-next-smart-word'
   'b': 'vim-mode-plus:move-to-previous-smart-word'
-  'e': 'vim-mode-plus:move-to-end-of-smart-word'
+  # 'e': 'vim-mode-plus:move-to-end-of-smart-word'
 
   'g C': 'vim-mode-plus:camel-case'
   'g |': 'vim-mode-plus:trim-string'
@@ -97,7 +100,7 @@
 
   # '[': 'vim-mode-plus:move-up-to-edge'
   # ']': 'vim-mode-plus:move-down-to-edge'
-  'g _': 'vim-mode-plus:snake-case'
+  # 'g _': 'vim-mode-plus:snake-case'
   'g %': 'vim-mode-plus:encode-uri-component'
 
   # '(': 'vim-mode-plus-user:move-to-previous-symbol'
@@ -134,13 +137,14 @@
   ';': 'smalls:jump'
 
 'atom-text-editor.vim-mode-plus.normal-mode':
+  'B': 'vim-mode-plus:insert-at-start-of-inner-smart-word'
+  'E': 'vim-mode-plus:insert-at-end-of-inner-smart-word'
+
   # 'ctrl-/': 'vim-mode-plus:insert-by-search'
   # 'f': 'vim-mode-plus:search-current-line'
   # 'g i': 'vim-mode-plus:insert-at-start-of-search-current-line'
   # 'F': 'vim-mode-plus:search-current-line-backwards'
-  # 'f': 'vim-mode-plus:se
-  # 'c c': 'vim-mode-plus:change-occurrence-in-a-current-lne'
-  'g i': 'vim-mode-plus:insert-at-start-of-occurrence'
+  # 'g i': 'vim-mode-plus:insert-at-start-of-occurrence'
 
   'cmd-L': 'paner:very-right'
   'f7': 'vim-mode-plus:reload-packages'
@@ -257,7 +261,7 @@
 'atom-text-editor.vim-mode-plus.operator-pending-mode, atom-text-editor.vim-mode-plus.visual-mode':
   ";": 'vim-mode-plus:inner-any-pair'
 
-  'p': 'vim-mode-plus:inner-paragraph'
+  # 'p': 'vim-mode-plus:inner-paragraph'
   # '/': 'vim-mode-plus:inner-comment'
 
   "'": 'vim-mode-plus:inner-any-quote'
@@ -270,8 +274,8 @@
   'i >': 'vim-mode-plus:inner-angle-bracket-allow-forwarding'
   'a >': 'vim-mode-plus:a-angle-bracket-allow-forwarding'
 
-  'i ]': 'vim-mode-plus:inner-square-bracket-allow-forwarding'
-  'a ]': 'vim-mode-plus:a-square-bracket-allow-forwarding'
+  'i [': 'vim-mode-plus:inner-edge'
+  # 'a ]': 'vim-mode-plus:a-square-bracket-allow-forwarding'
 
   'i )': 'vim-mode-plus:inner-parenthesis-allow-forwarding'
   'a )': 'vim-mode-plus:a-parenthesis-allow-forwarding'
@@ -338,6 +342,7 @@
 
 'atom-text-editor.vim-mode-plus-search':
   'ctrl-g': 'vim-mode-plus:search-cancel'
+  'cmd-enter': 'vim-mode-plus-user:project-find-from-search'
 
 'atom-text-editor.vim-mode-plus-search:not(.literal-mode)':
   '[': 'vim-mode-plus:search-visit-prev'
@@ -347,15 +352,13 @@
   ';': 'core:confirm'
   'ctrl-space': 'vim-mode-plus:search-insert-wild-pattern'
 
-'atom-text-editor.vim-mode-plus-search':
-  'cmd-enter': 'vim-mode-plus-user:project-find-from-search'
-
 'atom-text-editor.vim-mode-plus-input':
   'ctrl-g': 'vim-mode-plus:input-cancel'
 
 'atom-text-editor.vim-mode-plus.operator-pending-mode':
   'c': 'vim-mode-plus:inner-smart-word'
   'C': 'vim-mode-plus:inner-whole-word'
+  'p': 'vim-mode-plus:inner-paragraph'
 
 'atom-text-editor.vim-mode-plus.insert-mode.autocomplete-active':
   'ctrl-g': 'autocomplete-plus:cancel'

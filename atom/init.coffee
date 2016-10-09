@@ -14,11 +14,11 @@ getEditorState = null
 consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
   {Base, getEditorState, observeVimStates} = service
 
-  # observeVimStates (vimState) ->
-  #   vimState.modeManager.onDidActivateMode (event) ->
-  #     console.log 'activate', event
-  #   vimState.modeManager.onDidDeactivateMode (event) ->
-  #     console.log 'de-activate', event
+  observeVimStates (vimState) ->
+    vimState.modeManager.onDidActivateMode (event) ->
+      console.log 'activate', event
+    # vimState.modeManager.onDidDeactivateMode (event) ->
+    #   console.log 'de-activate', event
 
   register = (klass) ->
     klass.commandPrefix = 'vim-mode-plus-user'

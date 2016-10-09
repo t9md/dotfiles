@@ -16,12 +16,6 @@ atom-text-editor::shadow div.lines div:last-child .line:last-child {
   }
 }
 .cursor-line-background(normal-mode, fadeout(gray, 80%));
-// .cursor-line-background(insert-mode, fadeout(green, 80%));
-// .cursor-line-background(operator-pending-mode, fadeout(yellow, 80%));
-
-// atom-text-editor::shadow .is-focused .cursors .cursor {
-//   opacity: 1;
-// }
 
 .tree-view {
   font-family: @font-family-p;
@@ -31,33 +25,3 @@ atom-text-editor::shadow div.lines div:last-child .line:last-child {
 .tabs-layout-overlay {
   transition: none;
 }
-
-// .vim-mode-plus-range-marker .region {
-//   background-color: fadeout(darken(@syntax-color-added, 10%), 80%);
-//   // background-color: fadeout(darken(@syntax-selection-flash-color, 10%), 80%);
-// }
-
-// atom-text-editor.visual-mode.selection-only-mode {
-//   &::shadow {
-//     .selection .region {
-//       // @syntax-selection-color:
-//       // background-color: darken(@syntax-selection-color, 10%);
-//       // background-color: lighten(@syntax-selection-color, 10%);
-//       // color: @syntax-selection-color
-//       // background-color: fadeout();
-//     }
-//   }
-// }
-
-// atom-text-editor.visual-mode.with-range-marker::shadow {
-//   .selection .region {
-//     background-color: lighten(@syntax-selection-color, 10%);
-//   }
-// }
-
-// atom-text-editor, atom-text-editor::shadow {
-//   .vim-mode-plus-range-marker .region {
-//     background-color: fadeout(darken(@syntax-color-added, 10%), 80%);
-//     // background-color: fadeout(yellow, 95%)
-//   }
-// }
