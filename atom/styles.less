@@ -8,20 +8,103 @@ atom-text-editor::shadow div.lines div:last-child .line:last-child {
   }
 }
 
-.cursor-line-background(@mode, @color) {
-  atom-text-editor.vim-mode-plus.@{mode}.is-focused::shadow {
-    & .lines .line.cursor-line {
-      background-color: @color
-    }
-  }
-}
-.cursor-line-background(normal-mode, fadeout(gray, 80%));
+// .select-list.project-folder {
+//   ol.list-group {
+//     position: relative;
+//     overflow-y: auto;
+//     max-height: 1000px;
+//     margin: @component-padding 0 0 0;
+//     padding: 0;
+//   }
+// }
 
-.tree-view {
-  font-family: @font-family-p;
-  font-size: 1.3em;
-}
 
-.tabs-layout-overlay {
-  transition: none;
-}
+// .cursor-base () {
+//   border: none;
+//   background: none;
+//   opacity: 0.5;
+// }
+//
+// .underline-cursor(@visibility) {
+//   .cursor-base();
+//   border-bottom: .3em solid @syntax-cursor-color;
+//   visibility: @visibility;
+// }
+//
+// atom-text-editor.vim-mode-plus.hidden-input-focused,
+// {
+//   &.is-focused::shadow {
+//     .cursor {
+//       .underline-cursor(visible);
+//       border-bottom-width: .2em;
+//     }
+//   }
+// }
+// .cursor-line-background(@mode, @color) {
+//   atom-text-editor.vim-mode-plus.@{mode}.is-focused::shadow {
+//     & .lines .line.cursor-line {
+//       background-color: @color
+//     }
+//   }
+// }
+// .cursor-line-background(normal-mode, fadeout(gray, 80%));
+
+
+// .status-bar {
+//   &.insert {
+//     background: green;
+//   }
+//   &.visual.characterwise {
+//     background: red;
+//   }
+// }
+
+// .status-bar-vim-mode-plus-normal,
+// .status-bar-vim-mode-plus-operator-pending,
+// .status-bar-vim-mode-plus-insert,
+// .status-bar-vim-mode-plus-visual {
+//   font-weight: bold;
+//   text-align: center;
+//   font-size: 1.5em;
+//   width: 21rem;
+//   // text-transform: uppercase;
+// }
+//
+//
+// .status-bar-vim-mode-plus-normal {
+//   background: rgb(105, 238, 103);
+//   color: rgb(4, 111, 11);
+// }
+//
+// .status-bar-vim-mode-plus-insert {
+//   background: rgb(7, 193, 242);
+//   color: white;
+// }
+//
+// .status-bar-vim-mode-plus-visual {
+//   background: rgb(255, 206, 98);
+//   color: rgb(168, 117, 5);
+// }
+//
+// .status-bar-vim-mode-plus-operator-pending {
+//   background: rgb(204, 204, 204);
+//   color: black;
+// }
+//
+// .tree-view {
+//   font-family: @font-family-p;
+//   font-size: 1.3em;
+// }
+
+// .tabs-layout-overlay {
+//   transition: none;
+// }
+
+// atom-text-editor, atom-text-editor::shadow {
+//   .vim-mode-plus-search-match.first .region {
+//     z-index: 0;
+//   }
+//   .vim-mode-plus-search-match.last .region {
+//     z-index: 1;
+//   }
+// }

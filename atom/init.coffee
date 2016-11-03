@@ -14,11 +14,18 @@ getEditorState = null
 consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
   {Base, getEditorState, observeVimStates} = service
 
-  observeVimStates (vimState) ->
-    vimState.modeManager.onDidActivateMode (event) ->
-      console.log 'activate', event
-    # vimState.modeManager.onDidDeactivateMode (event) ->
-    #   console.log 'de-activate', event
+  # observeVimStates (vimState) ->
+  #   vimState.modeManager.onDidActivateMode ({mode, submode}) ->
+  #     statusBarElement = document.querySelector('status-bar.status-bar')
+  #     statusBarElement.classList.add(mode)
+  #     statusBarElement.classList.add(submode) if submode?
+  #     console.log statusBarElement.classList
+  #
+  #   vimState.modeManager.onDidDeactivateMode ({mode, submode}) ->
+  #     statusBarElement = document.querySelector('status-bar.status-bar')
+  #     statusBarElement.classList.remove(mode)
+  #     statusBarElement.classList.remove(submode) if submode?
+  #     console.log statusBarElement.classList
 
   register = (klass) ->
     klass.commandPrefix = 'vim-mode-plus-user'
@@ -26,9 +33,6 @@ consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
     klass.registerToSelectList()
 
   TransformStringByExternalCommand = Base.getClass('TransformStringByExternalCommand')
-  # class Sort extends TransformStringByExternalCommand
-  #   command: 'sort'
-  #   register(this)
 
   class SortNumerical extends TransformStringByExternalCommand
     command: 'sort'

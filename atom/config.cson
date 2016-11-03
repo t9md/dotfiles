@@ -32,7 +32,6 @@
       "welcome"
       "goto-scope"
       "autocomplete-emojis"
-      "isearch"
       "phrase"
       "package-generator"
       "metrics"
@@ -42,26 +41,24 @@
       "script"
       "atom-beautify"
       "color-picker"
-      "keymap-disabler"
       "minimap"
-      "markdown-toc"
-      "vim-mode"
-      "disable-keybindings"
       "narrow"
       "outline-selection"
+      "vim-mode"
+      "source-preview"
+      "source-preview-less"
     ]
     openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
       "blame"
-      "markdown-toc"
     ]
     themes: [
       "one-dark-ui"
       "one-dark-vivid-syntax"
     ]
+    useCustomTitleBar: true
   "cursor-history":
     columnDeltaToRemember: 5
-    excludeClosedBuffer: true
     searchAllPanes: false
   dev:
     _group___abc2: {}
@@ -73,7 +70,7 @@
     atomicSoftTabs: false
     autoIndentOnPaste: false
     fontFamily: "Ricty"
-    fontSize: 17
+    fontSize: 16
     invisibles: {}
     lineHeight: 1.3
     scrollPastEnd: true
@@ -123,7 +120,6 @@
     gitProjectDirectories: [
       "~/go/src"
     ]
-    hideLoadedFolderFromAddList: false
   "quick-highlight":
     highlightSelection: false
   "recent-finder": {}
@@ -143,7 +139,6 @@
       "one-light-ui duotone-light-syntax"
       "one-dark-ui one-dark-vivid-syntax"
       "one-dark-ui duotone-dark-syntax"
-      "atom-material-ui atom-material-syntax"
     ]
   toggle: {}
   "toggle-quotes": {}
@@ -174,7 +169,6 @@
       "SplitCharacter"
       "SurroundSmartWord"
     ]
-    flashScreenOnSearchHasNoMatch: false
     highlightSearch: true
     highlightSearchExcludeScopes: [
       "narrow"
@@ -182,12 +176,12 @@
     ignoreCaseForSearchCurrentWord: true
     incrementalSearch: true
     showHoverSearchCounter: true
-    smoothScrollOnHalfScrollMotion: true
     stayOnDelete: true
     stayOnTransformString: true
     stayOnYank: true
     throwErrorOnNonEmptySelectionInNormalMode: true
     useClipboardAsDefaultRegister: true
+    useExperimentalFasterInput: false
     useSmartcaseForSearch: true
     useSmartcaseForSearchCurrentWord: true
   "vim-mode-plus-jasmine-increase-focus":
@@ -203,13 +197,11 @@
     registerToSelectList: true
   welcome:
     showOnStartup: false
+  whitespace: {}
 ".coffee.source":
   editor:
+    autoIndent: true
     autoIndentOnPaste: true
-    tabLength: 2
 ".go.source":
   editor:
     tabLength: 2
-".litcoffee.source":
-  editor:
-    tabLength: 4

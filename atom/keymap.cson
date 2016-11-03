@@ -1,6 +1,13 @@
+'atom-workspace:not(.editor)':
+  # conflicts insert-mode ctrl-w and ctr-w in mini editor, so comment out by default
+  # 'ctrl-w z': 'vim-mode-plus:maximize-pane'
+  'cmd-enter': 'vim-mode-plus:maximize-pane'
+
 # My keymaps always include garbages. If it's not work give up!.
 
 'atom-workspace:not([mini])':
+  'shift-f9': 'vim-mode-plus:debug'
+
   'cmd-ctrl-shift-left': 'window:move-active-item-to-pane-on-left'
   'cmd-ctrl-shift-right': 'window:move-active-item-to-pane-on-right'
   'cmd-ctrl-shift-up': 'window:move-active-item-to-pane-above'
@@ -47,13 +54,11 @@
   # t9md/atom-vim-mode-plus#214
   'G': 'DONT_MOVE_TO_LAST_LINE'
 
-# 'atom-text-editor.vim-mode-plus.normal-mode.has-occurrence':
-#   'i': 'vim-mode-plus:insert-at-start-of-inner-smart-word'
-#   'a': 'vim-mode-plus:insert-at-end-of-inner-smart-word'
-
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
-  'right': 'vim-mode-plus:move-three-column-right'
-  'left': 'vim-mode-plus:move-three-column-left'
+  ')': 'vim-mode-plus:move-to-next-sentence-skip-blank-row'
+  '(': 'vim-mode-plus:move-to-previous-sentence-skip-blank-row'
+  'g tab': 'vim-mode-plus:convert-to-soft-tab'
+  'g shift-tab': 'vim-mode-plus:convert-to-hard-tab'
 
   'enter': 'vim-mode-plus:toggle-persistent-selection'
   'm': 'vim-mode-plus:toggle-preset-occurrence'
@@ -64,7 +69,6 @@
   'f5': 'vim-mode-plus-user:replace-with-execution'
   'shift-f5': 'vim-mode-plus-user:replace-with-execution-keep-original-text'
 
-
   # 'g i': 'vim-mode-plus:insert-at-start-of-target'
   # 'g a': 'vim-mode-plus:insert-at-end-of-target'
 
@@ -72,7 +76,7 @@
   # 'ctrl-shift-c': 'vim-mode-plus:change-occurrence-in-paragraph'
   # 'g A': 'vim-mode-plus:insert-at-end-of-occurrence-in-paragraph'
   'g d': 'vim-mode-plus:select-occurrence'
-  '-': 'choose-pane:start'
+  # '-': 'choose-pane:start'
   # 'm m': 'choose-pane:focus-last-focused'
 
   'g m': 'vim-mode-plus:toggle-persistent-selection'
@@ -82,7 +86,7 @@
   'space enter': 'vim-mode-plus:clear-persistent-selection'
 
   'g h': 'vim-mode-plus-user:quick-highlight'
-  'g s': 'vim-mode-plus:split-character'
+  # 'g s': 'vim-mode-plus:split-character'
 
   'w': 'vim-mode-plus:move-to-next-smart-word'
   'b': 'vim-mode-plus:move-to-previous-smart-word'
@@ -91,20 +95,13 @@
   'g C': 'vim-mode-plus:camel-case'
   'g |': 'vim-mode-plus:trim-string'
   'g p': 'vim-mode-plus:pascal-case'
-  # 'g p': 'vim-mode-plus:put-after-and-select'
-  # 'g P': 'vim-mode-plus:put-before-and-select'
 
-  'ctrl-s': 'vim-mode-plus:transform-string-by-select-list'
+  'ctrl-s': 'vim-mode-plus:transform-smart-word-by-select-list'
   # 'ctrl-s': 'vim-mode-plus:transform-smart-word-by-select-list'
   # 'f5': 'vim-mode-plus:tranform-string-by-external-command'
 
-  # '[': 'vim-mode-plus:move-up-to-edge'
-  # ']': 'vim-mode-plus:move-down-to-edge'
-  # 'g _': 'vim-mode-plus:snake-case'
+  'g _': 'vim-mode-plus:snake-case'
   'g %': 'vim-mode-plus:encode-uri-component'
-
-  # '(': 'vim-mode-plus-user:move-to-previous-symbol'
-  # ')': 'vim-mode-plus-user:move-to-next-symbol'
 
   # 'g n': 'vim-mode-plus:move-to-next-number'
   # 'g N': 'vim-mode-plus:move-to-previous-number'
@@ -112,14 +109,10 @@
   'cmd-up': 'vim-mode-plus:move-to-previous-fold-start-with-same-indent'
   'cmd-down': 'vim-mode-plus:move-to-next-fold-start-with-same-indent'
   'g r': 'vim-mode-plus:reverse'
-  'g s': 'vim-mode-plus:sort'
-
+  # 'g s': 'vim-mode-plus:sort'
 
 'atom-workspace atom-text-editor:not([mini])':
   'ctrl-cmd-c': 'user:clear-console'
-  # 'ctrl-cmd-c': 'user:clear-console'
-  # 'ctrl-cmd-c': 'vim-mode-plus:clear-debug-output'
-
   'ctrl-cmd-r': 'run-in-atom:run-in-atom'
 
   # for dev use.s
@@ -137,6 +130,7 @@
   ';': 'smalls:jump'
 
 'atom-text-editor.vim-mode-plus.normal-mode':
+  # 'cmd-t a': 'user:hello'
   'B': 'vim-mode-plus:insert-at-start-of-inner-smart-word'
   'E': 'vim-mode-plus:insert-at-end-of-inner-smart-word'
 
@@ -152,9 +146,6 @@
 
   'ctrl-p': 'recent-finder:toggle'
 
-  # '-': 'toggle:there'
-  # 'g I': 'vim-mode-plus:insert-at-start-of-target'
-  # 'g A': 'vim-mode-plus:insert-at-end-of-target'
   "g '": 'vim-mode-plus:move-to-next-string'
 
   'cmd-shift-up': 'theme-switch:prev'
@@ -164,9 +155,8 @@
 
   'ctrl-{': 'vim-mode-plus:insert-at-previous-fold-start'
   'ctrl-}': 'vim-mode-plus:insert-at-next-fold-start'
-  # '{': 'vim-mode-plus:move-to-previous-fold-start'
-  # '}': 'vim-mode-plus:move-to-next-fold-start'
-
+  '{': 'vim-mode-plus:move-to-previous-fold-start'
+  '}': 'vim-mode-plus:move-to-next-fold-start'
 
   'cmd-z': 'vim-mode-plus:toggle-fold'
 
@@ -175,7 +165,6 @@
   'ctrl-h': 'focus-pane-or-panel:focus-on-left'
   'ctrl-l': 'focus-pane-or-panel:focus-on-right'
 
-  'space q': 'core:close'
   'space g l': 'go-to-line:toggle'
 
   # open-on-github, github-diff: g
@@ -215,6 +204,7 @@
   's': 'vim-mode-plus:surround'
   's d': 'vim-mode-plus:delete-surround-any-pair'
   's c': 'vim-mode-plus:change-surround-any-pair'
+  # 's c': 'vim-mode-plus:change-surround'
   's w': 'vim-mode-plus:surround-word'
   's m': 'vim-mode-plus:map-surround'
 
@@ -231,7 +221,7 @@
   'g x': 'link:open'
   'T': 'try:paste'
   'space T': 'try:open-file'
-  # 's': 'lazy-motion:forward'
+  # 'ctrl-s': 'lazy-motion:forward'
   ':': 'vim-mode-plus-ex-mode:open'
   '!': 'vim-mode-plus-ex-mode:toggle-setting'
 
@@ -280,13 +270,17 @@
   'i )': 'vim-mode-plus:inner-parenthesis-allow-forwarding'
   'a )': 'vim-mode-plus:a-parenthesis-allow-forwarding'
 
+# 'atom-text-editor':
+#   'space': 'core:move-right'
+#   'i': 'core:move-right'
+
 'atom-text-editor.vim-mode-plus.insert-mode':
-  'tab': 'user:move-to-first-character-of-line-or-indent'
+  # 'tab': 'user:move-to-first-character-of-line-or-indent'
   'ctrl-s': 'vim-mode-plus:surround-smart-word'
   'ctrl-/': 'autocomplete-plus:activate'
 
   'ctrl-i': 'cursor-history:prev'
-  # 'ctrl-o': 'cursor-history:prev'
+  'ctrl-o': 'cursor-history:prev'
 
   # 'ctrl-cmd-c': 'keystroke:delete-current-word'
   'j k': 'vim-mode-plus:activate-normal-mode' # jk to escape
@@ -347,7 +341,6 @@
 'atom-text-editor.vim-mode-plus-search:not(.literal-mode)':
   '[': 'vim-mode-plus:search-visit-prev'
   ']': 'vim-mode-plus:search-visit-next'
-  ';': 'vim-mode-plus:search-land-to-start'
   'ctrl-e': 'vim-mode-plus:search-land-to-end'
   ';': 'core:confirm'
   'ctrl-space': 'vim-mode-plus:search-insert-wild-pattern'
