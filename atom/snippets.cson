@@ -13,6 +13,10 @@
     $1
     ``
     """
+'.source.js':
+  'console log':
+    prefix: 'cl'
+    body: 'console.log '
 '.source.coffee':
   'console log':
     prefix: 'l'

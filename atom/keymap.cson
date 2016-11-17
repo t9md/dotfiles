@@ -5,6 +5,9 @@
 
 # My keymaps always include garbages. If it's not work give up!.
 
+# 'atom-workspace atom-text-editor':
+#   'j j': 'core:move-down'
+
 'atom-workspace:not([mini])':
   'shift-f9': 'vim-mode-plus:debug'
 
@@ -32,6 +35,7 @@
   'ctrl-cmd-e k': 'application:open-your-keymap'
   'ctrl-cmd-e s': 'application:open-your-stylesheet'
   'ctrl-cmd-e n': 'application:open-your-snippets'
+  'ctrl-cmd-e p': 'project-folder:open-config'
 
   # [cursor history]
   'ctrl-i': 'cursor-history:next'
@@ -55,6 +59,9 @@
   'G': 'DONT_MOVE_TO_LAST_LINE'
 
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  '\\': 'vim-mode-plus:set-register-name-to-blackhole'
+  'space': 'vim-mode-plus:set-register-name-to-system-clipboard'
+  # '\\ d': 'vim-mode-plus-user:delete-with-backhole-register'
   ')': 'vim-mode-plus:move-to-next-sentence-skip-blank-row'
   '(': 'vim-mode-plus:move-to-previous-sentence-skip-blank-row'
   'g tab': 'vim-mode-plus:convert-to-soft-tab'
@@ -79,7 +86,8 @@
   # '-': 'choose-pane:start'
   # 'm m': 'choose-pane:focus-last-focused'
 
-  'g m': 'vim-mode-plus:toggle-persistent-selection'
+  'g m': 'vim-mode-plus:mark'
+  # 'g m': 'vim-mode-plus:toggle-persistent-selection'
   'g M': 'vim-mode-plus:clear-persistent-selection'
 
   'g enter': 'vim-mode-plus:create-persistent-selection'
@@ -109,7 +117,7 @@
   'cmd-up': 'vim-mode-plus:move-to-previous-fold-start-with-same-indent'
   'cmd-down': 'vim-mode-plus:move-to-next-fold-start-with-same-indent'
   'g r': 'vim-mode-plus:reverse'
-  # 'g s': 'vim-mode-plus:sort'
+  'g s': 'vim-mode-plus:sort'
 
 'atom-workspace atom-text-editor:not([mini])':
   'ctrl-cmd-c': 'user:clear-console'
@@ -122,7 +130,7 @@
   'ctrl-left': 'check-left'
 
   'ctrl-;': 'smalls:start'
-  'ctrl-:': 'smalls:start-word-jump'
+  # 'ctrl-:': 'smalls:start-word-jump'
   'cmd-i': 'transformer:run'
   'shift-cmd-i': 'transformer:compile'
 
@@ -130,6 +138,7 @@
   ';': 'smalls:jump'
 
 'atom-text-editor.vim-mode-plus.normal-mode':
+  # "\ d d": "keystroke:set-blackhole-register"
   # 'cmd-t a': 'user:hello'
   'B': 'vim-mode-plus:insert-at-start-of-inner-smart-word'
   'E': 'vim-mode-plus:insert-at-end-of-inner-smart-word'
@@ -197,6 +206,7 @@
   'space t I': 'editor:toggle-indent-guide'
   'space t w': 'editor:toggle-soft-wrap'
   'space t n': 'editor:toggle-line-numbers'
+  # 'space N': 'editor:toggle-line-numbers'
 
   # surround: ys
   # -------------------------
@@ -248,13 +258,12 @@
 'atom-text-editor.vim-mode-plus.toggle-line-comments-pending':
   '/': 'vim-mode-plus:inner-paragraph'
 
+'atom-text-editor.vim-mode-plus.delete-with-backhole-register-pending':
+  'd': 'vim-mode-plus-user:delete-with-backhole-register'
+
 'atom-text-editor.vim-mode-plus.operator-pending-mode, atom-text-editor.vim-mode-plus.visual-mode':
   ";": 'vim-mode-plus:inner-any-pair'
 
-  # 'p': 'vim-mode-plus:inner-paragraph'
-  # '/': 'vim-mode-plus:inner-comment'
-
-  "'": 'vim-mode-plus:inner-any-quote'
   ":": 'vim-mode-plus:inner-any-pair-allow-forwarding'
 
   # Use closing pair as forwarding version of pair-text-object
@@ -275,6 +284,8 @@
 #   'i': 'core:move-right'
 
 'atom-text-editor.vim-mode-plus.insert-mode':
+  # 'j k': 'vim-mode-plus:activate-normal-mode' # jk to escape
+
   # 'tab': 'user:move-to-first-character-of-line-or-indent'
   'ctrl-s': 'vim-mode-plus:surround-smart-word'
   'ctrl-/': 'autocomplete-plus:activate'
@@ -283,7 +294,6 @@
   'ctrl-o': 'cursor-history:prev'
 
   # 'ctrl-cmd-c': 'keystroke:delete-current-word'
-  'j k': 'vim-mode-plus:activate-normal-mode' # jk to escape
   'cmd-f': 'editor:move-to-end-of-word'
   'cmd-b': 'editor:move-to-beginning-of-word'
   'cmd-d': 'editor:delete-to-end-of-word'
@@ -336,7 +346,9 @@
 
 'atom-text-editor.vim-mode-plus-search':
   'ctrl-g': 'vim-mode-plus:search-cancel'
-  'cmd-enter': 'vim-mode-plus-user:project-find-from-search'
+  # 'cmd-enter': 'vim-mode-plus-user:project-find-from-search'
+  'ctrl-l': 'vim-mode-plus-user:narrow-lines-from-search'
+  'ctrl-cmd-/': 'vim-mode-plus-user:narrow-search-from-search'
 
 'atom-text-editor.vim-mode-plus-search:not(.literal-mode)':
   '[': 'vim-mode-plus:search-visit-prev'
@@ -352,6 +364,7 @@
   'c': 'vim-mode-plus:inner-smart-word'
   'C': 'vim-mode-plus:inner-whole-word'
   'p': 'vim-mode-plus:inner-paragraph'
+  "'": 'vim-mode-plus:inner-any-quote'
 
 'atom-text-editor.vim-mode-plus.insert-mode.autocomplete-active':
   'ctrl-g': 'autocomplete-plus:cancel'

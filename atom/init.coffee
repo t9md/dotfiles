@@ -11,21 +11,13 @@ consumeService = (packageName, providerName, fn) ->
       disposable.dispose()
 
 getEditorState = null
+# consumeService 'autocomplete-snippets', 'provide', (provider) ->
+#   console.log provider.constructor::suggestionPriority = 3
+
 consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
   {Base, getEditorState, observeVimStates} = service
 
-  # observeVimStates (vimState) ->
-  #   vimState.modeManager.onDidActivateMode ({mode, submode}) ->
-  #     statusBarElement = document.querySelector('status-bar.status-bar')
-  #     statusBarElement.classList.add(mode)
-  #     statusBarElement.classList.add(submode) if submode?
-  #     console.log statusBarElement.classList
-  #
-  #   vimState.modeManager.onDidDeactivateMode ({mode, submode}) ->
-  #     statusBarElement = document.querySelector('status-bar.status-bar')
-  #     statusBarElement.classList.remove(mode)
-  #     statusBarElement.classList.remove(submode) if submode?
-  #     console.log statusBarElement.classList
+  Delete = Base.getClass('Delete')
 
   register = (klass) ->
     klass.commandPrefix = 'vim-mode-plus-user'
@@ -132,3 +124,6 @@ atom.commands.add 'atom-workspace',
 atom.commands.add 'atom-text-editor',
   'user:move-to-first-character-of-line-or-indent': (event) ->
     moveToFirstCharacterOfLineOrIndent(event, this.getModel())
+
+# atom.commands.add 'atom-text-editor', 'dev:show-event-target-of-text-editor-scope', (event) ->
+#   console.log event.target

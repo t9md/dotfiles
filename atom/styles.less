@@ -2,21 +2,61 @@
 @import "ui-variables";
 @font-family-p: "Ricty";
 
-atom-text-editor::shadow div.lines div:last-child .line:last-child {
+atom-text-editor div.lines div:last-child .line:last-child {
   .indent-guide {
     box-shadow: none;
   }
 }
 
-// .select-list.project-folder {
-//   ol.list-group {
-//     position: relative;
-//     overflow-y: auto;
-//     max-height: 1000px;
-//     margin: @component-padding 0 0 0;
-//     padding: 0;
+// @flash-color: contrast(
+//   @syntax-background-color,
+//   darken(@syntax-selection-color, 10%),
+//   lighten(@syntax-selection-color, 10%)
+//   );
+//
+// @keyframes vim-mode-plus-flash {
+//   from { background-color: @flash-color; }
+//   // @syntax-selection-color;
+//   to { background-color: transparent; }
+// }
+
+// @keyframes vim-mode-plus-flash-scroll {
+//   0% { background-color: transparent; }
+//   // 80% { background-color: transparent; }
+//   50% { background-color: fadeout(darken(@syntax-selection-flash-color, 10%), 20%); }
+//   100% { background-color: transparent;}
+// }
+
+//   // 80% { background-color: fadeout(darken(@syntax-selection-flash-color, 10%), 20%); }
+//   // 100% { background-color: transparent; }
+// @keyframes vim-mode-plus-flash-scroll {
+//   from { background-color: fadeout(darken(@syntax-selection-flash-color, 10%), 20%); }
+//   to { background-color: transparent; }
+// }
+
+
+// @keyframes cursor-history-flash {
+//   from { background-color: red; }
+//   // to { background-color: transparent; }
+// }
+
+// atom-text-editor .flash.selection .region {
+//   animation-name: flash;
+//   animation-duration: .5s;
+//   animation-iteration-count: 1;
+// }
+
+  // .vim-mode-plus-flash {
+//     .region {
+//       // z-index: 1;
+//       // background-color: none;
+//       animation-name: vim-mode-plus-flash;
+//       animation-duration: .3s;
+//       animation-iteration-count: 1;
+//     }
 //   }
 // }
+
 
 
 // .cursor-base () {
