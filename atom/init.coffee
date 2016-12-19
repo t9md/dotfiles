@@ -1,5 +1,7 @@
 {Range} = require 'atom'
 path = require 'path'
+# _ = require 'underscore-plus'
+# fs = require 'fs-plus'
 
 # General service comsumer factory
 # -------------------------
@@ -114,9 +116,21 @@ moveToFirstCharacterOfLineOrIndent = (event, editor) ->
   unless cursorMoved
     event.abortKeyBinding()
 
+openTryitCoffee = ->
+  filePath = "/Users/t9md/Dropbox/vim/tryit/tryit.coffee"
+  atom.workspace.open(filePath)
+
+hello1 = -> console.log "hello-1"
+hello2 = -> console.log "hello-2"
+hello3 = -> console.log "hello-3"
+
 atom.commands.add 'atom-workspace',
   'user:inspect-element': -> inspectElement()
+  'user:open-tryit-coffee': -> openTryitCoffee()
   'user:hello': -> hello()
+  'user:hello1': -> hello1()
+  'user:hello2': -> hello2()
+  'user:hello3': -> hello3()
   'user:clear-console': -> clearConsole()
   'user:toggle-show-invisible': -> toggleInvisible()
   'user:package-hot-reload': -> hotReloadPackages()
@@ -124,6 +138,3 @@ atom.commands.add 'atom-workspace',
 atom.commands.add 'atom-text-editor',
   'user:move-to-first-character-of-line-or-indent': (event) ->
     moveToFirstCharacterOfLineOrIndent(event, this.getModel())
-
-# atom.commands.add 'atom-text-editor', 'dev:show-event-target-of-text-editor-scope', (event) ->
-#   console.log event.target
