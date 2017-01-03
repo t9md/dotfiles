@@ -1,34 +1,9 @@
-
-'atom-workspace:not(.atom-text-editor)':
+# [BUG]
+# My dot files are allways collection of garbages.
+# So if it doesn't work, please give up!
+# -------------------------
+# 'atom-workspace:not(.atom-text-editor)':
   # 'ctrl-p': 'user:open-tryit-coffee'
-
-  # conflicts insert-mode ctrl-w and ctr-w in mini editor, so comment out by default
-  # 'ctrl-w z': 'vim-mode-plus:maximize-pane'
-  'cmd-enter': 'vim-mode-plus:maximize-pane'
-
-# My keymaps always include garbages. If it's not work give up!.
-
-# 'atom-workspace atom-text-editor':
-#   'j j': 'core:move-down'
-
-# 'atom-text-editor':
-#   'a b': 'user:hello'
-#   'a #': 'user:hello'
-#   'a ^': 'user:hello'
-
-  # 'a ^': 'editor:move-to-first-character-of-line'
-  # 'a b': 'editor:move-to-first-character-of-line'
-  # 'a #': 'editor:move-to-first-character-of-line'
-
-
-  # 'a ^': 'command-palette:toggle'
-  # 'a 1': 'user:hello1'
-  # 'a #': 'user:hello2'
-  # 'ctrl-a ^': 'user:hello4'
-  # 'a ^': 'user:hello5'
-
-# 'atom-text-editor':
-#   'ctrl-g': 'core:cancel'
 
 'atom-workspace:not([mini])':
   'shift-f9': 'vim-mode-plus:debug'
@@ -81,16 +56,16 @@
   'G': 'DONT_MOVE_TO_LAST_LINE'
 
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  '\\': 'vim-mode-plus:set-register-name-to-_'
   'ctrl-shift-k': 'vim-mode-plus:delete-line'
-  'ctrl-e': 'vim-mode-plus-user:move-to-end-of-subword'
-  'Q': 'vim-mode-plus-user:move-to-beginning-of-subword'
-  'q': 'vim-mode-plus-user:move-to-next-subword'
 
-  ', N': 'vim-mode-plus:move-to-previous-number'
-  ', n': 'vim-mode-plus:move-to-next-number'
+  'q': 'vim-mode-plus:move-to-next-subword'
+  'Q': 'vim-mode-plus:move-to-previous-subword'
+  'ctrl-e': 'vim-mode-plus:move-to-end-of-subword'
 
-  'g c': 'vim-mode-plus:toggle-line-comments'
-  # 'g c c': 'editor:toggle-line-comments'
+  # ', N': 'vim-mode-plus:move-to-previous-number'
+  # ', n': 'vim-mode-plus:move-to-next-number'
+
   # 'space n l': 'narrow:lines-by-current-word'
   # 'space n f': 'narrow:fold-by-current-word'
   'space o': 'narrow:fold'
@@ -100,28 +75,20 @@
   # 'space n s': 'narrow:search-current-project-by-current-word'
   # 'space n s s': 'narrow:search'
 
-
-  '\\': 'vim-mode-plus:set-register-name-to-blackhole'
-  'space': 'vim-mode-plus:set-register-name-to-system-clipboard'
-  # '\\ d': 'vim-mode-plus-user:delete-with-backhole-register'
-  # ')': 'vim-mode-plus:move-to-next-sentence-skip-blank-row'
-  # '(': 'vim-mode-plus:move-to-previous-sentence-skip-blank-row'
-  'g tab': 'vim-mode-plus:convert-to-soft-tab'
-  'g shift-tab': 'vim-mode-plus:convert-to-hard-tab'
-
   # 'enter': 'vim-mode-plus:toggle-persistent-selection'
-  'm': 'vim-mode-plus:toggle-preset-occurrence'
   'g .': 'vim-mode-plus:add-preset-occurrence-from-last-occurrence-pattern'
 
   'ctrl-/': 'vim-mode-plus:toggle-line-comments'
-  's m': 'vim-mode-plus:map-surround'
+  # 's m': 'vim-mode-plus:map-surround'
 
   'f5': 'vim-mode-plus-user:replace-with-execution'
   'shift-f5': 'vim-mode-plus-user:replace-with-execution-keep-original-text'
 
   # 'g i': 'vim-mode-plus:insert-at-end-of-target'
-  'g i': 'vim-mode-plus:insert-at-start-of-occurrence'
-  'g a': 'vim-mode-plus:insert-at-end-of-occurrence'
+  # 'g i': 'vim-mode-plus:insert-at-start-of-occurrence'
+  'g i': 'vim-mode-plus:insert-at-start-of-target'
+  'g a': 'vim-mode-plus:insert-at-end-of-target'
+  # 'g a': 'vim-mode-plus:insert-at-end-of-occurrence'
 
   # 'g I': 'vim-mode-plus:insert-at-start-of-occurrence-in-paragraph'
   # 'ctrl-shift-c': 'vim-mode-plus:change-occurrence-in-paragraph'
@@ -140,7 +107,7 @@
   'g h': 'vim-mode-plus-user:quick-highlight'
   # 'g s': 'vim-mode-plus:split-character'
 
-  # 'w': 'vim-mode-plus:move-to-next-smart-word'
+  'w': 'vim-mode-plus:move-to-next-smart-word'
   'b': 'vim-mode-plus:move-to-previous-smart-word'
   'e': 'vim-mode-plus:move-to-end-of-smart-word'
 
@@ -149,11 +116,11 @@
   'g p': 'vim-mode-plus:pascal-case'
   # 'g p': 'vim-mode-plus:put-after-and-select'
 
-  'ctrl-s': 'vim-mode-plus:transform-smart-word-by-select-list'
+  'ctrl-s': 'vim-mode-plus:transform-string-by-select-list'
   # 'ctrl-s': 'vim-mode-plus:transform-string-by-select-list'
   # 'f5': 'vim-mode-plus:tranform-string-by-external-command'
 
-  'g _': 'vim-mode-plus:snake-case'
+  # 'g _': 'vim-mode-plus:snake-case'
   'g %': 'vim-mode-plus:encode-uri-component'
 
   # 'g n': 'vim-mode-plus:move-to-next-number'
@@ -190,31 +157,16 @@
 # 'atom-text-editor.vim-mode-plus.has-occurrence':
 'atom-text-editor.vim-mode-plus.has-occurrence:not(.insert-mode)':
   'r': 'vim-mode-plus:replace'
-
 #   'i': 'vim-mode-plus:insert-at-start-of-target'
 #   'e': 'vim-mode-plus:insert-at-end-of-target'
 
 'atom-text-editor.vim-mode-plus.normal-mode':
   'ctrl-cmd-c': 'user:clear-console'
 
-  # 'enter': 'vim-mode-plus:add-blank-line-below'
-  # 'shift-enter': 'vim-mode-plus:add-blank-line-above'
-
   '(': 'vim-mode-plus:move-to-previous-function'
   ')': 'vim-mode-plus:move-to-next-function'
-  # "\ d d": "keystroke:set-blackhole-register"
-  # 'cmd-t a': 'user:hello'
-  # 'B': 'vim-mode-plus:insert-at-start-of-inner-smart-word'
-  # 'E': 'vim-mode-plus:insert-at-end-of-inner-smart-word'
   'B': 'vim-mode-plus:insert-at-start-of-smart-word'
   'E': 'vim-mode-plus:insert-at-end-of-smart-word'
-
-
-  # 'ctrl-/': 'vim-mode-plus:insert-by-search'
-  # 'f': 'vim-mode-plus:search-current-line'
-  # 'g i': 'vim-mode-plus:insert-at-start-of-search-current-line'
-  # 'F': 'vim-mode-plus:search-current-line-backwards'
-  # 'g i': 'vim-mode-plus:insert-at-start-of-occurrence'
 
   'cmd-L': 'paner:very-right'
   'f7': 'vim-mode-plus:reload-packages'
@@ -235,7 +187,7 @@
   '{': 'vim-mode-plus:move-to-previous-fold-start'
   '}': 'vim-mode-plus:move-to-next-fold-start'
 
-  # 'cmd-z': 'vim-mode-plus:toggle-fold'
+  'cmd-z': 'vim-mode-plus:toggle-fold'
 
   'ctrl-j': 'focus-pane-or-panel:focus-below'
   'ctrl-k': 'focus-pane-or-panel:focus-above'
@@ -274,19 +226,10 @@
   'space t I': 'editor:toggle-indent-guide'
   'space t w': 'editor:toggle-soft-wrap'
   'space t n': 'editor:toggle-line-numbers'
-  # 'space N': 'editor:toggle-line-numbers'
 
   # surround: ys
   # -------------------------
   'S': 'vim-mode-plus:surround-smart-word'
-
-  # 's': 'vim-mode-plus:surround'
-  # # 's d': 'vim-mode-plus:delete-surround-any-pair'
-  # 's d': 'vim-mode-plus:delete-surround-any-pair'
-  # 's c': 'vim-mode-plus:change-surround-any-pair'
-  # 's c': 'vim-mode-plus:change-surround'
-  # 's w': 'vim-mode-plus:surround-word'
-  # 's m': 'vim-mode-plus:map-surround'
 
   # 'y s': 'vim-mode-plus:surround'
   # 'd s': 'vim-mode-plus:delete-surround'
@@ -328,22 +271,20 @@
   '_': 'vim-mode-plus:replace-with-register'
   'space m': 'quick-highlight:toggle'
   'space M': 'quick-highlight:clear'
+  'm': 'vim-mode-plus:toggle-preset-occurrence'
+  'M': 'vim-mode-plus:toggle-preset-subword-occurrence'
 
-# so that I can clear comment by `g / /`
-'atom-text-editor.vim-mode-plus.toggle-line-comments-pending':
-  '/': 'vim-mode-plus:inner-comment'
-
-'atom-text-editor.vim-mode-plus.delete-with-backhole-register-pending':
-  'd': 'vim-mode-plus-user:delete-with-backhole-register'
-
-'atom-text-editor.vim-mode-plus.operator-pending-mode.surround-pending':
-  's': 'vim-mode-plus:inner-current-line'
+# comment-in by `g / /`
+'atom-text-editor.vim-mode-plus.toggle-line-comments-pending': {'/': 'vim-mode-plus:inner-comment'}
+# change subword by `c d`
+'atom-text-editor.vim-mode-plus.change-pending': {'d': 'vim-mode-plus:inner-subword'}
 
 'atom-text-editor.vim-mode-plus.operator-pending-mode, atom-text-editor.vim-mode-plus.visual-mode':
-  'i q': 'vim-mode-plus-user:inner-subword'
+  'a q': 'vim-mode-plus:a-subword'
+  'i q': 'vim-mode-plus:inner-subword'
 
   ";": 'vim-mode-plus:inner-any-pair'
-
+  "'": 'vim-mode-plus:inner-any-pair'
   ":": 'vim-mode-plus:inner-any-pair-allow-forwarding'
 
   # Use closing pair as forwarding version of pair-text-object
@@ -359,25 +300,24 @@
   'i )': 'vim-mode-plus:inner-parenthesis-allow-forwarding'
   'a )': 'vim-mode-plus:a-parenthesis-allow-forwarding'
 
-# 'atom-text-editor':
-#   'space': 'core:move-right'
-#   'i': 'core:move-right'
-
 'atom-text-editor.vim-mode-plus.insert-mode':
   'ctrl-p': 'core:move-up'
   'j k': 'vim-mode-plus:activate-normal-mode' # jk to escape
 
-  # 'tab': 'user:move-to-first-character-of-line-or-indent'
   'ctrl-/': 'autocomplete-plus:activate'
 
   # 'ctrl-i': 'cursor-history:prev'
   # 'ctrl-o': 'cursor-history:prev'
 
-  # 'ctrl-cmd-c': 'keystroke:delete-current-word'
   'cmd-f': 'editor:move-to-end-of-word'
   'cmd-b': 'editor:move-to-beginning-of-word'
   'cmd-d': 'editor:delete-to-end-of-word'
-  'cmd-m': 'editor:select-word'
+
+  'ctrl-cmd-f': 'vim-mode-plus:move-to-next-subword'
+  'ctrl-cmd-b': 'vim-mode-plus:move-to-previous-subword'
+  'ctrl-cmd-d': 'editor:delete-to-end-of-subword'
+  'ctrl-cmd-w': 'editor:delete-to-beginning-of-subword'
+
   'ctrl-y': 'clip-history:paste'
   'cmd-y': 'clip-history:paste-newer'
   'ctrl-Y': 'clip-history:paste-last'
@@ -435,15 +375,9 @@
   ']': 'vim-mode-plus:search-visit-next'
   ';': 'core:confirm'
 
-# 'atom-text-editor.vim-mode-plus-search:not(.literal-mode):not(.search-occurrence)':
-  # 'ctrl-e': 'vim-mode-plus:search-land-to-end'
-  # 'space': 'vim-mode-plus:search-insert-wild-pattern'
-
-# 'atom-text-editor.vim-mode-plus-input':
-#   'ctrl-g': 'vim-mode-plus:input-cancel'
-
 'atom-text-editor.vim-mode-plus.operator-pending-mode':
   'c': 'vim-mode-plus:inner-smart-word'
+  ',': 'vim-mode-plus:operator-modifier-subword-occurrence'
 
   'C': 'vim-mode-plus:inner-whole-word'
   'p': 'vim-mode-plus:inner-paragraph'

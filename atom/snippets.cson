@@ -7,11 +7,11 @@
     body: "[vim-mode-plus](https://atom.io/packages/vim-mode-plus)"
 '.source.gfm':
   'code':
-    'prefix': '`c'
+    'prefix': 'cafe'
     'body': """
     ```coffeescript
     $1
-    ``
+    ```
     """
 '.source.js':
   'console log':
