@@ -21,8 +21,8 @@ consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
     klass.commandPrefix = 'vim-mode-plus-user'
     klass.registerCommand()
     klass.registerToSelectList()
-
-  class CoffeeCompile extends Base.getClass('TransformStringByExternalCommand')
+  TransformStringByExternalCommand = Base.getClass('TransformStringByExternalCommand')
+  class CoffeeCompile extends TransformStringByExternalCommand
     register(this)
     command: 'coffee'
     args: ['-csb', '--no-header']
