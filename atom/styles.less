@@ -2,11 +2,44 @@
 @import "ui-variables";
 @font-family-p: "Ricty";
 
+.quick-highlight-z-index(@name, @value) {
+  .quick-highlight.@{name} .region {
+    z-index: @value;
+  }
+}
+
+.quick-highlight-z-index(underline-01, 1);
+.quick-highlight-z-index(underline-02, 1);
+.quick-highlight-z-index(underline-03, 1);
+.quick-highlight-z-index(underline-04, 1);
+.quick-highlight-z-index(underline-05, 1);
+.quick-highlight-z-index(underline-06, 1);
+.quick-highlight-z-index(underline-07, 1);
+
 atom-text-editor div.lines div:last-child .line:last-child {
   .indent-guide {
     box-shadow: none;
   }
 }
+
+// .quick-highlight-underline(@name) {
+//   .quick-highlight.@{name} .region {
+//     border-width: 0px;
+//     border-radius: 0px;
+//     border-bottom-width: 2px;
+//     border-bottom-style: solid;
+//   }
+// }
+//
+// atom-text-editor {
+//   .quick-highlight-underline(box-01);
+//   .quick-highlight-underline(box-02);
+//   .quick-highlight-underline(box-03);
+//   .quick-highlight-underline(box-04);
+//   .quick-highlight-underline(box-05);
+//   .quick-highlight-underline(box-06);
+//   .quick-highlight-underline(box-07);
+// }
 
 // .flash (@name; @duration: .3s){
 //   animation-name: @name;
@@ -156,5 +189,16 @@ atom-text-editor div.lines div:last-child .line:last-child {
 //   }
 //   .vim-mode-plus-search-match.last .region {
 //     z-index: 1;
+//   }
+// }
+
+// .editor .gutter, atom-text-editor::shadow .gutter {
+//   .line-numbers {
+//     width: 2px;
+//     min-width: 2px;
+//     overflow: hidden;
+//     .line-number {
+//       width: 100px;
+//     }
 //   }
 // }

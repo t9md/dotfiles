@@ -31,8 +31,14 @@
     prefix: 'p'
     body: """
     {inspect} = require 'util'
-    p = (args...) -> console.log inspect(args...)
+    p = (args...) -> console.log inspect(args...)\n
     """
+  i:
+    prefix: 'i'
+    body: "{inspect} = require 'util'\n"
+  li:
+    prefix: 'li'
+    body: "console.log inspect(${1:msg})\n"
   d:
     prefix: 'd'
     body: 'debug "${1:hello}"'

@@ -29,15 +29,20 @@
       "atom-beautify"
       "color-picker"
       "source-preview-less"
-      "autocomplete-emojis"
       "vim-mode-plus-plugin-sample"
-      "relative-numbers"
       "linter-tslint"
-      "highlight-selected"
       "vim-mode"
       "minimap"
+      "minimap-quick-highlight"
+      "file-icons"
+      "autocomplete-emojis"
+      "project-find-navigation"
+      "relative-numbers"
     ]
     openEmptyEditorOnStart: false
+    packagesWithKeymapsDisabled: [
+      "highlight-selected"
+    ]
     themes: [
       "one-dark-ui"
       "one-dark-vivid-syntax"
@@ -57,17 +62,19 @@
     atomicSoftTabs: false
     autoIndentOnPaste: false
     fontFamily: "Ricty"
-    fontSize: 16
     invisibles: {}
     lineHeight: 1.3
     scrollPastEnd: true
     showIndentGuide: true
   "exception-reporting":
     userId: "e4cd677f-7184-fb31-7448-ec0b8eb79d92"
+  "file-icons":
+    strategies: {}
   "find-and-replace":
     openProjectFindResultsInRightPane: true
     scrollToResultOnLiveSearch: true
   "fold-comments": {}
+  "git-diff": {}
   "keymap-disabler": {}
   keystroke:
     commands: [
@@ -92,7 +99,28 @@
   "markdown-table-formatter":
     autoSelectEntireDocument: false
     formatOnSave: false
-  narrow: {}
+  minimap:
+    moveCursorOnMinimapClick: true
+    plugins:
+      "minimap-quick-highlight": true
+      "minimap-quick-highlightDecorationsZIndex": 0
+  narrow:
+    AtomScan:
+      closeOnConfirm: false
+    Bookmarks:
+      closeOnConfirm: false
+    Fold:
+      closeOnConfirm: false
+    GitDiff:
+      closeOnConfirm: false
+    Lines:
+      closeOnConfirm: false
+    Linter:
+      closeOnConfirm: false
+    Search:
+      closeOnConfirm: false
+    Symbols:
+      closeOnConfirm: false
   paner:
     debug: true
   "project-find-navigation": {}
@@ -103,8 +131,10 @@
     ]
   "quick-highlight":
     highlightSelection: false
+    highlightSelectionMinimumLength: 4
   "recent-finder": {}
   "relative-numbers":
+    softWrapsCount: false
     trueNumberCurrentLine: false
   "run-in-atom":
     clearConsole: false
@@ -132,7 +162,6 @@
   "toggle-quotes": {}
   transformer: {}
   "tree-view":
-    focusOnReveal: false
     hideVcsIgnoredFiles: true
   try:
     basename: "tryit"
@@ -143,15 +172,18 @@
     debug: true
     debugOutput: "console"
     debugOutputFilePath: "~/github/atom-vim-mode-plus/debug.log"
+    devReloadPackages: [
+      "vim-mode-plus-move-selected-text"
+      "narrow"
+      "quick-highlight"
+    ]
     fallbackTabAndShiftTabInNormalMode: false
     flashOnOperateBlacklist: [
-      "JasmineIncreaseFocus"
-      "JasmineDecreaseFocus"
       "ReplaceWithExecution"
       "ReplaceWithExecutionKeepOriginalText"
       "SplitCharacter"
     ]
-    hideStatusBarOnMaximizePane: false
+    hideTabBarOnMaximizePane: false
     highlightSearch: true
     highlightSearchExcludeScopes: [
       "narrow"
@@ -159,7 +191,6 @@
     incrementalSearch: true
     keepColumnOnSelectTextObject: true
     moveToFirstCharacterOnVerticalMotion: false
-    setCursorToStartOfChangeOnUndoRedo: false
     smoothScrollOnFullScrollMotion: true
     smoothScrollOnHalfScrollMotion: true
     stayOnDelete: true
@@ -171,12 +202,6 @@
     useSmartcaseForSearchCurrentWord: true
   "vim-mode-plus-jasmine-increase-focus":
     autoSave: true
-    focusTexts: [
-      "f"
-      "ff"
-      "fff"
-      "x"
-    ]
   "vim-mode-plus-move-selected-text": {}
   "vim-mode-plus-replace-with-execution":
     registerToSelectList: true

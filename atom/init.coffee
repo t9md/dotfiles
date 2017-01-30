@@ -5,12 +5,16 @@ path = require 'path'
 
 # General service comsumer factory
 # -------------------------
+
 consumeService = (packageName, providerName, fn) ->
-  disposable = atom.packages.onDidActivatePackage (pack) ->
-    if pack.name is packageName
-      service = pack.mainModule[providerName]()
-      fn(service)
-      disposable.dispose()
+  if atom.packages.isPackageActive(packageName)
+    pack = atom.packages.getActivePackage(packageName)
+    fn(pack.mainModule[providerName]())
+  else
+    disposable = atom.packages.onDidActivatePackage (pack) ->
+      if pack.name is packageName
+        disposable.dispose()
+        fn(pack.mainModule[providerName]())
 
 getEditorState = null
 
@@ -35,6 +39,7 @@ consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
       "console.log #{selection.getText()}"
 
   class CoffeeInspect extends TransformStringByExternalCommand
+    # [1..10]
     register(this)
     command: 'coffee'
     args: ['-se']
@@ -88,3 +93,5 @@ atom.commands.add 'atom-workspace',
 
   'user:package-hot-reload': ->
     hotReloadPackages()
+
+# console.log atom.packages.isPackageActive('vim-mode-plus')
