@@ -35,8 +35,6 @@
       "autocomplete-emojis"
       "relative-numbers"
       "atom-text-editor-exercise"
-      "project-find-navigation"
-      "lazy-motion"
     ]
     openEmptyEditorOnStart: false
     themes: [
@@ -58,11 +56,11 @@
     atomicSoftTabs: false
     autoIndentOnPaste: false
     fontFamily: "Ricty"
+    fontSize: 17
     invisibles: {}
     lineHeight: 1.3
     scrollPastEnd: true
     showIndentGuide: true
-    showInvisibles: true
   "exception-reporting":
     userId: "e4cd677f-7184-fb31-7448-ec0b8eb79d92"
   "file-icons":
@@ -73,10 +71,11 @@
   "fold-comments": {}
   "git-diff": {}
   "keymap-disabler": {}
-  "lazy-motion":
-    showHoverIndicator: false
   linter:
     gutterEnabled: false
+  "linter-eslint":
+    fixOnSave: true
+    useGlobalEslint: true
   "markdown-table-formatter":
     autoSelectEntireDocument: false
     formatOnSave: false
@@ -85,22 +84,18 @@
       closeOnConfirm: false
     Bookmarks:
       closeOnConfirm: false
-    Fold:
-      closeOnConfirm: false
-    GitDiff:
-      closeOnConfirm: false
-    Lines:
+    GitDiffAll:
       closeOnConfirm: false
     Linter:
       closeOnConfirm: false
     Scan: {}
     Search:
       closeOnConfirm: false
+      startByDoubleClick: true
     Symbols: {}
     confirmOnUpdateRealFile: false
   paner:
     debug: true
-  "project-find-navigation": {}
   "project-folder":
     closeItemsForRemovedProject: true
     gitProjectDirectories: [
@@ -116,10 +111,6 @@
   "run-in-atom":
     clearConsole: false
     openDeveloperToolsOnRun: false
-  smalls:
-    flashOnLand: false
-    flashType: "match"
-    labelChars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   "spell-check":
     locales: [
       "en-US"
@@ -139,6 +130,7 @@
   "toggle-quotes": {}
   transformer: {}
   "tree-view":
+    focusOnReveal: false
     hideVcsIgnoredFiles: true
   try:
     basename: "tryit"

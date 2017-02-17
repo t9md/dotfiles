@@ -47,12 +47,6 @@
 
   # [project-folder]
   'ctrl-alt-p': 'project-folder:add'
-  'ctrl-cmd-f': 'project-find-navigation:activate-results-pane'
-
-  # [project-find-navigation]
-  'ctrl-cmd-n': 'project-find-navigation:next'
-  'ctrl-cmd-p': 'project-find-navigation:prev'
-
 
 'atom-text-editor.vim-mode-plus.visual-mode.blockwise':
   # t9md/atom-vim-mode-plus#214
@@ -60,6 +54,10 @@
 
 # 'atom-text-editor.vim-mode-plus.is-focused':
 #   'shift-f10': 'user:hello'
+
+'atom-text-editor':
+  'cmd-]': 'cursor-history:next'
+  'cmd-[': 'cursor-history:prev'
 
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
   'cmd-a': 'vim-mode-plus:inner-entire'
@@ -79,14 +77,19 @@
   'q': 'vim-mode-plus:move-to-next-subword'
   'Q': 'vim-mode-plus:move-to-previous-subword'
 
-  'ctrl-e': 'vim-mode-plus:move-to-end-of-subword'
+  # 'ctrl-e': 'vim-mode-plus:move-to-end-of-subword'
 
   # ', N': 'vim-mode-plus:move-to-previous-number'
   # ', n': 'vim-mode-plus:move-to-next-number'
 
   'space f': 'narrow:fold'
   'space o': 'narrow:symbols'
+
+  'cmd-o': 'narrow:symbols-by-current-word'
   'cmd-r': 'narrow:symbols'
+
+  'shift-cmd-o': 'narrow:project-symbols-by-current-word'
+  'shift-cmd-r': 'narrow:project-symbols'
 
   'space l': 'narrow:scan'
   'space L': 'narrow:scan-by-current-word'
@@ -94,6 +97,11 @@
   'space C': 'narrow:linter'
   'space s': 'narrow:search'
   'shift-cmd-g': 'narrow:search-by-current-word'
+  'enter': 'narrow:search-by-current-word'
+  # 'shift-cmd-g': 'narrow:search-current-project-by-current-word'
+  # 'enter': 'narrow:search-current-project-by-current-word'
+
+  'cmd-e': 'narrow:search-by-current-word'
   'space S': 'narrow:search-by-current-word'
   'space a': 'narrow:atom-scan'
   'space A': 'narrow:atom-scan-by-current-word'
@@ -176,13 +184,8 @@
   'ctrl-right': 'check-right'
   'ctrl-left': 'check-left'
 
-  'ctrl-;': 'smalls:start'
-  # 'ctrl-:': 'smalls:start-word-jump'
   'cmd-i': 'transformer:run'
   'shift-cmd-i': 'transformer:compile'
-
-'atom-text-editor.smalls.search':
-  ';': 'smalls:jump'
 
 # 'atom-text-editor.vim-mode-plus.has-occurrence':
 # 'atom-text-editor.vim-mode-plus.has-occurrence:not(.insert-mode)':
@@ -199,7 +202,7 @@
 
   # '(': 'vim-mode-plus:move-to-previous-function'
   # ')': 'vim-mode-plus:move-to-next-function'
-  'B': 'vim-mode-plus:insert-at-start-of-smart-word'
+  # 'B': 'vim-mode-plus:insert-at-start-of-smart-word'
   'E': 'vim-mode-plus:insert-at-end-of-smart-word'
 
   'cmd-L': 'paner:very-right'
@@ -245,7 +248,6 @@
   'space g d': 'git-diff:toggle-diff-list'
 
   'space p': 'project-folder:add'
-  'space ;': 'smalls:start'
   # 'space n l': 'narrow:lines-by-current-word'
   # 'f9': 'toggle:there'
   '-': 'toggle:there'
@@ -284,17 +286,10 @@
   'g x': 'link:open'
   'T': 'try:paste'
   'space T': 'try:open-file'
-  # 's': 'lazy-motion:forward'
 
 'atom-text-editor[mini]':
   'ctrl-u': 'editor:delete-to-beginning-of-line'
   'ctrl-w': 'editor:delete-to-beginning-of-word'
-
-'atom-text-editor.lazy-motion':
-  ']': 'lazy-motion:forward'
-  '[': 'lazy-motion:backward'
-  ';': 'core:confirm'
-  'cmd-e': 'lazy-motion:set-cursor-word'
 
 'atom-text-editor.vim-mode-plus.visual-mode[data-grammar="source gfm"]':
   'f5': 'vim-mode-plus-user:replace-with-execution'
@@ -464,6 +459,11 @@
   'cmd-f': 'narrow:focus'
   'cmd-i': 'narrow:focus-prompt'
   'ctrl-cmd-l': 'narrow:refresh'
+  'backspace': 'narrow:close'
+  # 'dblclick': 'user:hello'
+
+  # 'cmd ^cmd': 'narrow:close'
+
   # 'q': 'core:close'
 
 'atom-workspace.has-narrow atom-text-editor.vim-mode-plus.normal-mode:not(.narrow-editor)':
@@ -476,6 +476,8 @@
   'q': 'core:close'
   'ctrl-right': 'pane:split-right-and-move-active-item'
   'ctrl-left': 'pane:split-left-and-move-active-item'
+  'backspace': 'narrow:close'
+  '-': 'narrow-ui:exclude-file'
 
 # On narrow-editor
 'atom-text-editor.narrow.narrow-editor[data-grammar="source narrow"]':
@@ -486,10 +488,16 @@
   # 'ctrl-cmd-tab': 'narrow-ui:move-to-prompt-or-selected-item'
 
 'atom-text-editor.narrow.narrow-editor.vim-mode-plus.normal-mode[data-grammar="source narrow"],
-atom-text-editor.narrow.narrow-editor.vim-mode-plus.insert-mode[data-grammar="source narrow"]':
-  ';': 'narrow-ui:confirm-keep-open'
-  ']': 'narrow-ui:preview-next-item'
-  '[': 'narrow-ui:preview-previous-item'
+  atom-text-editor.narrow.narrow-editor.vim-mode-plus.insert-mode[data-grammar="source narrow"]':
+    ';': 'narrow-ui:confirm-keep-open'
+    "enter": 'core:confirm'
+    ']': 'narrow-ui:preview-next-item'
+    '[': 'narrow-ui:preview-previous-item'
+    # 'backspace': 'narrow:close'
+    # 'cmd ^cmd': 'narrow:close'
+
+# 'atom-text-editor.narrow.narrow-editor.vim-mode-plus.normal-mode[data-grammar="source narrow"]':
+#   'backspace': 'narrow:close'
 
 # 'atom-text-editor.narrow.narrow-editor.vim-mode-plus.insert-mode[data-grammar="source narrow"]':
 #   ';': 'core:confirm'
