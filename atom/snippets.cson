@@ -21,12 +21,23 @@
   'console log':
     prefix: 'l'
     body: 'console.log '
+  'TODO#704':
+    prefix: 't'
+    body: '# TODO#704 '
+  'NOTE#704':
+    prefix: 'n'
+    body: '# NOTE#704 '
   'Undescore Plus':
     prefix: '_'
     body: '_ = require \'underscore-plus\''
   vmp:
     prefix: 'vmp'
     body: "vim-mode-plus"
+  assert:
+    prefix: 'ass'
+    body: """
+      atom.assert(false, "${1:msg} should not be called.")
+      """
   p:
     prefix: 'p'
     body: """
@@ -55,13 +66,13 @@
   dev:
     prefix: 'dev'
     body: """
-    editor = atom.workspace.getActiveTextEditor()
-    cursor = editor.getLastCursor()
-    cursorPosition = cursor.getBufferPosition()
-    selection = editor.getLastSelection()
-
     fun = (arg) ->
-      console.log arg
+      editor = atom.workspace.getActiveTextEditor()
+      editorElement = editor.element
+      cursor = editor.getLastCursor()
+      cursorPosition = cursor.getBufferPosition()
+      selection = editor.getLastSelection()
+      # do something
 
     disposable?.dispose()
     disposable = atom.commands.add 'atom-workspace',

@@ -5,7 +5,6 @@ path = require 'path'
 
 # General service comsumer factory
 # -------------------------
-
 consumeService = (packageName, providerName, fn) ->
   if atom.packages.isPackageActive(packageName)
     pack = atom.packages.getActivePackage(packageName)
@@ -25,6 +24,7 @@ consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
     klass.commandPrefix = 'vim-mode-plus-user'
     klass.registerCommand()
     klass.registerToSelectList()
+
   TransformStringByExternalCommand = Base.getClass('TransformStringByExternalCommand')
   class CoffeeCompile extends TransformStringByExternalCommand
     register(this)
@@ -51,6 +51,14 @@ consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
 
 getActiveVimState = ->
   getEditorState(atom.workspace.getActiveTextEditor())
+
+# toggleDevTools = ->
+#   activePane = atom.workspace.getActivePane()
+#   atom.toggleDevTools().then ->
+#     # activePane.focus()
+#     atom.focus()
+#     # console.log "WHOOO", activePane.isFocused()
+#     # atom.workspace.ac
 
 hotReloadPackages = ->
   atom.project.getPaths().forEach (projectPath) ->
@@ -94,4 +102,8 @@ atom.commands.add 'atom-workspace',
   'user:package-hot-reload': ->
     hotReloadPackages()
 
-# console.log atom.packages.isPackageActive('vim-mode-plus')
+  'user:vmp-version': ->
+    console.log atom.packages.getActivePackage('vim-mode-plus').metadata.version
+
+  # 'user:toggle-dev-tools': ->
+  #   toggleDevTools()

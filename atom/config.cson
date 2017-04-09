@@ -5,7 +5,6 @@
       "vim-mode-plus.visual-mode"
       "vim-mode-plus.operator-pending-mode"
       "vim-mode-plus.insert-mode.replace"
-      "narrow"
     ]
   "choose-pane":
     labelChars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -20,32 +19,24 @@
       "about"
       "background-tips"
       "welcome"
-      "phrase"
       "package-generator"
       "metrics"
-      "language-elm"
-      "autocomplete-haskell"
-      "script"
-      "atom-beautify"
-      "color-picker"
-      "source-preview-less"
-      "vim-mode-plus-plugin-sample"
-      "linter-tslint"
-      "vim-mode"
       "autocomplete-emojis"
       "relative-numbers"
-      "atom-text-editor-exercise"
+      "vim-mode"
     ]
     openEmptyEditorOnStart: false
     themes: [
       "one-dark-ui"
       "one-dark-vivid-syntax"
     ]
-    useCustomTitleBar: true
+    titleBar: "custom"
   "cursor-history":
     columnDeltaToRemember: 5
     flashOnLand: true
     searchAllPanes: false
+  "demo-mode":
+    maxKeystrokeToShow: 3
   dev:
     _group___abc2: {}
     trackActivePaneItem: false
@@ -54,13 +45,12 @@
   "disable-keybindings": {}
   editor:
     atomicSoftTabs: false
-    autoIndentOnPaste: false
     fontFamily: "Ricty"
     fontSize: 17
     invisibles: {}
-    lineHeight: 1.3
     scrollPastEnd: true
     showIndentGuide: true
+    showInvisibles: true
   "exception-reporting":
     userId: "e4cd677f-7184-fb31-7448-ec0b8eb79d92"
   "file-icons":
@@ -72,30 +62,36 @@
   "git-diff": {}
   "keymap-disabler": {}
   linter:
-    gutterEnabled: false
+    lintOnChange: false
   "linter-eslint":
     fixOnSave: true
     useGlobalEslint: true
+  "linter-ui-default":
+    showStatusBar: false
+    useBusySignal: false
   "markdown-table-formatter":
     autoSelectEntireDocument: false
     formatOnSave: false
   narrow:
-    AtomScan:
-      closeOnConfirm: false
-    Bookmarks:
-      closeOnConfirm: false
-    GitDiffAll:
-      closeOnConfirm: false
-    Linter:
-      closeOnConfirm: false
+    AtomScan: {}
+    Bookmarks: {}
+    Fold: {}
+    GitDiff: {}
+    GitDiffAll: {}
+    Linter: {}
+    ProjectSymbols: {}
     Scan: {}
     Search:
-      closeOnConfirm: false
-      startByDoubleClick: true
+      rememberIgnoreCaseForByCurrentWordSearch: true
+    SelectFiles:
+      rememberQuery: true
     Symbols: {}
     confirmOnUpdateRealFile: false
+  "nord-atom-ui": {}
   paner:
     debug: true
+  "project-find-navigation":
+    showDeprecationWarning: false
   "project-folder":
     closeItemsForRemovedProject: true
     gitProjectDirectories: [
@@ -107,7 +103,6 @@
   "recent-finder": {}
   "relative-numbers":
     softWrapsCount: false
-    trueNumberCurrentLine: false
   "run-in-atom":
     clearConsole: false
     openDeveloperToolsOnRun: false
@@ -115,6 +110,12 @@
     locales: [
       "en-US"
     ]
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    scrollSyncType: "Vertical + Horizontal"
   "status-bar": {}
   "symbols-view":
     quickJumpToFileSymbol: false
@@ -131,7 +132,6 @@
   transformer: {}
   "tree-view":
     focusOnReveal: false
-    hideVcsIgnoredFiles: true
   try:
     basename: "tryit"
     root: "~/tryit"
@@ -141,12 +141,15 @@
     debug: true
     debugOutput: "console"
     debugOutputFilePath: "~/github/atom-vim-mode-plus/debug.log"
+    demoAutoHideTimeout: 1500
     devReloadPackages: [
       "vim-mode-plus-move-selected-text"
+      "vim-mode-plus-jasmine-increase-focus"
       "narrow"
       "quick-highlight"
+      "demo-mode"
     ]
-    fallbackTabAndShiftTabInNormalMode: false
+    flashOnMoveToOccurrence: true
     flashOnOperateBlacklist: [
       "ReplaceWithExecution"
       "ReplaceWithExecutionKeepOriginalText"
@@ -159,13 +162,19 @@
     ]
     incrementalSearch: true
     keepColumnOnSelectTextObject: true
+    keymapBackslashToInnerCommentOrParagraphWhenToggleLineCommentsIsPending: true
+    keymapCCToChangeInnerSmartWord: true
+    keymapSemicolonToInnerAnyPairInOperatorPendingMode: true
+    keymapSemicolonToInnerAnyPairInVisualMode: true
+    keymapUnderscoreToReplaceWithRegister: true
     moveToFirstCharacterOnVerticalMotion: false
     smoothScrollOnFullScrollMotion: true
     smoothScrollOnHalfScrollMotion: true
     stayOnDelete: true
     stayOnTransformString: true
     stayOnYank: true
-    throwErrorOnNonEmptySelectionInNormalMode: true
+    strictAssertion: true
+    updateRegisterOnChangeOrSubstitute: false
     useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
     useSmartcaseForSearchCurrentWord: true
@@ -181,4 +190,7 @@
     autoIndentOnPaste: true
 ".go.source":
   editor:
-    tabLength: 2
+    tabLength: 4
+".js.source":
+  editor:
+    autoIndent: true
