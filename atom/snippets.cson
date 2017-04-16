@@ -33,6 +33,9 @@
   vmp:
     prefix: 'vmp'
     body: "vim-mode-plus"
+  incompatibile:
+    prefix: 'inc'
+    body: "incompatible-with-pure-vim"
   assert:
     prefix: 'ass'
     body: """

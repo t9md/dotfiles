@@ -1,7 +1,13 @@
 {Range} = require 'atom'
 path = require 'path'
+_ = require 'underscore-plus'
 # _ = require 'underscore-plus'
 # fs = require 'fs-plus'
+
+# fontFamily: "Ricty"
+# fontFamily: "Iosevka-Light"
+# fontFamily: "FiraCode-Retina"
+
 
 # General service comsumer factory
 # -------------------------
@@ -52,6 +58,23 @@ consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
 getActiveVimState = ->
   getEditorState(atom.workspace.getActiveTextEditor())
 
+countVmpDecorations = (arg) ->
+  getDecorations = (editor) ->
+    pattern = /vim-mode-plus/
+
+    decorations = []
+    for id, decoration of editor.decorationsStateForScreenRowRange(0, editor.getLineCount())
+      if decoration.properties.class.match(pattern)
+        decorations.push(decoration)
+    decorations
+
+  decorations = []
+  for editor in atom.workspace.getTextEditors()
+    decorations.push(getDecorations(editor)...)
+  countResult = _.countBy decorations, (d) -> d.properties.class
+  {inspect} = require 'util'
+  console.log inspect(countResult)
+
 # toggleDevTools = ->
 #   activePane = atom.workspace.getActivePane()
 #   atom.toggleDevTools().then ->
@@ -88,6 +111,9 @@ atom.commands.add 'atom-workspace',
 
   'user:open-tryit-coffee': ->
     atom.workspace.open("/Users/t9md/Dropbox/vim/tryit/tryit.coffee")
+
+  'user:count-vmp-decorations': ->
+    countVmpDecorations()
 
   'user:hello': ->
     console.log "hello!"

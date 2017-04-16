@@ -1,6 +1,17 @@
 @import "syntax-variables";
 @import "ui-variables";
-@font-family-p: "Ricty";
+// @font-family-p: "Ricty";
+// @font-family-p: "Iosevka";
+
+// https://github.com/tonsky/FiraCode/wiki/Atom-instructions
+atom-text-editor {
+  text-rendering: optimizeLegibility;
+}
+atom-text-editor.editor .syntax--string.syntax--quoted,
+atom-text-editor.editor .syntax--comment,
+atom-text-editor.editor .syntax--string.syntax--regexp {
+  -webkit-font-feature-settings: "liga" off, "calt" off;
+}
 
 atom-text-editor div.lines div:last-child .line:last-child {
   .indent-guide {
@@ -9,20 +20,12 @@ atom-text-editor div.lines div:last-child .line:last-child {
 }
 
 .demo-mode-container {
-  min-width: 30em;
-  font-family: "Ricty";
-  font-size: 1.5em;
+  font-family: "FiraCode-Retina";
+  font-size: 1.2em;
   .keystroke {
-    // font-size: 1.5em;
   }
   .command {
-    // font-size: 1.0em;
   }
   .kind {
   }
 }
-// .demo-mode-container.fading {
-//   animation-name: demo-mode-fade;
-//   animation-duration: 0.8s;
-//   animation-iteration-count: 1;
-// }

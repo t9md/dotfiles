@@ -10,6 +10,7 @@
     labelChars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   "clip-history": {}
   core:
+    automaticallyUpdate: false
     closeEmptyWindows: false
     destroyEmptyPanes: true
     disabledPackages: [
@@ -21,9 +22,11 @@
       "welcome"
       "package-generator"
       "metrics"
-      "autocomplete-emojis"
       "relative-numbers"
       "vim-mode"
+      "autocomplete-emojis"
+      "color-picker"
+      "token-navigation"
     ]
     openEmptyEditorOnStart: false
     themes: [
@@ -36,6 +39,7 @@
     flashOnLand: true
     searchAllPanes: false
   "demo-mode":
+    autoHideTimeout: 1500
     maxKeystrokeToShow: 3
   dev:
     _group___abc2: {}
@@ -45,12 +49,10 @@
   "disable-keybindings": {}
   editor:
     atomicSoftTabs: false
-    fontFamily: "Ricty"
-    fontSize: 17
+    fontFamily: "FiraCode-Retina"
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
-    showInvisibles: true
   "exception-reporting":
     userId: "e4cd677f-7184-fb31-7448-ec0b8eb79d92"
   "file-icons":
@@ -132,6 +134,7 @@
   transformer: {}
   "tree-view":
     focusOnReveal: false
+    hideVcsIgnoredFiles: true
   try:
     basename: "tryit"
     root: "~/tryit"
