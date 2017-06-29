@@ -1,4 +1,42 @@
 "*":
+  Hydrogen:
+    autocomplete: false
+    kernelspec: '''
+      { "kernelspecs": {
+          "javascript": {
+            "resource_dir": "/Users/t9md/Library/Jupyter/kernels/javascript",
+            "spec": {
+              "language": "javascript",
+              "display_name": "Javascript (Node.js)",
+              "env": {},
+              "argv": [
+                "ijskernel",
+                "--hide-undefined",
+                "{connection_file}",
+                "--protocol=5.0"
+              ]
+            }
+          },
+          "python2": {
+            "resource_dir": "/usr/local/share/jupyter/kernels/python2",
+            "spec": {
+              "language": "python",
+              "display_name": "Python 2",
+              "env": {},
+              "argv": [
+                "python",
+                "-m",
+                "ipykernel_launcher",
+                "-f",
+                "{connection_file}"
+              ]
+            }
+          }
+        }
+      }
+
+    '''
+    languageMappings: "{\"javascript\": \"babel es6 javascript\"}"
   "autocomplete-plus":
     suppressActivationForEditorClasses: [
       "vim-mode-plus.normal-mode"
@@ -11,8 +49,8 @@
   "clip-history": {}
   core:
     automaticallyUpdate: false
+    closeDeletedFileTabs: true
     closeEmptyWindows: false
-    destroyEmptyPanes: true
     disabledPackages: [
       "package-that-throws-an-exception"
       "package-with-broken-package-json"
@@ -22,18 +60,31 @@
       "welcome"
       "package-generator"
       "metrics"
-      "relative-numbers"
       "vim-mode"
-      "autocomplete-emojis"
+      "encoding-selector"
+      "archive-view"
+      "autosave"
+      "markdown-table-formatter"
+      "language-elm"
       "color-picker"
-      "token-navigation"
+      "busy-signal"
+      "intentions"
+      "keystroke"
+      "bookmarks"
+      "recent-finder"
+      "github"
+      "linter-eslint"
+      "linter-ui-default"
+      "atom-hot-package-loader"
+      "flow-ide"
+      "language-julia"
     ]
     openEmptyEditorOnStart: false
     themes: [
       "one-dark-ui"
       "one-dark-vivid-syntax"
     ]
-    titleBar: "custom"
+    titleBar: "hidden"
   "cursor-history":
     columnDeltaToRemember: 5
     flashOnLand: true
@@ -50,6 +101,7 @@
   editor:
     atomicSoftTabs: false
     fontFamily: "FiraCode-Retina"
+    fontSize: 17
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -62,13 +114,23 @@
     scrollToResultOnLiveSearch: true
   "fold-comments": {}
   "git-diff": {}
+  "js-hyperclick":
+    jumpToImport: true
   "keymap-disabler": {}
+  keystroke:
+    commands: [
+      {
+        name: "escape-and-move-right"
+        keystroke: "escape l"
+        scope: "atom-text-editor"
+      }
+    ]
   linter:
     lintOnChange: false
   "linter-eslint":
-    fixOnSave: true
     useGlobalEslint: true
   "linter-ui-default":
+    panelHeight: 69
     showStatusBar: false
     useBusySignal: false
   "markdown-table-formatter":
@@ -76,22 +138,27 @@
     formatOnSave: false
   narrow:
     AtomScan: {}
-    Bookmarks: {}
-    Fold: {}
-    GitDiff: {}
-    GitDiffAll: {}
-    Linter: {}
     ProjectSymbols: {}
     Scan: {}
     Search:
-      rememberIgnoreCaseForByCurrentWordSearch: true
+      startByDoubleClick: true
     SelectFiles:
       rememberQuery: true
-    Symbols: {}
     confirmOnUpdateRealFile: false
   "nord-atom-ui": {}
   paner:
     debug: true
+  "prettier-atom":
+    formatOnSaveOptions:
+      excludedGlobs: [
+        "tryit.js"
+      ]
+    prettierOptions:
+      bracketSpacing: false
+      printWidth: 100
+      semi: false
+      trailingComma: "es5"
+    useEslint: true
   "project-find-navigation":
     showDeprecationWarning: false
   "project-folder":
@@ -102,6 +169,7 @@
   "quick-highlight":
     highlightSelection: false
     highlightSelectionMinimumLength: 4
+  react: {}
   "recent-finder": {}
   "relative-numbers":
     softWrapsCount: false
@@ -134,6 +202,7 @@
   transformer: {}
   "tree-view":
     focusOnReveal: false
+    hideIgnoredNames: true
     hideVcsIgnoredFiles: true
   try:
     basename: "tryit"
@@ -141,7 +210,6 @@
   "vim-mode-plus":
     clearHighlightSearchOnResetNormalMode: true
     clearPersistentSelectionOnResetNormalMode: true
-    debug: true
     debugOutput: "console"
     debugOutputFilePath: "~/github/atom-vim-mode-plus/debug.log"
     demoAutoHideTimeout: 1500
@@ -177,10 +245,10 @@
     stayOnTransformString: true
     stayOnYank: true
     strictAssertion: true
-    updateRegisterOnChangeOrSubstitute: false
-    useClipboardAsDefaultRegister: true
     useSmartcaseForSearch: true
     useSmartcaseForSearchCurrentWord: true
+  "vim-mode-plus-ex-mode":
+    notifiedUseExMode: true
   "vim-mode-plus-jasmine-increase-focus":
     autoSave: true
   "vim-mode-plus-move-selected-text": {}

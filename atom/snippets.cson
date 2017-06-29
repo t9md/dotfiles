@@ -14,9 +14,45 @@
     ```
     """
 '.source.js':
+  'prettier':
+    prefix: 'ppi'
+    body: '// prettier-ignore'
   'console log':
-    prefix: 'cl'
-    body: 'console.log '
+    prefix: 'l'
+    body: 'console.log($1);'
+  'return':
+    prefix: 'r'
+    body: 'return $1'
+  'Undescore Plus':
+    prefix: '_'
+    body: '_ = require("underscore-plus")'
+  'p':
+    prefix: 'p'
+    body: """
+      const {inspect} = require("util")
+      const p = (...args) => {
+        console.log(inspect(...args, {depth: null}))
+      }
+      """
+  dev:
+    prefix: 'dev'
+    body: """
+    function fun(arg) {
+      const editor = atom.workspace.getActiveTextEditor()
+      const editorElement = editor.element
+      const cursor = editor.getLastCursor()
+      const cursorPosition = cursor.getBufferPosition()
+      const selection = editor.getLastSelection()
+      // do something
+    }
+
+    if (global._disposable) _disposable.dispose()
+
+    _disposable = atom.commands.add("atom-workspace", {
+      "check-up": () => fun(2),
+    })
+    console.log("loaded")
+    """
 '.source.coffee':
   'console log':
     prefix: 'l'
@@ -36,6 +72,11 @@
   incompatibile:
     prefix: 'inc'
     body: "incompatible-with-pure-vim"
+  schema:
+    prefix: 'schema'
+    body: """
+      atom.clipboard.write('"configSchema": ' + JSON.stringify(CONFIG, null, '  ') + ",\n" )
+      """
   assert:
     prefix: 'ass'
     body: """
@@ -79,10 +120,8 @@
 
     disposable?.dispose()
     disposable = atom.commands.add 'atom-workspace',
-      'check-up': -> fun('up')
-      'check-down': -> fun('down')
-      'check-right': -> fun('right')
-      'check-left': -> fun('left')
+      'check-up': -> fun()
+    console.log "loaded"
     """
   cursor:
     prefix: 'c'

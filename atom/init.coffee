@@ -1,13 +1,10 @@
-{Range} = require 'atom'
+{Range, CompositeDisposable, Disposable} = require 'atom'
 path = require 'path'
 _ = require 'underscore-plus'
-# _ = require 'underscore-plus'
-# fs = require 'fs-plus'
 
 # fontFamily: "Ricty"
 # fontFamily: "Iosevka-Light"
 # fontFamily: "FiraCode-Retina"
-
 
 # General service comsumer factory
 # -------------------------
@@ -24,6 +21,7 @@ consumeService = (packageName, providerName, fn) ->
 getEditorState = null
 
 consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
+  # return
   {Base, getEditorState, observeVimStates} = service
 
   register = (klass) ->
@@ -75,19 +73,15 @@ countVmpDecorations = (arg) ->
   {inspect} = require 'util'
   console.log inspect(countResult)
 
-# toggleDevTools = ->
-#   activePane = atom.workspace.getActivePane()
-#   atom.toggleDevTools().then ->
-#     # activePane.focus()
-#     atom.focus()
-#     # console.log "WHOOO", activePane.isFocused()
-#     # atom.workspace.ac
-
 hotReloadPackages = ->
   atom.project.getPaths().forEach (projectPath) ->
     packName = path.basename(projectPath)
     packName = packName.replace(/^atom-/, '')
     pack = atom.packages.getLoadedPackage(packName)
+    unless pack?
+      # Retry with capitalized name. e.g hydrogen -> Hydrogen
+      packName = packName[0].toUpperCase() + packName[1...]
+      pack = atom.packages.getLoadedPackage(packName)
 
     if pack?
       console.log "deactivating #{packName}"
@@ -95,16 +89,27 @@ hotReloadPackages = ->
       atom.packages.unloadPackage(packName)
 
       Object.keys(require.cache)
-        .filter (p) ->
-          p.indexOf(projectPath + path.sep) is 0
+        .filter (p) -> p.indexOf(projectPath + path.sep) is 0
         .forEach (p) ->
-          delete require.cache[p]
+          unless p.includes('/node_modules/zeromq/')
+            delete require.cache[p]
 
       atom.packages.loadPackage(packName)
       atom.packages.activatePackage(packName)
       console.log "activated #{packName}"
 
+saveListOfActiveCommunityPackagesToClipBoard = (arg) ->
+  listOfActiveCommunityPackages = atom.packages.getActivePackages()
+    .filter (pack) -> not atom.packages.isBundledPackage(pack.name)
+    .map (pack) -> pack.name + ': ' + pack.metadata.version
+    .join("\n") + "\n"
+  atom.clipboard.write(listOfActiveCommunityPackages)
+
 atom.commands.add 'atom-workspace',
+  'user:save-list-of-active-community-packages-to-clip-board': ->
+  'user:save-list-of-active-community-packages-to-clip-board': ->
+    saveListOfActiveCommunityPackagesToClipBoard()
+
   'user:inspect-element': ->
     atom.openDevTools()
     atom.executeJavaScriptInDevTools('DevToolsAPI.enterInspectElementMode()')
@@ -131,5 +136,10 @@ atom.commands.add 'atom-workspace',
   'user:vmp-version': ->
     console.log atom.packages.getActivePackage('vim-mode-plus').metadata.version
 
-  # 'user:toggle-dev-tools': ->
-  #   toggleDevTools()
+  'user:clip-as-json': ->
+    text = atom.workspace.getActiveTextEditor().getSelectedText()
+    console.log JSON.stringify({configSchema: CONFIG}, null, '  ')
+
+  'user:focus-taken-away-repro': ->
+    for dir in atom.project.getPaths()
+      atom.project.removePath(dir)

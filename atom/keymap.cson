@@ -5,10 +5,6 @@
 # 'atom-workspace:not(.atom-text-editor)':
   # 'ctrl-p': 'user:open-tryit-coffee'
 
-# 'atom-text-editor:not([mini])':
-#   'a': 'user:hello'
-  # 'enter': 'narrow:search-by-current-word'
-
 'atom-workspace:not([mini])':
   'ctrl--': 'vim-mode-plus-user:jasmine-increase-focus'
 
@@ -48,19 +44,38 @@
   'cmd-2': 'pane:split-down-and-copy-active-item'
   'cmd-3': 'pane:split-right-and-copy-active-item'
 
+'atom-text-editor':
+  'cmd-enter': 'vim-mode-plus:maximize-pane'
+
 'atom-text-editor.vim-mode-plus.visual-mode.blockwise':
   # t9md/atom-vim-mode-plus#214
   'G': 'DONT_MOVE_TO_LAST_LINE'
 
 'atom-text-editor:not(.narrow-editor)':
-  'cmd-]': 'cursor-history:next'
-  'cmd-[': 'cursor-history:prev'
+  # 'space r': 'hydrogen:run'
+  # 'space R': 'hydrogen:restart-kernel'
+  # 'cmd-m': 'hydrogen-helper:toggle-line-cells'
+  'cmd-m': 'hydrogen:toggle-bubble'
+  # 'cmd-h': 'hydrogen-helper:restart-kernel-and-run-all'
+  'ctrl-cmd-h': 'hydrogen:restart-kernel'
+  # 'ctrl-cmd-r': 'hydrogen:run-all'
+  'cmd-h': 'hydrogen:restart-kernel-and-re-evaluate-bubbles'
+  # 'ctrl-cmd-enter': 'hydrogen:run-all-above'
+  'ctrl-cmd-enter': 'hydrogen:run'
+  'shift-cmd-m': 'hydrogen-helper:clear-all-line-cells'
+
+#   'cmd-]': 'cursor-history:next'
+#   'cmd-[': 'cursor-history:prev'
 
 # 'atom-text-editor.vim-mode-plus:not(.insert-mode):not(.operator-pending-mode)':
 #   'P': 'vim-mode-plus:put-before-with-auto-indent'
 #   'p': 'vim-mode-plus:put-after-with-auto-indent'
 
+'atom-workspace:not(.has-narrow) atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'cmd-e': 'narrow:search-by-current-word'
+
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  # 'backspace': 'inline:clear-current'
   '\\': 'choose-pane:start'
 
   # '(': 'vim-mode-plus-user:move-to-previous-symbol'
@@ -71,29 +86,26 @@
   'Q': 'vim-mode-plus:move-to-previous-subword'
   'q': 'vim-mode-plus:move-to-next-subword'
 
-  'space f': 'narrow:fold'
-  'space o': 'narrow:symbols'
   'ctrl-z': 'narrow:reopen'
-  'cmd-o': 'narrow:symbols-by-current-word'
-  'cmd-r': 'narrow:symbols'
 
-  'shift-cmd-o': 'narrow:project-symbols-by-current-word'
-  # 'shift-cmd-r': 'narrow:project-symbols'
+  'space f': 'narrow:fold'
+
+  'cmd-o': 'narrow:symbols-by-current-word'
+  'cmd-shift-o': 'narrow:project-symbols-by-current-word'
+
+  'cmd-r': 'narrow:symbols'
+  'cmd-shift-r': 'narrow:project-symbols'
 
   'space l': 'narrow:scan'
-  'space L': 'narrow:scan-by-current-word'
   'cmd-l': 'narrow:scan-by-current-word'
-  'space C': 'narrow:linter'
-  'space s': 'narrow:search'
-  'shift-cmd-g': 'narrow:search-by-current-word'
-  # 'enter': 'narrow:search-by-current-word'
 
-  'space S': 'narrow:search-by-current-word'
-  # 'space a': 'narrow:atom-scan'
-  # 'space A': 'narrow:atom-scan-by-current-word'
-  # 'space G': 'narrow:git-diff'
+  'space s': 'narrow:search'
+  'ctrl-p': 'narrow:git-ls'
+  'space C': 'narrow:linter'
+
+  'space a': 'narrow:atom-scan'
+  'space A': 'narrow:atom-scan-by-current-word'
   'space G': 'narrow:git-diff-all'
-  'space B': 'narrow:bookmarks'
 
   # 'enter': 'vim-mode-plus:toggle-persistent-selection'
   'g .': 'vim-mode-plus:add-preset-occurrence-from-last-occurrence-pattern'
@@ -173,8 +185,12 @@
   'E': 'vim-mode-plus:insert-at-end-of-smart-word'
 
   'cmd-L': 'paner:very-right'
-  'f7': 'vim-mode-plus:reload-packages'
-  'shift-f7': 'user:package-hot-reload'
+  'shift-f7': 'vim-mode-plus:reload'
+  'f7': 'vim-mode-plus:reload-with-dependencies'
+  # 'f8': 'user:hot-r
+  # 'f8': 'user:package-hot-reload'
+  'f8': 'hydrogen:hot-reload-package'
+  'f9': 'hydrogen:run-all'
 
   "g '": 'vim-mode-plus:move-to-next-string'
 
@@ -279,6 +295,8 @@
   'a )': 'vim-mode-plus:a-parenthesis-allow-forwarding'
 
 'atom-text-editor.vim-mode-plus.insert-mode':
+  # 'ctrl-l': 'keystroke:escape-and-move-right'
+  # 'ctrl-l'
   'ctrl-p': 'core:move-up'
   'j k': 'vim-mode-plus:activate-normal-mode' # jk to escape
   # 'cmd ^cmd ^cmd': 'vim-mode-plus:activate-normal-mode'
@@ -331,6 +349,8 @@
   'ctrl-l': 'pane:split-right'
   'ctrl-j': 'pane:split-down'
   'ctrl-g': 'core:cancel'
+  # 'space': 'user:focus-taken-away-repro'
+  # 'space': 'tree-view:toggle'
 
 '.markdown-preview':
   '-': 'choose-pane:start'
@@ -362,7 +382,7 @@
 
 'atom-text-editor.vim-mode-plus.operator-pending-mode':
   'f': 'vim-mode-plus:a-function'  # Conflicts with `f` motion-target
-  '/': 'vim-mode-plus:inner-comment' # Conflicts with `/` motion-target
+  # '/': 'vim-mode-plus:inner-comment-or-paragraph' # Conflicts with `/` motion-target
 
 'atom-text-editor.vim-mode-plus.insert-mode.autocomplete-active':
   'ctrl-g': 'autocomplete-plus:cancel'
@@ -395,11 +415,14 @@
 'atom-workspace.has-narrow atom-text-editor.vim-mode-plus.normal-mode':
   'cmd-f': 'narrow:focus'
   'cmd-i': 'narrow:focus-prompt'
-  'ctrl-cmd-l': 'narrow:refresh'
+  'cmd-[': 'narrow:previous-query-history'
+  'cmd-]': 'narrow:next-query-history'
+  'cmd-e': 'narrow:query-current-word'
+
 
 'atom-workspace.has-narrow atom-text-editor.vim-mode-plus.normal-mode:not(.narrow-editor)':
-  # ';': 'narrow:focus'
-  ';': 'narrow:focus-prompt'
+  ';': 'narrow:focus'
+  # ';': 'narrow:focus-prompt'
 
 'atom-text-editor.narrow.narrow-editor.vim-mode-plus.normal-mode[data-grammar="source narrow"]':
   'P': 'narrow-ui:protect'
@@ -411,7 +434,11 @@
   '=': 'narrow-ui:clear-excluded-files'
   's': 'narrow-ui:select-files'
   ';': 'narrow-ui:confirm-keep-open'
+  # ';': 'narrow:focus'
   "enter": 'core:confirm'
+
+'atom-text-editor.narrow.narrow-editor.vim-mode-plus.insert-mode':
+  'ctrl-enter': 'narrow-ui:set-search-term-boundary'
 
 'atom-text-editor.narrow.narrow-editor.vim-mode-plus.visual-mode[data-grammar="source narrow"]':
   'I': 'vim-mode-plus:insert-at-start-of-target'
@@ -425,6 +452,11 @@
 'atom-text-editor.narrow.narrow-editor.vim-mode-plus.insert-mode:not(.autocomplete-active)[data-grammar="source narrow"]':
   ';': 'narrow-ui:confirm-keep-open'
 
+'atom-workspace.has-narrow atom-text-editor':
+  'ctrl-g': 'narrow:close'
+  'ctrl-cmd-i': 'narrow:focus-prompt'
+  'ctrl-cmd-f': 'narrow:focus'
+
 'atom-workspace.demo-mode-active atom-text-editor:not([mini])':
   'up': 'demo-mode:move-hover-up'
   'down': 'demo-mode:move-hover-down'
@@ -432,3 +464,117 @@
   'right': 'demo-mode:move-hover-right'
   "enter": 'demo-mode:stop-or-start-auto-hide'
   "'": 'demo-mode:stop-or-start-auto-hide'
+
+'.spell-check-corrections.corrections atom-text-editor[mini]':
+  'enter': 'core:confirm'
+  'tab': 'core:confirm'
+  'up': 'core:move-up'
+  'down': 'core:move-down'
+  'space': 'abort!'
+  'ctrl-f': 'core:move-right'
+  '!': 'abort!'
+  '"': 'abort!'
+  '#': 'abort!'
+  '$': 'abort!'
+  '%': 'abort!'
+  '&': 'abort!'
+  '\'': 'abort!'
+  '(': 'abort!'
+  ')': 'abort!'
+  '*': 'abort!'
+  '+': 'abort!'
+  ',': 'abort!'
+  '-': 'abort!'
+  '.': 'abort!'
+  '/': 'abort!'
+  '0': 'abort!'
+  '1': 'abort!'
+  '2': 'abort!'
+  '3': 'abort!'
+  '4': 'abort!'
+  '5': 'abort!'
+  '6': 'abort!'
+  '7': 'abort!'
+  '8': 'abort!'
+  '9': 'abort!'
+  ':': 'abort!'
+  ';': 'abort!'
+  '<': 'abort!'
+  '=': 'abort!'
+  '>': 'abort!'
+  '?': 'abort!'
+  '@': 'abort!'
+  'A': 'abort!'
+  'B': 'abort!'
+  'C': 'abort!'
+  'D': 'abort!'
+  'E': 'abort!'
+  'F': 'abort!'
+  'G': 'abort!'
+  'H': 'abort!'
+  'I': 'abort!'
+  'J': 'abort!'
+  'K': 'abort!'
+  'L': 'abort!'
+  'M': 'abort!'
+  'N': 'abort!'
+  'O': 'abort!'
+  'P': 'abort!'
+  'Q': 'abort!'
+  'R': 'abort!'
+  'S': 'abort!'
+  'T': 'abort!'
+  'U': 'abort!'
+  'V': 'abort!'
+  'W': 'abort!'
+  'X': 'abort!'
+  'Y': 'abort!'
+  'Z': 'abort!'
+  '[': 'abort!'
+  '\\': 'abort!'
+  ']': 'abort!'
+  '^': 'abort!'
+  '_': 'abort!'
+  '`': 'abort!'
+  'a': 'abort!'
+  'b': 'abort!'
+  'c': 'abort!'
+  'd': 'abort!'
+  'e': 'abort!'
+  'f': 'abort!'
+  'g': 'abort!'
+  'h': 'abort!'
+  'i': 'abort!'
+  'j': 'abort!'
+  'k': 'abort!'
+  'l': 'abort!'
+  'm': 'abort!'
+  'n': 'abort!'
+  'o': 'abort!'
+  'p': 'abort!'
+  'q': 'abort!'
+  'r': 'abort!'
+  's': 'abort!'
+  't': 'abort!'
+  'u': 'abort!'
+  'v': 'abort!'
+  'w': 'abort!'
+  'x': 'abort!'
+  'y': 'abort!'
+  'z': 'abort!'
+  '{': 'abort!'
+  '|': 'abort!'
+  '}': 'abort!'
+  '~': 'abort!'
+
+# 'atom-workspace:not([mini]) .pane':
+#   'ctrl-j': 'focus-pane-or-panel:focus-below'
+#   'ctrl-k': 'focus-pane-or-panel:focus-above'
+#   'ctrl-h': 'focus-pane-or-panel:focus-on-left'
+#   'ctrl-l': 'focus-pane-or-panel:focus-on-right'
+#
+#   # 'ctrl-j': 'focus-pane-or-panel:focus-below'
+#   # 'ctrl-k': 'focus-pane-or-panel:focus-above'
+#   # 'ctrl-h': 'focus-pane-or-panel:focus-on-left'
+#   # 'ctrl-l': 'focus-pane-or-panel:focus-on-right'
+#   #
