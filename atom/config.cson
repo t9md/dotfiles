@@ -43,6 +43,7 @@
       "vim-mode-plus.visual-mode"
       "vim-mode-plus.operator-pending-mode"
       "vim-mode-plus.insert-mode.replace"
+      "narrow"
     ]
   "choose-pane":
     labelChars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
