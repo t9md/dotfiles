@@ -5,6 +5,14 @@
 # 'atom-workspace:not(.atom-text-editor)':
   # 'ctrl-p': 'user:open-tryit-coffee'
 
+# 'atom-workspace:not(.tree-view)':
+# # 'atom-workspace:not(atom-dock)':
+#   'cmd-enter': 'vim-mode-plus:maximize-pane'
+#   # conflicts insert-mode ctrl-w and ctr-w in mini editor, so comment out by default
+#
+#   # 'ctrl-w z': 'vim-mode-plus:maximize-pane'
+#   'cmd-enter': 'vim-mode-plus:maximize-pane'
+
 'atom-workspace:not([mini])':
   'ctrl--': 'vim-mode-plus-user:jasmine-increase-focus'
 
@@ -14,12 +22,16 @@
   'cmd-ctrl-shift-down': 'window:move-active-item-to-pane-below'
 
   'cmd-p': 'project-folder:add'
-  'cmd-x': 'paner:swap-pane'
-  'cmd-X': 'paner:send-item'
-  'cmd-K': 'paner:very-top'
-  'cmd-J': 'paner:very-bottom'
-  'cmd-H': 'paner:very-left'
-  'cmd-L': 'paner:very-right'
+
+  'cmd-x': 'vim-mode-plus:exchange-pane'
+  # 'cmd-X': 'paner:move-pane-item'
+  'cmd-K': 'vim-mode-plus:move-pane-to-very-top'
+  'cmd-J': 'vim-mode-plus:move-pane-to-very-bottom'
+  'cmd-H': 'vim-mode-plus:move-pane-to-very-left'
+  'cmd-L': 'vim-mode-plus:move-pane-to-very-right'
+
+  'cmd-2': 'paner:split-pane-down-stay'
+  'cmd-3': 'paner:split-pane-right-stay'
 
   # 'ctrl--': 'choose-pane:start'
   # '\\': 'choose-pane:start'
@@ -41,8 +53,8 @@
   'ctrl-cmd-i': 'cursor-history:next-within-editor'
   'ctrl-cmd-o': 'cursor-history:prev-within-editor'
 
-  'cmd-2': 'pane:split-down-and-copy-active-item'
-  'cmd-3': 'pane:split-right-and-copy-active-item'
+  # 'cmd-2': 'pane:split-down-and-copy-active-item'
+  # 'cmd-3': 'pane:split-right-and-copy-active-item'
 
 'atom-text-editor':
   'cmd-enter': 'vim-mode-plus:maximize-pane'
@@ -176,6 +188,7 @@
 
 'atom-text-editor.vim-mode-plus.normal-mode':
   'enter': 'narrow:search-by-current-word'
+
   'space d': 'demo-mode:toggle-without-auto-hide'
   ',': 'demo-mode:toggle'
 
@@ -184,12 +197,12 @@
   'B': 'vim-mode-plus:insert-at-start-of-smart-word'
   'E': 'vim-mode-plus:insert-at-end-of-smart-word'
 
-  'cmd-L': 'paner:very-right'
+  'cmd-L': 'paner:move-pane-to-very-right'
   'shift-f7': 'vim-mode-plus:reload'
   'f7': 'vim-mode-plus:reload-with-dependencies'
   # 'f8': 'user:hot-r
-  # 'f8': 'user:package-hot-reload'
-  'f8': 'hydrogen:hot-reload-package'
+  'f8': 'user:package-hot-reload'
+  # 'f8': 'hydrogen:hot-reload-package'
   'f9': 'hydrogen:run-all'
 
   "g '": 'vim-mode-plus:move-to-next-string'
@@ -366,6 +379,7 @@
 
 'atom-text-editor.vim-mode-plus-search':
   # 'f10': 'vim-mode-plus-user:hello'
+  'ctrl-v': 'vim-mode-plus:search-activate-literal-mode'
   'ctrl-g': 'vim-mode-plus:search-cancel'
 
 'atom-text-editor.vim-mode-plus-search:not(.literal-mode)':
@@ -389,7 +403,7 @@
 
 # Tree-view navigation
 # -------------------------
-'.tree-view':
+'atom-workspace .tree-view':
   '-': 'choose-pane:start'
   '\\': 'choose-pane:start'
   'g g': 'core:move-to-top'
@@ -434,6 +448,7 @@
   '=': 'narrow-ui:clear-excluded-files'
   's': 'narrow-ui:select-files'
   ';': 'narrow-ui:confirm-keep-open'
+  # 'o': 'narrow-ui:confirm-open-here'
   # ';': 'narrow:focus'
   "enter": 'core:confirm'
 

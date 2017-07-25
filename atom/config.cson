@@ -34,9 +34,10 @@
           }
         }
       }
-
+      
     '''
     languageMappings: "{\"javascript\": \"babel es6 javascript\"}"
+    startDir: "dirOfFile"
   "autocomplete-plus":
     suppressActivationForEditorClasses: [
       "vim-mode-plus.normal-mode"
@@ -79,6 +80,8 @@
       "atom-hot-package-loader"
       "flow-ide"
       "language-julia"
+      "language-babel"
+      "Hydrogen"
     ]
     openEmptyEditorOnStart: false
     themes: [
@@ -102,7 +105,7 @@
   editor:
     atomicSoftTabs: false
     fontFamily: "FiraCode-Retina"
-    fontSize: 17
+    fontSize: 16
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -142,6 +145,7 @@
     ProjectSymbols: {}
     Scan: {}
     Search:
+      searcher: "rg"
       startByDoubleClick: true
     SelectFiles:
       rememberQuery: true
@@ -156,6 +160,7 @@
       ]
     prettierOptions:
       bracketSpacing: false
+      jsxBracketSameLine: true
       printWidth: 100
       semi: false
       trailingComma: "es5"
@@ -190,6 +195,7 @@
   "status-bar": {}
   "symbols-view":
     quickJumpToFileSymbol: false
+    useEditorGrammarAsCtagsLanguage: false
   "theme-switch":
     profiles: [
       "one-light-ui one-light-syntax"
