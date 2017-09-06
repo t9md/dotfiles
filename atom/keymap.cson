@@ -190,7 +190,7 @@
   'enter': 'narrow:search-by-current-word'
 
   'space d': 'demo-mode:toggle-without-auto-hide'
-  ',': 'demo-mode:toggle'
+  # ',': 'demo-mode:toggle'
 
   'ctrl-cmd-c': 'user:clear-console'
 

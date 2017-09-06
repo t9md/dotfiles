@@ -66,7 +66,6 @@
       "encoding-selector"
       "archive-view"
       "autosave"
-      "markdown-table-formatter"
       "language-elm"
       "color-picker"
       "busy-signal"
@@ -215,11 +214,16 @@
     basename: "tryit"
     root: "~/tryit"
   "vim-mode-plus":
+    charactersToAddSpaceOnSurround: [
+      ")"
+      "}"
+      "]"
+      ">"
+    ]
     clearHighlightSearchOnResetNormalMode: true
     clearPersistentSelectionOnResetNormalMode: true
     debugOutput: "console"
     debugOutputFilePath: "~/github/atom-vim-mode-plus/debug.log"
-    demoAutoHideTimeout: 1500
     devReloadPackages: [
       "vim-mode-plus-move-selected-text"
       "vim-mode-plus-jasmine-increase-focus"
@@ -227,31 +231,31 @@
       "quick-highlight"
       "demo-mode"
     ]
+    findAcrossLines: true
+    findCharsMax: 100
+    findConfirmByTimeout: 400
     flashOnMoveToOccurrence: true
-    flashOnOperateBlacklist: [
-      "ReplaceWithExecution"
-      "ReplaceWithExecutionKeepOriginalText"
-      "SplitCharacter"
-    ]
     hideTabBarOnMaximizePane: false
     highlightSearch: true
     highlightSearchExcludeScopes: [
       "narrow"
     ]
     incrementalSearch: true
-    keepColumnOnSelectTextObject: true
     keymapBackslashToInnerCommentOrParagraphWhenToggleLineCommentsIsPending: true
     keymapCCToChangeInnerSmartWord: true
+    keymapSemicolonToConfirmFind: true
     keymapSemicolonToInnerAnyPairInOperatorPendingMode: true
     keymapSemicolonToInnerAnyPairInVisualMode: true
     keymapUnderscoreToReplaceWithRegister: true
-    moveToFirstCharacterOnVerticalMotion: false
+    keymapYToYankToLastCharacterOfLine: true
+    reuseFindForRepeatFind: true
     smoothScrollOnFullScrollMotion: true
     smoothScrollOnHalfScrollMotion: true
     stayOnDelete: true
     stayOnTransformString: true
     stayOnYank: true
     strictAssertion: true
+    useSmartcaseForFind: true
     useSmartcaseForSearch: true
     useSmartcaseForSearchCurrentWord: true
   "vim-mode-plus-ex-mode":
