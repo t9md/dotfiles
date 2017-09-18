@@ -57,7 +57,12 @@
   # 'cmd-3': 'pane:split-right-and-copy-active-item'
 
 'atom-text-editor':
-  'cmd-enter': 'vim-mode-plus:maximize-pane'
+  # 'cmd-enter': 'vim-mode-plus:maximize-pane'
+  'shift-cmd-enter': 'vim-mode-plus:maximize-pane-without-center'
+
+  # 'a b': 'editor:move-to-first-character-of-line'
+  # 'a #': 'editor:move-to-first-character-of-line'
+  # 'a ^': 'editor:move-to-first-character-of-line'
 
 'atom-text-editor.vim-mode-plus.visual-mode.blockwise':
   # t9md/atom-vim-mode-plus#214
@@ -82,6 +87,10 @@
 # 'atom-text-editor.vim-mode-plus:not(.insert-mode):not(.operator-pending-mode)':
 #   'P': 'vim-mode-plus:put-before-with-auto-indent'
 #   'p': 'vim-mode-plus:put-after-with-auto-indent'
+
+# atom
+# atomagic
+# atom
 
 'atom-workspace:not(.has-narrow) atom-text-editor.vim-mode-plus:not(.insert-mode)':
   'cmd-e': 'narrow:search-by-current-word'
@@ -133,8 +142,10 @@
   # 'g i': 'vim-mode-plus:insert-or-append-occurrence-by-target'
   # 'g i': 'vim-mode-plus:insert-or-append-by-target'
   # insert-or-append-by-target
-  'g i': 'vim-mode-plus:insert-at-start-of-occurrence'
-  'g a': 'vim-mode-plus:insert-at-end-of-occurrence'
+  # 'g i': 'vim-mode-plus:insert-at-start-of-target'
+  'space i': 'vim-mode-plus:insert-at-head-of-target'
+  'g i': 'vim-mode-plus:insert-at-start-of-target'
+  'g a': 'vim-mode-plus:insert-at-end-of-target'
 
   # 'g a': 'vim-mode-plus:insert-at-end-of-occurrence'
 
@@ -238,7 +249,7 @@
   'space g p': 'git-diff:move-to-previous-diff'
   'space g d': 'git-diff:toggle-diff-list'
 
-  '-': 'toggle:there'
+  '_': 'toggle:there'
 
   # 'shift-f8': 'core:redo'
 
@@ -254,6 +265,8 @@
   # surround: ys
   # -------------------------
   'S': 'vim-mode-plus:surround-smart-word'
+  's': 'vim-mode-plus:surround-smart-word'
+  # 's': 'jumpy:toggle'
 
   # [open-this]
   'g f': 'open-this:here'
@@ -283,7 +296,7 @@
   # 'ctrl--': 'vim-mode-plus-user:jasmine-decrease-focus'
 
 'atom-text-editor.vim-mode-plus.normal-mode, atom-text-editor.vim-mode-plus.visual-mode':
-  # '_': 'vim-mode-plus:replace-with-register'
+  '-': 'vim-mode-plus:replace-with-register'
   # 'space m': 'quick-highlight:toggle'
   'space m': 'vim-mode-plus-user:quick-highlight-word'
   'space M': 'quick-highlight:clear'
@@ -344,10 +357,10 @@
   'ctrl-j': 'vim-mode-plus-user:move-selected-text-down'
   'ctrl-h': 'vim-mode-plus-user:move-selected-text-left'
   'ctrl-l': 'vim-mode-plus-user:move-selected-text-right'
-  'up': 'vim-mode-plus-user:move-selected-text-up'
-  'down': 'vim-mode-plus-user:move-selected-text-down'
-  'left': 'vim-mode-plus-user:move-selected-text-left'
-  'right': 'vim-mode-plus-user:move-selected-text-right'
+  # 'up': 'vim-mode-plus-user:move-selected-text-up'
+  # 'down': 'vim-mode-plus-user:move-selected-text-down'
+  # 'left': 'vim-mode-plus-user:move-selected-text-left'
+  # 'right': 'vim-mode-plus-user:move-selected-text-right'
 
   'cmd-K': 'vim-mode-plus-user:duplicate-selected-text-up'
   'cmd-J': 'vim-mode-plus-user:duplicate-selected-text-down'
@@ -355,7 +368,8 @@
   'cmd-L': 'vim-mode-plus-user:duplicate-selected-text-right'
 
   'T': 'try:paste'
-  'cmd-c': 'vim-mode-plus:yank'
+  'cmd-/': 'vim-mode-plus:toggle-line-comments'
+  # 'cmd-c': 'vim-mode-plus:yank'
 
 '.select-list':
   ';': 'core:confirm'
@@ -366,7 +380,7 @@
   # 'space': 'tree-view:toggle'
 
 '.markdown-preview':
-  '-': 'choose-pane:start'
+  # '-': 'choose-pane:start'
   # 'm m': 'choose-pane:focus-last-focused'
   'j': 'core:move-down'
   'k': 'core:move-up'
@@ -389,13 +403,27 @@
 
 'atom-text-editor.vim-mode-plus.operator-pending-mode:not(.lower-case-pending)':
   'u': 'vim-mode-plus:inner-indentation'
+  ":": "vim-mode-plus:a-any-pair",
+
+'atom-text-editor.vim-mode-plus.operator-pending-mode.replace-with-register-pending':
+  "-": "vim-mode-plus:inner-smart-word",
+
+# 'atom-text-editor.vim-mode-plus.has-occurrence:not(.insert-mode)':
+#   'I': 'vim-mode-plus:insert-at-start-of-target'
+#   'A': 'vim-mode-plus:insert-at-end-of-target'
 
 'atom-text-editor.vim-mode-plus.operator-pending-mode.has-occurrence':
   'o': 'vim-mode-plus:inner-current-line'
   'O': 'vim-mode-plus:inner-current-line'
 
 'atom-text-editor.vim-mode-plus.operator-pending-mode':
-  'f': 'vim-mode-plus:a-function'  # Conflicts with `f` motion-target
+  # '}': 'vim-mode-plus:inner-curly-bracket-allow-forwarding'
+  # '>': 'vim-mode-plus:inner-angle-bracket-allow-forwarding'
+  ')': 'vim-mode-plus:inner-parenthesis-allow-forwarding'
+  # ']': 'vim-mode-plus:inner-square-bracket-allow-forwarding'
+  # a      [ aaa ]
+  # a      (aaa)
+
   # '/': 'vim-mode-plus:inner-comment-or-paragraph' # Conflicts with `/` motion-target
 
 'atom-text-editor.vim-mode-plus.insert-mode.autocomplete-active':
@@ -593,3 +621,11 @@
 #   # 'ctrl-h': 'focus-pane-or-panel:focus-on-left'
 #   # 'ctrl-l': 'focus-pane-or-panel:focus-on-right'
 #   #
+
+# "atom-text-editor.vim-mode-plus-input.find.has-text":
+#   ";": "vim-mode-plus:find-next-pre-confirmed"
+#   ",": "vim-mode-plus:find-previous-pre-confirmed"
+
+# "atom-text-editor.vim-mode-plus-input.find":
+#   "tab": "vim-mode-plus:find-next-pre-confirmed"
+#   "shift-tab": "vim-mode-plus:find-previous-pre-confirmed"

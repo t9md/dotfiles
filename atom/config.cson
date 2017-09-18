@@ -34,7 +34,7 @@
           }
         }
       }
-      
+
     '''
     languageMappings: "{\"javascript\": \"babel es6 javascript\"}"
     startDir: "dirOfFile"
@@ -62,7 +62,6 @@
       "welcome"
       "package-generator"
       "metrics"
-      "vim-mode"
       "encoding-selector"
       "archive-view"
       "autosave"
@@ -81,6 +80,11 @@
       "language-julia"
       "language-babel"
       "Hydrogen"
+      "atom-ide-ui"
+      "ide-typescript"
+      "vim-mode"
+      "jumpy"
+      "markdown-table-formatter"
     ]
     openEmptyEditorOnStart: false
     themes: [
@@ -160,7 +164,7 @@
     prettierOptions:
       bracketSpacing: false
       jsxBracketSameLine: true
-      printWidth: 100
+      printWidth: 120
       semi: false
       trailingComma: "es5"
     useEslint: true
@@ -233,7 +237,7 @@
     ]
     findAcrossLines: true
     findCharsMax: 100
-    findConfirmByTimeout: 400
+    findConfirmByTimeout: 200
     flashOnMoveToOccurrence: true
     hideTabBarOnMaximizePane: false
     highlightSearch: true
@@ -243,17 +247,15 @@
     incrementalSearch: true
     keymapBackslashToInnerCommentOrParagraphWhenToggleLineCommentsIsPending: true
     keymapCCToChangeInnerSmartWord: true
-    keymapSemicolonToConfirmFind: true
+    keymapIAndAToInsertAtTargetWhenHasOccurrence: true
+    keymapSemicolonAndCommaToFindPreConfirmedOnFindInput: true
     keymapSemicolonToInnerAnyPairInOperatorPendingMode: true
     keymapSemicolonToInnerAnyPairInVisualMode: true
-    keymapUnderscoreToReplaceWithRegister: true
     keymapYToYankToLastCharacterOfLine: true
     reuseFindForRepeatFind: true
+    sequentialPaste: true
     smoothScrollOnFullScrollMotion: true
     smoothScrollOnHalfScrollMotion: true
-    stayOnDelete: true
-    stayOnTransformString: true
-    stayOnYank: true
     strictAssertion: true
     useSmartcaseForFind: true
     useSmartcaseForSearch: true
@@ -262,6 +264,12 @@
     notifiedUseExMode: true
   "vim-mode-plus-jasmine-increase-focus":
     autoSave: true
+    focusTexts: [
+      "f"
+      "ff"
+      "fff"
+      "x"
+    ]
   "vim-mode-plus-move-selected-text": {}
   "vim-mode-plus-replace-with-execution":
     registerToSelectList: true
