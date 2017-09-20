@@ -60,7 +60,6 @@
       "about"
       "background-tips"
       "welcome"
-      "package-generator"
       "metrics"
       "encoding-selector"
       "archive-view"
@@ -80,11 +79,12 @@
       "language-julia"
       "language-babel"
       "Hydrogen"
-      "atom-ide-ui"
-      "ide-typescript"
       "vim-mode"
-      "jumpy"
       "markdown-table-formatter"
+      "linter"
+      "ide-typescript"
+      "atom-ide-ui"
+      "package-generator"
     ]
     openEmptyEditorOnStart: false
     themes: [
@@ -98,13 +98,12 @@
     searchAllPanes: false
   "demo-mode":
     autoHideTimeout: 1500
-    maxKeystrokeToShow: 3
+    maxKeystrokeToShow: 6
   dev:
     _group___abc2: {}
     trackActivePaneItem: false
     trackDidAddPane: false
     trackDidOpen: false
-  "disable-keybindings": {}
   editor:
     atomicSoftTabs: false
     fontFamily: "FiraCode-Retina"
@@ -114,16 +113,11 @@
     showIndentGuide: true
   "exception-reporting":
     userId: "e4cd677f-7184-fb31-7448-ec0b8eb79d92"
-  "file-icons":
-    strategies: {}
   "find-and-replace":
     projectSearchResultsPaneSplitDirection: "right"
     scrollToResultOnLiveSearch: true
-  "fold-comments": {}
-  "git-diff": {}
   "js-hyperclick":
     jumpToImport: true
-  "keymap-disabler": {}
   keystroke:
     commands: [
       {
@@ -148,7 +142,6 @@
     ProjectSymbols: {}
     Scan: {}
     Search:
-      searcher: "rg"
       startByDoubleClick: true
     SelectFiles:
       rememberQuery: true
@@ -168,8 +161,6 @@
       semi: false
       trailingComma: "es5"
     useEslint: true
-  "project-find-navigation":
-    showDeprecationWarning: false
   "project-folder":
     closeItemsForRemovedProject: true
     gitProjectDirectories: [
@@ -178,10 +169,7 @@
   "quick-highlight":
     highlightSelection: false
     highlightSelectionMinimumLength: 4
-  react: {}
   "recent-finder": {}
-  "relative-numbers":
-    softWrapsCount: false
   "run-in-atom":
     clearConsole: false
     openDeveloperToolsOnRun: false
@@ -189,12 +177,6 @@
     locales: [
       "en-US"
     ]
-  "split-diff":
-    diffWords: true
-    ignoreWhitespace: true
-    leftEditorColor: "red"
-    rightEditorColor: "green"
-    scrollSyncType: "Vertical + Horizontal"
   "status-bar": {}
   "symbols-view":
     quickJumpToFileSymbol: false
@@ -202,10 +184,7 @@
   "theme-switch":
     profiles: [
       "one-light-ui one-light-syntax"
-      "one-light-ui duotone-light-syntax"
-      "one-dark-ui one-dark-syntax"
       "one-dark-ui one-dark-vivid-syntax"
-      "one-dark-ui duotone-dark-syntax"
     ]
   toggle: {}
   "toggle-quotes": {}
@@ -226,6 +205,7 @@
     ]
     clearHighlightSearchOnResetNormalMode: true
     clearPersistentSelectionOnResetNormalMode: true
+    debug: true
     debugOutput: "console"
     debugOutputFilePath: "~/github/atom-vim-mode-plus/debug.log"
     devReloadPackages: [

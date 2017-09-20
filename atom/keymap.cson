@@ -369,7 +369,7 @@
 
   'T': 'try:paste'
   'cmd-/': 'vim-mode-plus:toggle-line-comments'
-  # 'cmd-c': 'vim-mode-plus:yank'
+  'cmd-c': 'vim-mode-plus:yank'
 
 '.select-list':
   ';': 'core:confirm'
@@ -416,10 +416,10 @@
   'o': 'vim-mode-plus:inner-current-line'
   'O': 'vim-mode-plus:inner-current-line'
 
-'atom-text-editor.vim-mode-plus.operator-pending-mode':
+# 'atom-text-editor.vim-mode-plus.operator-pending-mode':
   # '}': 'vim-mode-plus:inner-curly-bracket-allow-forwarding'
   # '>': 'vim-mode-plus:inner-angle-bracket-allow-forwarding'
-  ')': 'vim-mode-plus:inner-parenthesis-allow-forwarding'
+  # ')': 'vim-mode-plus:inner-parenthesis-allow-forwarding'
   # ']': 'vim-mode-plus:inner-square-bracket-allow-forwarding'
   # a      [ aaa ]
   # a      (aaa)
@@ -500,13 +500,13 @@
   'ctrl-cmd-i': 'narrow:focus-prompt'
   'ctrl-cmd-f': 'narrow:focus'
 
-'atom-workspace.demo-mode-active atom-text-editor:not([mini])':
+'atom-workspace.demo-mode-active atom-text-editor.vim-mode-plus:not(.insert-mode)':
   'up': 'demo-mode:move-hover-up'
   'down': 'demo-mode:move-hover-down'
   'left': 'demo-mode:move-hover-left'
   'right': 'demo-mode:move-hover-right'
   "enter": 'demo-mode:stop-or-start-auto-hide'
-  "'": 'demo-mode:stop-or-start-auto-hide'
+  # "'": 'demo-mode:stop-or-start-auto-hide'
 
 '.spell-check-corrections.corrections atom-text-editor[mini]':
   'enter': 'core:confirm'
@@ -629,3 +629,5 @@
 # "atom-text-editor.vim-mode-plus-input.find":
 #   "tab": "vim-mode-plus:find-next-pre-confirmed"
 #   "shift-tab": "vim-mode-plus:find-previous-pre-confirmed"
+# 'atom-text-editor.vim-mode-plus.visual-mode.is-narrowed':
+#   'enter': 'vim-mode-plus:select-occurrence'
