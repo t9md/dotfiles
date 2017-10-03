@@ -55,11 +55,13 @@
 
   # 'cmd-2': 'pane:split-down-and-copy-active-item'
   # 'cmd-3': 'pane:split-right-and-copy-active-item'
+'atom-text-editor.vim-test':
+  'ctrl-i': 'vim-test:start-insert'
+  'escape': 'vim-test:stop-insert'
 
 'atom-text-editor':
   # 'cmd-enter': 'vim-mode-plus:maximize-pane'
   'shift-cmd-enter': 'vim-mode-plus:maximize-pane-without-center'
-
   # 'a b': 'editor:move-to-first-character-of-line'
   # 'a #': 'editor:move-to-first-character-of-line'
   # 'a ^': 'editor:move-to-first-character-of-line'
@@ -96,6 +98,9 @@
   'cmd-e': 'narrow:search-by-current-word'
 
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  # 'space k': 'keystroke 5 k'
+  # 'cmd-d': 'vim-mode-plus:select'
+
   # 'backspace': 'inline:clear-current'
   '\\': 'choose-pane:start'
 
@@ -104,8 +109,9 @@
 
   'ctrl-shift-k': 'vim-mode-plus:delete-line'
 
-  'Q': 'vim-mode-plus:move-to-previous-subword'
-  'q': 'vim-mode-plus:move-to-next-subword'
+  # 'Q': 'vim-mode-plus:move-to-previous-subword'
+  # 'q': 'vim-mode-plus:move-to-next-subword'
+  # 's': 'vim-mode-plus:select'
 
   'ctrl-z': 'narrow:reopen'
 
@@ -144,8 +150,16 @@
   # insert-or-append-by-target
   # 'g i': 'vim-mode-plus:insert-at-start-of-target'
   'space i': 'vim-mode-plus:insert-at-head-of-target'
+  # 'q': 'vim-mode-plus:insert-at-head-of-target'
+  'q': 'vim-mode-plus:insert-at-head-of-occurrence'
+  'Q': 'vim-mode-plus:insert-at-head-of-subword-occurrence'
   'g i': 'vim-mode-plus:insert-at-start-of-target'
   'g a': 'vim-mode-plus:insert-at-end-of-target'
+  # 'g i': 'vim-mode-plus:insert-at-start-of-target'
+  # 'g a': 'vim-mode-plus:insert-at-end-of-target'
+  # 'g i': 'vim-mode-plus:set-cursor-at-head'
+  # 'g i': 'vim-mode-plus:set-cursor-at-start'
+  # 'g a': 'vim-mode-plus:set-cursor-at-end'
 
   # 'g a': 'vim-mode-plus:insert-at-end-of-occurrence'
 
@@ -198,6 +212,12 @@
   'shift-cmd-i': 'transformer:compile'
 
 'atom-text-editor.vim-mode-plus.normal-mode':
+  'cmd-space': 'check-left'
+  # 'd': 'keystroke " _ y'
+  # 'y': 'keystroke g U'
+  # 'd': 'keystroke y'
+  # # # 'j': 'keystroke 3 y'
+
   'enter': 'narrow:search-by-current-word'
 
   'space d': 'demo-mode:toggle-without-auto-hide'
@@ -225,8 +245,12 @@
 
   'ctrl-{': 'vim-mode-plus:insert-at-previous-fold-start'
   'ctrl-}': 'vim-mode-plus:insert-at-next-fold-start'
+
   # '{': 'vim-mode-plus:move-to-previous-fold-start'
   # '}': 'vim-mode-plus:move-to-next-fold-start'
+  # '[ ]': 'vim-mode-plus:move-to-previous-fold-end'
+  # '] ]': 'vim-mode-plus:move-to-next-fold-end'
+
 
   'cmd-z': 'vim-mode-plus:toggle-fold'
 
@@ -234,6 +258,11 @@
   'ctrl-k': 'focus-pane-or-panel:focus-above'
   'ctrl-h': 'focus-pane-or-panel:focus-on-left'
   'ctrl-l': 'focus-pane-or-panel:focus-on-right'
+
+  # 'ctrl-j': 'window:focus-pane-on-below'
+  # 'ctrl-k': 'window:focus-pane-on-aboce'
+  # 'ctrl-h': 'window:focus-pane-on-left'
+  # 'ctrl-l': 'window:focus-pane-on-right'
 
   # open-on-github, github-diff: g
   # -------------------------
@@ -265,7 +294,7 @@
   # surround: ys
   # -------------------------
   'S': 'vim-mode-plus:surround-smart-word'
-  's': 'vim-mode-plus:surround-smart-word'
+  # 's': 'vim-mode-plus:surround-smart-word'
   # 's': 'jumpy:toggle'
 
   # [open-this]
@@ -350,6 +379,7 @@
   # 'ctrl-e': 'vim-mode-plus:copy-from-line-below'
 
 'atom-text-editor.vim-mode-plus.visual-mode':
+  # '.': 'vim-mode-plus:repeat'
   # 'S': 'vim-mode-plus:surround'
 
   'ctrl-t': 'vim-mode-plus-user:move-selected-text-toggle-overwrite'
@@ -412,9 +442,12 @@
 #   'I': 'vim-mode-plus:insert-at-start-of-target'
 #   'A': 'vim-mode-plus:insert-at-end-of-target'
 
-'atom-text-editor.vim-mode-plus.operator-pending-mode.has-occurrence':
-  'o': 'vim-mode-plus:inner-current-line'
-  'O': 'vim-mode-plus:inner-current-line'
+# 'atom-text-editor.vim-mode-plus.operator-pending-mode.has-occurrence':
+#   'o': 'vim-mode-plus:inner-current-line'
+#   'O': 'vim-mode-plus:inner-current-line'
+
+# 'atom-text-editor.vim-mode-plus.operator-pending-mode.select-pending':
+#   's': 'vim-mode-plus:inner-scope-at-cursor'
 
 # 'atom-text-editor.vim-mode-plus.operator-pending-mode':
   # '}': 'vim-mode-plus:inner-curly-bracket-allow-forwarding'

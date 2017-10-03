@@ -20,38 +20,38 @@ consumeService = (packageName, providerName, fn) ->
 
 getEditorState = null
 
-consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
-  # return
-  {Base, getEditorState, observeVimStates} = service
-
-  register = (klass) ->
-    klass.commandPrefix = 'vim-mode-plus-user'
-    klass.registerCommand()
-    klass.registerToSelectList()
-
-  TransformStringByExternalCommand = Base.getClass('TransformStringByExternalCommand')
-  class CoffeeCompile extends TransformStringByExternalCommand
-    register(this)
-    command: 'coffee'
-    args: ['-csb', '--no-header']
-
-  class CoffeeEval extends TransformStringByExternalCommand
-    register(this)
-    command: 'coffee'
-    args: ['-se']
-    getStdin: (selection) ->
-      "console.log #{selection.getText()}"
-
-  class CoffeeInspect extends TransformStringByExternalCommand
-    # [1..10]
-    register(this)
-    command: 'coffee'
-    args: ['-se']
-    getStdin: (selection) ->
-      """
-      {inspect} = require 'util'
-      console.log #{selection.getText()}
-      """
+# consumeService 'vim-mode-plus', 'provideVimModePlus', (service) ->
+#   # return
+#   {Base, getEditorState, observeVimStates} = service
+#
+#   register = (klass) ->
+#     klass.commandPrefix = 'vim-mode-plus-user'
+#     klass.registerCommand()
+#     # klass.registerToSelectList()
+#
+#   TransformStringByExternalCommand = Base.getClass('TransformStringByExternalCommand')
+#   class CoffeeCompile extends TransformStringByExternalCommand
+#     register(this)
+#     command: 'coffee'
+#     args: ['-csb', '--no-header']
+#
+#   class CoffeeEval extends TransformStringByExternalCommand
+#     register(this)
+#     command: 'coffee'
+#     args: ['-se']
+#     getStdin: (selection) ->
+#       "console.log #{selection.getText()}"
+#
+#   class CoffeeInspect extends TransformStringByExternalCommand
+#     # [1..10]
+#     register(this)
+#     command: 'coffee'
+#     args: ['-se']
+#     getStdin: (selection) ->
+#       """
+#       {inspect} = require 'util'
+#       console.log #{selection.getText()}
+#       """
 
 getActiveVimState = ->
   getEditorState(atom.workspace.getActiveTextEditor())

@@ -14,6 +14,20 @@
     ```
     """
 '.source.js':
+  's':
+    prefix: 's'
+    body: "static "
+  'con':
+    prefix: 'con'
+    body: """
+      constructor (...args) {
+        super(...args)
+        ${1}
+      }
+      """
+  'args':
+    prefix: 'a'
+    body: '...args'
   'prettier':
     prefix: 'ppi'
     body: '// prettier-ignore'

@@ -67,13 +67,9 @@
       "language-elm"
       "color-picker"
       "busy-signal"
-      "intentions"
-      "keystroke"
       "bookmarks"
       "recent-finder"
       "github"
-      "linter-eslint"
-      "linter-ui-default"
       "atom-hot-package-loader"
       "flow-ide"
       "language-julia"
@@ -81,10 +77,13 @@
       "Hydrogen"
       "vim-mode"
       "markdown-table-formatter"
-      "linter"
       "ide-typescript"
       "atom-ide-ui"
       "package-generator"
+      "vim-mode-plus-auto-ime"
+      "vim-mode-plus-jasmine-increase-focus"
+      "vim-mode-plus-move-selected-text"
+      "linter-eslint"
     ]
     openEmptyEditorOnStart: false
     themes: [
@@ -98,7 +97,7 @@
     searchAllPanes: false
   "demo-mode":
     autoHideTimeout: 1500
-    maxKeystrokeToShow: 6
+    maxKeystrokeToShow: 3
   dev:
     _group___abc2: {}
     trackActivePaneItem: false
@@ -107,7 +106,6 @@
   editor:
     atomicSoftTabs: false
     fontFamily: "FiraCode-Retina"
-    fontSize: 16
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -128,8 +126,7 @@
     ]
   linter:
     lintOnChange: false
-  "linter-eslint":
-    useGlobalEslint: true
+  "linter-eslint": {}
   "linter-ui-default":
     panelHeight: 69
     showStatusBar: false
@@ -160,7 +157,7 @@
       printWidth: 120
       semi: false
       trailingComma: "es5"
-    useEslint: true
+    useEditorConfig: false
   "project-folder":
     closeItemsForRemovedProject: true
     gitProjectDirectories: [
@@ -205,7 +202,6 @@
     ]
     clearHighlightSearchOnResetNormalMode: true
     clearPersistentSelectionOnResetNormalMode: true
-    debug: true
     debugOutput: "console"
     debugOutputFilePath: "~/github/atom-vim-mode-plus/debug.log"
     devReloadPackages: [
@@ -217,7 +213,7 @@
     ]
     findAcrossLines: true
     findCharsMax: 100
-    findConfirmByTimeout: 200
+    findConfirmByTimeout: 300
     flashOnMoveToOccurrence: true
     hideTabBarOnMaximizePane: false
     highlightSearch: true
@@ -228,9 +224,9 @@
     keymapBackslashToInnerCommentOrParagraphWhenToggleLineCommentsIsPending: true
     keymapCCToChangeInnerSmartWord: true
     keymapIAndAToInsertAtTargetWhenHasOccurrence: true
+    keymapSToSelect: true
     keymapSemicolonAndCommaToFindPreConfirmedOnFindInput: true
     keymapSemicolonToInnerAnyPairInOperatorPendingMode: true
-    keymapSemicolonToInnerAnyPairInVisualMode: true
     keymapYToYankToLastCharacterOfLine: true
     reuseFindForRepeatFind: true
     sequentialPaste: true
