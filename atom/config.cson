@@ -34,7 +34,7 @@
           }
         }
       }
-
+      
     '''
     languageMappings: "{\"javascript\": \"babel es6 javascript\"}"
     startDir: "dirOfFile"
@@ -81,9 +81,10 @@
       "atom-ide-ui"
       "package-generator"
       "vim-mode-plus-auto-ime"
-      "vim-mode-plus-jasmine-increase-focus"
-      "vim-mode-plus-move-selected-text"
       "linter-eslint"
+      "linter"
+      "linter-ui-default"
+      "intentions"
     ]
     openEmptyEditorOnStart: false
     themes: [
@@ -207,6 +208,8 @@
     devReloadPackages: [
       "vim-mode-plus-move-selected-text"
       "vim-mode-plus-jasmine-increase-focus"
+      "vim-mode-plus-replace-with-execution"
+      "vim-mode-plus-ex-mode"
       "narrow"
       "quick-highlight"
       "demo-mode"
