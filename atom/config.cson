@@ -38,6 +38,9 @@
     '''
     languageMappings: "{\"javascript\": \"babel es6 javascript\"}"
     startDir: "dirOfFile"
+  "atom-ide-ui":
+    use:
+      "atom-ide-diagnostics-ui": false
   "autocomplete-plus":
     suppressActivationForEditorClasses: [
       "vim-mode-plus.normal-mode"
@@ -66,27 +69,29 @@
       "autosave"
       "language-elm"
       "color-picker"
-      "busy-signal"
       "bookmarks"
       "recent-finder"
       "github"
       "atom-hot-package-loader"
       "flow-ide"
       "language-julia"
-      "language-babel"
       "Hydrogen"
       "vim-mode"
       "markdown-table-formatter"
+      "package-generator"
+      "vim-mode-plus-replace-with-execution"
+      "aligner"
+      "aligner-javascript"
+      "ide-flowtype"
+      "focus-pane-or-panel"
       "ide-typescript"
       "atom-ide-ui"
-      "package-generator"
-      "vim-mode-plus-auto-ime"
-      "linter-eslint"
-      "linter"
-      "linter-ui-default"
-      "intentions"
+      "language-babel"
     ]
     openEmptyEditorOnStart: false
+    packagesWithKeymapsDisabled: [
+      "intentions"
+    ]
     themes: [
       "one-dark-ui"
       "one-dark-vivid-syntax"
@@ -97,7 +102,8 @@
     flashOnLand: true
     searchAllPanes: false
   "demo-mode":
-    autoHideTimeout: 1500
+    autoHide: false
+    autoHideTimeout: 800
     maxKeystrokeToShow: 3
   dev:
     _group___abc2: {}
@@ -107,14 +113,17 @@
   editor:
     atomicSoftTabs: false
     fontFamily: "FiraCode-Retina"
+    fontSize: 18
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
+    showLineNumbers: false
   "exception-reporting":
     userId: "e4cd677f-7184-fb31-7448-ec0b8eb79d92"
   "find-and-replace":
     projectSearchResultsPaneSplitDirection: "right"
     scrollToResultOnLiveSearch: true
+  "ide-typescript": {}
   "js-hyperclick":
     jumpToImport: true
   keystroke:
@@ -139,11 +148,10 @@
     AtomScan: {}
     ProjectSymbols: {}
     Scan: {}
-    Search:
-      startByDoubleClick: true
     SelectFiles:
       rememberQuery: true
     confirmOnUpdateRealFile: false
+    notifiedVimModePlusSpecificDefaultKeymap: true
   "nord-atom-ui": {}
   paner:
     debug: true
@@ -180,6 +188,7 @@
     quickJumpToFileSymbol: false
     useEditorGrammarAsCtagsLanguage: false
   "theme-switch":
+    logToConsole2: "a"
     profiles: [
       "one-light-ui one-light-syntax"
       "one-dark-ui one-dark-vivid-syntax"
@@ -216,10 +225,9 @@
     ]
     findAcrossLines: true
     findCharsMax: 100
-    findConfirmByTimeout: 300
+    findConfirmByTimeout: 200
     flashOnMoveToOccurrence: true
     hideTabBarOnMaximizePane: false
-    highlightSearch: true
     highlightSearchExcludeScopes: [
       "narrow"
     ]
@@ -231,6 +239,7 @@
     keymapSemicolonAndCommaToFindPreConfirmedOnFindInput: true
     keymapSemicolonToInnerAnyPairInOperatorPendingMode: true
     keymapYToYankToLastCharacterOfLine: true
+    notifiedCoffeeScriptNoLongerSupportedToExtendVMP: true
     reuseFindForRepeatFind: true
     sequentialPaste: true
     smoothScrollOnFullScrollMotion: true
@@ -260,6 +269,7 @@
 ".go.source":
   editor:
     tabLength: 4
+    tabType: "hard"
 ".js.source":
   editor:
     autoIndent: true

@@ -24,6 +24,7 @@ function consumeService(packageName, functionName, fn) {
 
 consumeService("vim-mode-plus", "provideVimModePlus", ({Base}) => {
   const TransformStringByExternalCommand = Base.getClass("TransformStringByExternalCommand")
+
   class CoffeeCompile extends TransformStringByExternalCommand {
     command = "coffee"
     args = ["-csb", "--no-header"]
@@ -44,6 +45,15 @@ consumeService("vim-mode-plus", "provideVimModePlus", ({Base}) => {
       return `{inspect} = require 'util';console.log ${selection.getText()}`
     }
   }
+
+  class DeleteWithBackholeRegister extends Base.getClass("Delete") {
+    static commandPrefix = "vim-mode-plus-user"
+    execute() {
+      this.vimState.register.name = "_"
+      super.execute()
+    }
+  }
+  DeleteWithBackholeRegister.registerCommand()
 
   for (const klass of [CoffeeCompile, CoffeeEval, CoffeeInspect]) {
     klass.commandPrefix = "vim-mode-plus-user"

@@ -1,15 +1,43 @@
 @import "syntax-variables";
-
 @import "ui-variables";
+
 // @font-family-p: "Ricty";
 // @font-family-p: "Iosevka";
 
+atom-text-editor.editor .syntax--comment {
+  color: lighten(color(@mono-3), 30%);
+  // color: darken(color(@mono-3), 30%);
+}
+
+// #status-bar-vim-mode-plus {
+//   display: none;
+// }
+
 // https://github.com/tonsky/FiraCode/wiki/Atom-instructions
+
+// .cursor-line-background(@mode, @color) {
+//   atom-text-editor.vim-mode-plus.@{mode}.is-focused {
+//     & .lines .line.cursor-line {
+//       background-color: @color
+//     }
+//   }
+// }
+
+// .cursor-line-background(normal-mode, fadeout(gray, 80%));
+// .cursor-line-background(insert-mode, fadeout(green, 80%));
+// .cursor-line-background(operator-pending-mode, fadeout(yellow, 80%));
 
 // atom-text-editor {
 //   text-rendering: optimizeLegibility;
 //   .cursor-line {
 //     background-color: transparent;
+//   }
+// }
+// atom-text-editor {
+//   .narrow-syntax--header {
+//     // color: @syntax-color-variable;
+//     // color: @syntax-color-class;
+//     color: @syntax-color-class;
 //   }
 // }
 
@@ -20,6 +48,15 @@ atom-text-editor.editor .syntax--string.syntax--regexp {
   font-style: normal;
 }
 
+// atom-text-editor {
+//   .narrow-syntax--header-project {
+//     color: @syntax-color-added;
+//   }
+//   .narrow-syntax--header-file {
+//     color: @syntax-color-modified;
+//   }
+// }
+
 atom-text-editor div.lines div:last-child .line:last-child {
   .indent-guide {
     box-shadow: none;
@@ -28,11 +65,19 @@ atom-text-editor div.lines div:last-child .line:last-child {
 
 .demo-mode-container {
   font-family: "FiraCode-Retina";
-  font-size: 1.3em;
+  // font-size: 2.0em;
+  font-size: 1.5em;
   .keystroke {
+    min-width: 5em;
   }
   .command {
+    font-size: 1em;
+    min-width: 15em;
   }
   .kind {
+  }
+  .vmp-operation {
+    // font-size: 1.8em;
+    // color: red;
   }
 }

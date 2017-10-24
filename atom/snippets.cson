@@ -6,6 +6,13 @@
     prefix: 'vmplink'
     body: "[vim-mode-plus](https://atom.io/packages/vim-mode-plus)"
 '.source.gfm':
+  'cmt':
+    'prefix': '!'
+    'body': """
+    <!--
+    $1
+    -->
+    """
   'code':
     'prefix': 'cafe'
     'body': """
@@ -17,6 +24,9 @@
   's':
     prefix: 's'
     body: "static "
+  'u':
+    prefix: 'u'
+    body: "this.utils."
   'con':
     prefix: 'con'
     body: """
