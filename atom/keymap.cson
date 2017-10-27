@@ -5,17 +5,7 @@
 # 'atom-workspace:not(.atom-text-editor)':
   # 'ctrl-p': 'user:open-tryit-coffee'
 
-# 'atom-workspace:not(.tree-view)':
-# # 'atom-workspace:not(atom-dock)':
-#   'cmd-enter': 'vim-mode-plus:maximize-pane'
-#   # conflicts insert-mode ctrl-w and ctr-w in mini editor, so comment out by default
-#
-#   # 'ctrl-w z': 'vim-mode-plus:maximize-pane'
-#   'cmd-enter': 'vim-mode-plus:maximize-pane'
-
 'atom-workspace:not([mini])':
-  'ctrl--': 'vim-mode-plus-user:jasmine-increase-focus'
-
   'cmd-ctrl-shift-left': 'window:move-active-item-to-pane-on-left'
   'cmd-ctrl-shift-right': 'window:move-active-item-to-pane-on-right'
   'cmd-ctrl-shift-up': 'window:move-active-item-to-pane-above'
@@ -24,7 +14,6 @@
   'cmd-p': 'project-folder:add'
 
   'cmd-x': 'vim-mode-plus:exchange-pane'
-  # 'cmd-X': 'paner:move-pane-item'
   'cmd-K': 'vim-mode-plus:move-pane-to-very-top'
   'cmd-J': 'vim-mode-plus:move-pane-to-very-bottom'
   'cmd-H': 'vim-mode-plus:move-pane-to-very-left'
@@ -33,9 +22,6 @@
   'cmd-2': 'paner:split-pane-down-stay'
   'cmd-3': 'paner:split-pane-right-stay'
 
-  # 'ctrl--': 'choose-pane:start'
-  # '\\': 'choose-pane:start'
-  # 'ctrl--': 'toggle:here'
   'ctrl-[': 'core:cancel'
   'ctrl-g': 'core:cancel'
 
@@ -46,6 +32,10 @@
   'ctrl-cmd-e s': 'application:open-your-stylesheet'
   'ctrl-cmd-e n': 'application:open-your-snippets'
   'ctrl-cmd-e p': 'project-folder:open-config'
+  'ctrl-cmd-e t': 'toggle:open-config'
+
+'atom-text-editor':
+  'shift-cmd-enter': 'vim-mode-plus:maximize-pane-without-center'
 
   # [cursor history]
   'ctrl-i': 'cursor-history:next'
@@ -53,58 +43,24 @@
   'ctrl-cmd-i': 'cursor-history:next-within-editor'
   'ctrl-cmd-o': 'cursor-history:prev-within-editor'
 
-  # 'cmd-2': 'pane:split-down-and-copy-active-item'
-  # 'cmd-3': 'pane:split-right-and-copy-active-item'
-'atom-text-editor.vim-test':
-  'ctrl-i': 'vim-test:start-insert'
-  'escape': 'vim-test:stop-insert'
-
-'atom-text-editor':
-  # 'cmd-enter': 'vim-mode-plus:maximize-pane'
-  'shift-cmd-enter': 'vim-mode-plus:maximize-pane-without-center'
-  # 'a b': 'editor:move-to-first-character-of-line'
-  # 'a #': 'editor:move-to-first-character-of-line'
-  # 'a ^': 'editor:move-to-first-character-of-line'
+  # [hidrogen]
+  'cmd-m': 'hydrogen:toggle-bubble'
+  'ctrl-cmd-h': 'hydrogen:restart-kernel'
+  'cmd-h': 'hydrogen:restart-kernel-and-re-evaluate-bubbles'
+  'ctrl-cmd-enter': 'hydrogen:run'
 
 'atom-text-editor.vim-mode-plus.visual-mode.blockwise':
-  # t9md/atom-vim-mode-plus#214
-  'G': 'DONT_MOVE_TO_LAST_LINE'
-
-'atom-text-editor:not(.narrow-editor)':
-  # 'space r': 'vim-mode-plus:replace'
-  # 'space R': 'hydrogen:restart-kernel'
-  # 'cmd-m': 'hydrogen-helper:toggle-line-cells'
-  'cmd-m': 'hydrogen:toggle-bubble'
-  # 'cmd-h': 'hydrogen-helper:restart-kernel-and-run-all'
-  'ctrl-cmd-h': 'hydrogen:restart-kernel'
-  # 'ctrl-cmd-r': 'hydrogen:run-all'
-  'cmd-h': 'hydrogen:restart-kernel-and-re-evaluate-bubbles'
-  # 'ctrl-cmd-enter': 'hydrogen:run-all-above'
-  'ctrl-cmd-enter': 'hydrogen:run'
-  'shift-cmd-m': 'hydrogen-helper:clear-all-line-cells'
-
-#   'cmd-]': 'cursor-history:next'
-#   'cmd-[': 'cursor-history:prev'
-
-# 'atom-text-editor.vim-mode-plus:not(.insert-mode):not(.operator-pending-mode)':
-#   'P': 'vim-mode-plus:put-before-with-auto-indent'
-#   'p': 'vim-mode-plus:put-after-with-auto-indent'
-
-# atom
-# atomagic
-# atom
-
+  'G': 'DONT_MOVE_TO_LAST_LINE' # t9md/atom-vim-mode-plus#214
 
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  # 'J': 'vim-mode-plus:join-target'
   'space r': 'vim-mode-plus:replace'
+  'g n': 'vim-mode-plus:numbering-lines'
+  'g shift-cmd-D': 'vim-mode-plus:duplicate-with-comment-out-original'
 
   'g =': 'vim-mode-plus:align-occurrence'
-  # 'g |': 'vim-mode-plus:align-end-of-occurrence'
 
   # 'space k': 'keystroke 5 k'
-  # 'cmd-d': 'vim-mode-plus:select'
-
-  # 'backspace': 'inline:clear-current'
   '\\': 'choose-pane:start'
 
   '(': 'vim-mode-plus:move-to-previous-function'
@@ -179,7 +135,7 @@
   # 'g m': 'vim-mode-plus:toggle-persistent-selection'
   'g M': 'vim-mode-plus:clear-persistent-selection'
 
-  'g enter': 'vim-mode-plus:create-persistent-selection'
+  'g enter': 'vim-mode-plus:toggle-persistent-selection'
   'space enter': 'vim-mode-plus:clear-persistent-selection'
 
   'g h': 'vim-mode-plus-user:quick-highlight'
@@ -217,6 +173,7 @@
   'shift-cmd-i': 'transformer:compile'
 
 'atom-text-editor.vim-mode-plus.normal-mode':
+  'ctrl--': 'vim-mode-plus-user:jasmine-increase-focus'
   '!': 'vim-mode-plus:toggle-surround-with-parenthesis'
   'cmd-space': 'check-left'
   # 'd': 'keystroke " _ y'
@@ -337,6 +294,9 @@
 
 'atom-text-editor.vim-mode-plus.normal-mode, atom-text-editor.vim-mode-plus.visual-mode':
   '-': 'vim-mode-plus:replace-with-register'
+  '+': 'vim-mode-plus:replace-occurrence-with-register'
+  # 'g -': 'vim-mode-plus:replace-occurrence-with-register'
+
   # 'space m': 'quick-highlight:toggle'
   'space m': 'vim-mode-plus-user:quick-highlight-word'
   'space M': 'quick-highlight:clear'

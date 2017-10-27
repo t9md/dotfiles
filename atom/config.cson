@@ -79,7 +79,6 @@
       "vim-mode"
       "markdown-table-formatter"
       "package-generator"
-      "vim-mode-plus-replace-with-execution"
       "aligner"
       "aligner-javascript"
       "ide-flowtype"
@@ -87,6 +86,7 @@
       "ide-typescript"
       "atom-ide-ui"
       "language-babel"
+      "vim-mode-plus-replace-with-execution"
     ]
     openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
@@ -102,7 +102,6 @@
     flashOnLand: true
     searchAllPanes: false
   "demo-mode":
-    autoHide: false
     autoHideTimeout: 800
     maxKeystrokeToShow: 3
   dev:
@@ -117,7 +116,6 @@
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
-    showLineNumbers: false
   "exception-reporting":
     userId: "e4cd677f-7184-fb31-7448-ec0b8eb79d92"
   "find-and-replace":

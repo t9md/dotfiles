@@ -25,26 +25,41 @@ function consumeService(packageName, functionName, fn) {
 consumeService("vim-mode-plus", "provideVimModePlus", ({Base}) => {
   const TransformStringByExternalCommand = Base.getClass("TransformStringByExternalCommand")
 
+  class CustomSort extends TransformStringByExternalCommand {
+    static commandPrefix = "vim-mode-plus-user"
+    command = "sort"
+    args = ["-rn"]
+  }
+  CustomSort.registerToSelectList()
+  CustomSort.registerCommand()
+
   class CoffeeCompile extends TransformStringByExternalCommand {
+    static commandPrefix = "vim-mode-plus-user"
     command = "coffee"
     args = ["-csb", "--no-header"]
   }
+  CoffeeCompile.registerCommand()
 
   class CoffeeEval extends TransformStringByExternalCommand {
+    // cd /tmp; ls -l
+    static commandPrefix = "vim-mode-plus-user"
     command = "coffee"
     args = ["-se"]
     getStdin(selection) {
       return `console.log ${selection.getText()}`
     }
   }
+  CoffeeEval.registerCommand()
 
   class CoffeeInspect extends TransformStringByExternalCommand {
+    static commandPrefix = "vim-mode-plus-user"
     command = "coffee"
     args = ["-se"]
     getStdin(selection) {
       return `{inspect} = require 'util';console.log ${selection.getText()}`
     }
   }
+  CoffeeInspect.registerCommand()
 
   class DeleteWithBackholeRegister extends Base.getClass("Delete") {
     static commandPrefix = "vim-mode-plus-user"
@@ -54,11 +69,6 @@ consumeService("vim-mode-plus", "provideVimModePlus", ({Base}) => {
     }
   }
   DeleteWithBackholeRegister.registerCommand()
-
-  for (const klass of [CoffeeCompile, CoffeeEval, CoffeeInspect]) {
-    klass.commandPrefix = "vim-mode-plus-user"
-    klass.registerCommand()
-  }
 })
 
 function hotReloadPackages() {
