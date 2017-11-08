@@ -78,7 +78,6 @@
       "Hydrogen"
       "vim-mode"
       "markdown-table-formatter"
-      "package-generator"
       "aligner"
       "aligner-javascript"
       "ide-flowtype"
@@ -86,7 +85,7 @@
       "ide-typescript"
       "atom-ide-ui"
       "language-babel"
-      "vim-mode-plus-replace-with-execution"
+      "package-generator"
     ]
     openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
@@ -102,8 +101,8 @@
     flashOnLand: true
     searchAllPanes: false
   "demo-mode":
-    autoHideTimeout: 800
-    maxKeystrokeToShow: 3
+    autoHideTimeout: 1000
+    maxKeystrokeToShow: 5
   dev:
     _group___abc2: {}
     trackActivePaneItem: false
@@ -112,7 +111,7 @@
   editor:
     atomicSoftTabs: false
     fontFamily: "FiraCode-Retina"
-    fontSize: 18
+    fontSize: 19
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -212,6 +211,7 @@
     clearPersistentSelectionOnResetNormalMode: true
     debugOutput: "console"
     debugOutputFilePath: "~/github/atom-vim-mode-plus/debug.log"
+    defaultScrollRowsOnMiniScroll: 4
     devReloadPackages: [
       "vim-mode-plus-move-selected-text"
       "vim-mode-plus-jasmine-increase-focus"
@@ -242,6 +242,8 @@
     sequentialPaste: true
     smoothScrollOnFullScrollMotion: true
     smoothScrollOnHalfScrollMotion: true
+    smoothScrollOnMiniScroll: true
+    smoothScrollOnRedrawCursorLine: true
     strictAssertion: true
     useSmartcaseForFind: true
     useSmartcaseForSearch: true

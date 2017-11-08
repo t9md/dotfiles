@@ -5,8 +5,14 @@
 // @font-family-p: "Iosevka";
 
 // To make one-dark-vivid-syntax's comment more easy to read.
-atom-text-editor.editor .syntax--comment {
-  color: lighten(color(@mono-3), 10%) !important;
+atom-text-editor.editor {
+  .syntax--comment {
+    color: lighten(color(@mono-3), 25%) !important;
+  }
+
+  // .vim-mode-plus-occurrence-base .region {
+  //   border-bottom-width: 3px;
+  // }
 }
 
 // #status-bar-vim-mode-plus {
@@ -66,7 +72,7 @@ atom-text-editor div.lines div:last-child .line:last-child {
 .demo-mode-container {
   font-family: "FiraCode-Retina";
   // font-size: 2.0em;
-  font-size: 1.5em;
+  font-size: 2em;
   .keystroke {
     min-width: 5em;
   }
