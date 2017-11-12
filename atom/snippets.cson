@@ -23,7 +23,14 @@
 '.source.js':
   's':
     prefix: 's'
-    body: "static "
+    body: "static command = false "
+  'm':
+    prefix: 'm'
+    body: """
+    module.exports = {
+      ${1}
+    }
+    """
   'u':
     prefix: 'u'
     body: "this.utils."

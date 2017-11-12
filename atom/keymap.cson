@@ -53,9 +53,11 @@
   'G': 'DONT_MOVE_TO_LAST_LINE' # t9md/atom-vim-mode-plus#214
 
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'g w': 'vim-mode-plus:move-to-next-subword'
+  'g b': 'vim-mode-plus:move-to-previous-subword'
+
   # 'J': 'vim-mode-plus:join-target'
   'space r': 'vim-mode-plus:replace'
-  'g n': 'vim-mode-plus:numbering-lines'
   'g cmd-D': 'vim-mode-plus:duplicate-with-comment-out-original'
 
   'g =': 'vim-mode-plus:align-occurrence'
@@ -137,6 +139,8 @@
   'shift-cmd-i': 'transformer:compile'
 
 'atom-text-editor.vim-mode-plus.normal-mode':
+  'g n': 'vim-mode-plus:numbering-lines'
+
   'ctrl-cmd-c': 'user:clear-console'
   'ctrl--': 'vim-mode-plus-user:jasmine-increase-focus'
 
@@ -146,8 +150,8 @@
   # 'd': 'keystroke y'
   # 'j': 'keystroke 3 y'
 
-  'B': 'vim-mode-plus:insert-at-start-of-smart-word'
-  'E': 'vim-mode-plus:insert-at-end-of-smart-word'
+  # 'B': 'vim-mode-plus:insert-at-start-of-smart-word'
+  # 'E': 'vim-mode-plus:insert-at-end-of-smart-word'
 
 
   'Q': 'demo-mode:toggle'
@@ -297,6 +301,7 @@
 'atom-text-editor.vim-mode-plus-search':
   'ctrl-v': 'vim-mode-plus:search-activate-literal-mode'
   'ctrl-g': 'vim-mode-plus:search-cancel'
+  # 'ctrl-e': 'vim-mode-plus:search-land-to-end'
 
 'atom-text-editor.vim-mode-plus-search:not(.literal-mode)':
   '[': 'vim-mode-plus:search-visit-prev'
