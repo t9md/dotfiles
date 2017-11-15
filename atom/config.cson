@@ -1,41 +1,6 @@
 "*":
   Hydrogen:
     autocomplete: false
-    kernelspec: '''
-      { "kernelspecs": {
-          "javascript": {
-            "resource_dir": "/Users/t9md/Library/Jupyter/kernels/javascript",
-            "spec": {
-              "language": "javascript",
-              "display_name": "Javascript (Node.js)",
-              "env": {},
-              "argv": [
-                "ijskernel",
-                "--hide-undefined",
-                "{connection_file}",
-                "--protocol=5.0"
-              ]
-            }
-          },
-          "python2": {
-            "resource_dir": "/usr/local/share/jupyter/kernels/python2",
-            "spec": {
-              "language": "python",
-              "display_name": "Python 2",
-              "env": {},
-              "argv": [
-                "python",
-                "-m",
-                "ipykernel_launcher",
-                "-f",
-                "{connection_file}"
-              ]
-            }
-          }
-        }
-      }
-      
-    '''
     languageMappings: "{\"javascript\": \"babel es6 javascript\"}"
     startDir: "dirOfFile"
   "atom-ide-ui":
@@ -53,10 +18,7 @@
     labelChars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   "clip-history": {}
   core:
-    automaticallyUpdate: false
-    closeDeletedFileTabs: true
-    closeEmptyWindows: false
-    disabledPackages: [
+    _disabledPackages: [
       "package-that-throws-an-exception"
       "package-with-broken-package-json"
       "package-with-broken-keymap"
@@ -92,6 +54,75 @@
       "linter-coffeelint"
       "linter-eslint"
       "linter-ui-default"
+      "atomic-chrome"
+      "choose-pane"
+      "clip-history"
+      "demo-mode"
+      "dev"
+      "keystroke"
+      "markdown-toc-auto"
+      "narrow-git-ls"
+      "quick-highlight"
+      "remember-file-positions"
+      "theme-switch"
+      "toggle"
+      "run-in-atom"
+      "toggle-quotes"
+      "vim-mode-plus-auto-ime"
+      "vim-mode-plus-ex-mode"
+      "vim-mode-plus-move-selected-text"
+      "vim-mode-plus-move-to-symbols"
+      "vim-mode-plus-replace-with-execution"
+      "open-this"
+      "vim-mode-plus-keymaps-for-surround"
+      "narrow"
+      "paner"
+      "prettier-atom"
+      "transformer"
+      "try"
+      "vim-mode-plus-jasmine-increase-focus"
+      "cursor-history"
+      "project-folder"
+    ]
+    automaticallyUpdate: false
+    closeDeletedFileTabs: true
+    closeEmptyWindows: false
+    disabledPackages: [
+      "package-that-throws-an-exception"
+      "package-with-broken-package-json"
+      "package-with-broken-keymap"
+      "about"
+      "background-tips"
+      "welcome"
+      "metrics"
+      "encoding-selector"
+      "archive-view"
+      "autosave"
+      "language-elm"
+      "color-picker"
+      "bookmarks"
+      "recent-finder"
+      "github"
+      "atom-hot-package-loader"
+      "flow-ide"
+      "language-julia"
+      "vim-mode"
+      "markdown-table-formatter"
+      "aligner"
+      "aligner-javascript"
+      "ide-flowtype"
+      "focus-pane-or-panel"
+      "ide-typescript"
+      "atom-ide-ui"
+      "language-babel"
+      "package-generator"
+      "linter"
+      "busy-signal"
+      "intentions"
+      "linter-coffeelint"
+      "linter-eslint"
+      "linter-ui-default"
+      "Hydrogen"
     ]
     openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
@@ -121,7 +152,6 @@
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
-    showInvisibles: true
   "exception-reporting":
     userId: "e4cd677f-7184-fb31-7448-ec0b8eb79d92"
   "find-and-replace":
@@ -248,7 +278,9 @@
     notifiedCoffeeScriptNoLongerSupportedToExtendVMP: true
     reuseFindForRepeatFind: true
     sequentialPaste: true
+    setCursorToStartOfChangeOnUndoRedo: false
     smoothScrollOnFullScrollMotion: true
+    smoothScrollOnFullScrollMotionDuration: 800
     smoothScrollOnHalfScrollMotion: true
     smoothScrollOnMiniScroll: true
     smoothScrollOnRedrawCursorLine: true

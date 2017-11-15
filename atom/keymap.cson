@@ -150,8 +150,8 @@
   # 'd': 'keystroke y'
   # 'j': 'keystroke 3 y'
 
-  # 'B': 'vim-mode-plus:insert-at-start-of-smart-word'
-  # 'E': 'vim-mode-plus:insert-at-end-of-smart-word'
+  'B': 'vim-mode-plus:insert-at-start-of-smart-word'
+  'E': 'vim-mode-plus:insert-at-end-of-smart-word'
 
 
   'Q': 'demo-mode:toggle'
