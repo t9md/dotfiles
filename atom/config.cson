@@ -275,7 +275,6 @@
     keymapSemicolonAndCommaToFindPreConfirmedOnFindInput: true
     keymapSemicolonToInnerAnyPairInOperatorPendingMode: true
     keymapYToYankToLastCharacterOfLine: true
-    notifiedCoffeeScriptNoLongerSupportedToExtendVMP: true
     reuseFindForRepeatFind: true
     sequentialPaste: true
     setCursorToStartOfChangeOnUndoRedo: false
