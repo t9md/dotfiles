@@ -148,7 +148,7 @@
   editor:
     atomicSoftTabs: false
     fontFamily: "FiraCode-Retina"
-    fontSize: 16
+    fontSize: 20
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -279,7 +279,6 @@
     sequentialPaste: true
     setCursorToStartOfChangeOnUndoRedo: false
     smoothScrollOnFullScrollMotion: true
-    smoothScrollOnFullScrollMotionDuration: 800
     smoothScrollOnHalfScrollMotion: true
     smoothScrollOnMiniScroll: true
     smoothScrollOnRedrawCursorLine: true

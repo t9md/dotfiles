@@ -452,6 +452,7 @@
   'cmd-e': 'narrow:search-by-current-word'
 
 'atom-workspace.has-narrow atom-text-editor.vim-mode-plus.normal-mode':
+  'enter': 'vim-mode-plus:redraw-cursor-line-at-upper-middle'
   'cmd-f': 'narrow:focus'
   'cmd-i': 'narrow:focus-prompt'
   'cmd-[': 'narrow:previous-query-history'
