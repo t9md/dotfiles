@@ -3,9 +3,32 @@
 
 // @font-family-p: "Ricty";
 // @font-family-p: "Iosevka";
+.cursor-base () {
+  border: none;
+  background: none;
+  opacity: 0.5;
+}
+
+// atom-text-editor.vim-mode-plus.normal-mode {
+//   .cursor {
+//     .cursor-base();
+//     background-color: @syntax-cursor-color; // block-cursor
+//   }
+// }
 
 // To make one-dark-vivid-syntax's comment more easy to read.
+// atom-text-editor {
+//   &.in-transition {
+//     transition: transform 1000ms ease;
+//   }
+// }
+
+// @flash-base-color: contrast(@syntax-background-color, darken(@syntax-selection-color, 3%), lighten(@syntax-selection-color, 3%));
 atom-text-editor.editor {
+  // .invisible-character {
+  //   visibility: hidden;
+  // }
+
   .syntax--comment {
     color: lighten(color(@mono-3), 25%) !important;
   }
@@ -54,6 +77,11 @@ atom-text-editor.editor .syntax--string.syntax--regexp {
   font-style: normal;
 }
 
+atom-text-editor.editor.mgit {
+  -webkit-font-feature-settings: "liga" off, "calt" off;
+  font-style: normal;
+}
+
 // atom-text-editor {
 //   .narrow-syntax--header-project {
 //     color: @syntax-color-added;
@@ -63,16 +91,17 @@ atom-text-editor.editor .syntax--string.syntax--regexp {
 //   }
 // }
 
-atom-text-editor div.lines div:last-child .line:last-child {
-  .indent-guide {
-    box-shadow: none;
-  }
-}
+// atom-text-editor div.lines:nth-last-child(3) div.line:last-child {
+//   background-color: red !important;
+//   .indent-guide {
+//     box-shadow: none;
+//   }
+// }
 
 .demo-mode-container {
   font-family: "FiraCode-Retina";
   // font-size: 2.0em;
-  font-size: 2em;
+  font-size: 1.5em;
   .keystroke {
     min-width: 5em;
   }
@@ -87,3 +116,51 @@ atom-text-editor div.lines div:last-child .line:last-child {
     // color: red;
   }
 }
+
+// .select-list {
+//   ol.list-group {
+//     max-height: 100px;
+//   }
+// }
+// @import "syntax-variables";
+
+// atom-text-editor {
+//   .syntax--diff {
+//     // &.syntax--header.syntax--git-diff {
+//     //   color: @syntax-color-constant;
+//     // }
+//     // &.syntax--header.syntax--git-index {
+//     //   color: @syntax-color-method;
+//     // }
+//     &.syntax--header {
+//       color: @syntax-color-constant;
+//     }
+//     &.syntax--chunk.syntax--at {
+//       color: @syntax-color-keyword;
+//     }
+//     &.syntax--chunk.syntax--range {
+//       color: @syntax-color-keyword;
+//     }
+//     &.syntax--header.syntax--from-file,
+//     &.syntax--deleted {
+//       color: lighten(@syntax-color-removed, 10%);
+//
+//       // color: @syntax-text-color;
+//       // background-color: fadeout(@syntax-color-removed, 70%);
+//     }
+//     &.syntax--header.syntax--to-file,
+//     &.syntax--inserted {
+//       color: lighten(@syntax-color-added, 10%);
+//
+//       // color: @syntax-text-color;
+//       // background-color: fadeout(@syntax-color-added, 70%);
+//     }
+//   }
+// }
+// atom-text-editor {
+//   .line {
+//     &.git-diff-details-new-flat {
+//       // background-color: transparent !important;
+//     }
+//   }
+// }

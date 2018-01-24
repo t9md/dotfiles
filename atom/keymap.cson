@@ -1,4 +1,3 @@
-# [BUG]
 # My dot files are allways collection of garbages.
 # So if it doesn't work, please give up!
 # -------------------------
@@ -6,6 +5,8 @@
   # 'ctrl-p': 'user:open-tryit-coffee'
 
 'atom-workspace:not([mini])':
+  'f12': 'timecop:view'
+  # 'f12': 'demo-mode:toggle'
   'cmd-ctrl-shift-left': 'window:move-active-item-to-pane-on-left'
   'cmd-ctrl-shift-right': 'window:move-active-item-to-pane-on-right'
   'cmd-ctrl-shift-up': 'window:move-active-item-to-pane-above'
@@ -14,10 +15,15 @@
   'cmd-p': 'project-folder:add'
 
   'cmd-x': 'vim-mode-plus:exchange-pane'
+
   'cmd-K': 'vim-mode-plus:move-pane-to-very-top'
   'cmd-J': 'vim-mode-plus:move-pane-to-very-bottom'
   'cmd-H': 'vim-mode-plus:move-pane-to-very-left'
   'cmd-L': 'vim-mode-plus:move-pane-to-very-right'
+  # 'cmd-K': 'pane:move-to-very-top'
+  # 'cmd-J': 'pane:move-to-very-bottom'
+  # 'cmd-H': 'pane:move-to-very-left'
+  # 'cmd-L': 'pane:move-to-very-right'
 
   'cmd-2': 'paner:split-pane-down-stay'
   'cmd-3': 'paner:split-pane-right-stay'
@@ -36,6 +42,7 @@
 
 'atom-text-editor':
   'shift-cmd-enter': 'vim-mode-plus:maximize-pane-without-center'
+  'ctrl-cmd-p': 'mprettier:format'
 
   # [cursor history]
   'ctrl-i': 'cursor-history:next'
@@ -138,8 +145,16 @@
   'cmd-i': 'transformer:run'
   'shift-cmd-i': 'transformer:compile'
 
+'atom-workspace:not(.has-narrow) atom-text-editor.vim-mode-plus.normal-mode.has-inline-git-diff':
+  'tab': 'git-diff:move-to-next-diff'
+  'shift-tab': 'git-diff:move-to-previous-diff'
+  'g r': 'inline-git-diff:revert'
+  'g c': 'inline-git-diff:copy-removed-text'
+
 'atom-text-editor.vim-mode-plus.normal-mode':
-  'g n': 'vim-mode-plus:numbering-lines'
+  'q': 'vim-mode-plus:change-subword-occurrence'
+
+  # 'g n': 'vim-mode-plus:numbering-lines'
 
   'ctrl-cmd-c': 'user:clear-console'
   'ctrl--': 'vim-mode-plus-user:jasmine-increase-focus'
@@ -185,13 +200,20 @@
   'space g b': 'open-on-github:blame'
   'space g h': 'open-on-github:history'
   'space g i': 'open-on-github:issues'
-  'space g c': 'open-on-github:copy-url'
+  # 'space g c': 'open-on-github:copy-url'
   'space g r': 'open-on-github:branch-compare'
+  'space g c': 'vim-mode-plus:resolve-git-conflict'
   'space g g': 'open-on-github:repository'
 
   'space g n': 'git-diff:move-to-next-diff'
   'space g p': 'git-diff:move-to-previous-diff'
+  # 'g n': 'git-diff:move-to-next-diff'
+  # 'g p': 'git-diff:move-to-previous-diff'
   'space g d': 'git-diff:toggle-diff-list'
+  'g d': 'inline-git-diff:toggle'
+  # '_': 'vim-mode-plus-user:insert-character'
+  'g s': 'mgit:status'
+  # 'g s': 'mgit:start-commit'
 
   '_': 'toggle:there'
 
@@ -222,20 +244,55 @@
   'ctrl-u': 'editor:delete-to-beginning-of-line'
   'ctrl-w': 'editor:delete-to-beginning-of-word'
 
+
 # 'atom-text-editor.vim-mode-plus.visual-mode[data-grammar="source gfm"]':
 #   'f5': 'vim-mode-plus-user:replace-with-execution'
 #   'shift-f5': 'vim-mode-plus-user:replace-with-execution-keep-original-text'
 
 'atom-text-editor.vim-mode-plus.normal-mode, atom-text-editor.vim-mode-plus.visual-mode':
-  '-': 'vim-mode-plus:replace-with-register'
-  '+': 'vim-mode-plus:replace-occurrence-with-register'
-
   # 'space m': 'quick-highlight:toggle'
   'space m': 'vim-mode-plus-user:quick-highlight-word'
   'space M': 'quick-highlight:clear'
   'g h': 'vim-mode-plus-user:quick-highlight'
   'm': 'vim-mode-plus:toggle-preset-occurrence'
   'M': 'vim-mode-plus:toggle-preset-subword-occurrence'
+
+'atom-text-editor.vim-mode-plus.normal-mode:not(.mgit-status), atom-text-editor.vim-mode-plus.visual-mode:not(.mgit-status)':
+  '-': 'vim-mode-plus:replace-with-register'
+  '+': 'vim-mode-plus:replace-occurrence-with-register'
+
+'atom-text-editor.vim-mode-plus.normal-mode.mgit, atom-text-editor.vim-mode-plus.visual-mode.mgit':
+  'q': 'core:close'
+
+'atom-text-editor.vim-mode-plus.normal-mode.mgit-status.mgit-status.mgit-status, atom-text-editor.vim-mode-plus.visual-mode.mgit-status':
+  '-': 'mgit-ui:toggle-stage'
+  '<': 'mgit-ui:stage'
+  '>': 'mgit-ui:unstage'
+  '1': 'mgit-ui:stage'
+  '2': 'mgit-ui:unstage'
+  'D': 'mgit-ui:toggle-diff'
+  'C': 'mgit-ui:start-commit'
+  'R': "mgit-ui:reset"
+  'o': 'mgit-ui:open-diff-and-focus'
+  'enter': 'mgit-ui:open-diff-and-focus'
+
+# 'atom-workspace:not(.has-narrow) atom-text-editor.vim-mode-plus.normal-mode':
+#   'enter': 'vim-mode-plus:redraw-cursor-line-at-upper-middle'
+
+'atom-text-editor.vim-mode-plus.insert-mode.mgit-status':
+  'cmd-s': 'mgit-ui:commit'
+
+  # 'tab': 'mgit-ui:move-to-next-hunk'
+  # 'shift-tab': 'mgit-ui:move-to-previous-hunk'
+
+'atom-text-editor.vim-mode-plus.normal-mode[data-grammar="source mgit-diff"]':
+  'o': "mgit-ui:activate-src-editor"
+  'y h': 'vim-mode-plus:yank-diff-hunk'
+
+
+# 'atom-text-editor.vim-mode-plus.normal-mode.mgit-diff, atom-text-editor.vim-mode-plus.visual-mode.mgit-diff':
+#   'tab': 'mgit-ui:move-to-next-hunk'
+#   'shift-tab': 'mgit-ui:move-to-previous-hunk'
 
 'atom-text-editor.vim-mode-plus.operator-pending-mode, atom-text-editor.vim-mode-plus.visual-mode':
   "'": 'vim-mode-plus:inner-any-quote'
@@ -292,6 +349,8 @@
   ';': 'core:confirm'
   'ctrl-l': 'pane:split-right'
   'ctrl-j': 'pane:split-down'
+  'down': 'core:move-to-bottom'
+  'cmd-shift-c': "command-palette:copy-display-name"
 
 '.markdown-preview':
   '\\': 'choose-pane:start'
@@ -309,7 +368,7 @@
   ';': 'core:confirm'
 
 'atom-text-editor.vim-mode-plus.operator-pending-mode':
-  'u': 'vim-mode-plus:inner-indentation'
+  'u': 'vim-mode-plus:a-indentation'
   "m": "vim-mode-plus:a-any-pair",
 
 # To replace current word by `- -`(double dash)
@@ -318,6 +377,7 @@
 
 'atom-text-editor.vim-mode-plus.insert-mode.autocomplete-active':
   'ctrl-g': 'autocomplete-plus:cancel'
+  # 'tab': "user:autocomplete-plus-select-next-and-confirm"
 
 # Tree-view navigation
 'atom-workspace .tree-view':
@@ -337,7 +397,7 @@
   'left': 'demo-mode:move-hover-left'
   'right': 'demo-mode:move-hover-right'
 
-  "cmd ^cmd": 'demo-mode:clear'
+  # "cmd ^cmd": 'demo-mode:clear'
   'q': 'demo-mode:clear'
   'shift-enter': 'demo-mode:clear'
   '\\': 'demo-mode:clear'
@@ -451,8 +511,10 @@
 'atom-workspace:not(.has-narrow) atom-text-editor.vim-mode-plus:not(.insert-mode)':
   'cmd-e': 'narrow:search-by-current-word'
 
-'atom-workspace.has-narrow atom-text-editor.vim-mode-plus.normal-mode':
+'atom-workspace:not(.has-narrow) atom-text-editor.vim-mode-plus.normal-mode':
   'enter': 'vim-mode-plus:redraw-cursor-line-at-upper-middle'
+
+'atom-workspace.has-narrow atom-text-editor.vim-mode-plus.normal-mode':
   'cmd-f': 'narrow:focus'
   'cmd-i': 'narrow:focus-prompt'
   'cmd-[': 'narrow:previous-query-history'
@@ -478,3 +540,19 @@
 # On narrow-editor
 'atom-text-editor.narrow.narrow-editor[data-grammar="source narrow"]':
   'cmd-s': 'narrow-ui:update-real-file'
+
+# 'atom-pane.gt-mode':
+#   't': 'pane:show-next-item'
+#   'T': 'pane:show-previous-item'
+
+# 'atom-text-editor.vim-mode-plus':
+#   'g t': 'pane:show-next-item'
+#   'g T': 'pane:show-previous-item'
+
+# 'atom-pane':
+#   'g t': 'pane:show-next-item'
+#   'g T': 'pane:show-previous-item'
+#
+# 'atom-pane.gt-mode atom-text-editor.vim-mode-plus':
+#   't': 'pane:show-next-item'
+#   'T': 'pane:show-previous-item'

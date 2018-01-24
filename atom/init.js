@@ -22,7 +22,9 @@ function consumeService(packageName, functionName, fn) {
   }
 }
 
-consumeService("vim-mode-plus", "provideVimModePlus", ({Base}) => {
+consumeService("vim-mode-plus", "provideVimModePlus", service => {
+  return
+  const Base = service.Base
   const TransformStringByExternalCommand = Base.getClass("TransformStringByExternalCommand")
 
   class CustomSort extends TransformStringByExternalCommand {
@@ -69,10 +71,22 @@ consumeService("vim-mode-plus", "provideVimModePlus", ({Base}) => {
     }
   }
   DeleteWithBackholeRegister.registerCommand()
+
+  class InsertCharacter extends Base.getClass("Operator") {
+    static commandPrefix = "vim-mode-plus-user"
+    target = "Empty"
+    readInputAfterSelect = true
+
+    mutateSelection(selection) {
+      const point = selection.getHeadBufferPosition()
+      this.editor.setTextInBufferRange([point, point], this.input.repeat(this.getCount()))
+    }
+  }
+  InsertCharacter.registerCommand()
 })
 
-function hotReloadPackages() {
-  atom.project.getPaths().forEach(projectPath => {
+async function hotReloadPackages() {
+  for (const projectPath of atom.project.getPaths()) {
     let packName = path.basename(projectPath).replace(/^atom-/, "")
     let pack = atom.packages.getLoadedPackage(packName)
     if (!pack) {
@@ -83,7 +97,7 @@ function hotReloadPackages() {
 
     if (pack) {
       console.log(`deactivating ${packName}`)
-      atom.packages.deactivatePackage(packName)
+      await atom.packages.deactivatePackage(packName)
       atom.packages.unloadPackage(packName)
 
       Object.keys(require.cache)
@@ -98,22 +112,37 @@ function hotReloadPackages() {
       atom.packages.activatePackage(packName)
       console.log(`activated ${packName}`)
     }
-  })
+  }
 }
 
 function clipListOfActiveCommunityPackages(arg) {
-  const listOfActiveCommunityPackages =
-    atom.packages
-      .getActivePackages()
-      .filter(pack => !atom.packages.isBundledPackage(pack.name))
-      .map(pack => pack.name + ": " + pack.metadata.version)
-      .join("\n") + "\n"
-  atom.clipboard.write(listOfActiveCommunityPackages)
+  const texts = atom.packages
+    .getActivePackages()
+    .filter(pack => !atom.packages.isBundledPackage(pack.name))
+    .map(pack => pack.name + ": " + pack.metadata.version)
+  atom.clipboard.write(texts.join("\n") + "\n")
 }
+
+function clipListOfLoadedCommunityPackages(arg) {
+  const texts = atom.packages
+    .getLoadedPackages()
+    .filter(pack => !atom.packages.isBundledPackage(pack.name))
+    .map(pack => pack.name + ": " + pack.metadata.version)
+  atom.clipboard.write(texts.join("\n") + "\n")
+}
+
+atom.commands.add("atom-text-editor", "user:autocomplete-plus-select-next-and-confirm", function() {
+  const editor = this.getModel()
+  atom.commands.dispatch(editor.element, "core:move-down")
+  atom.commands.dispatch(editor.element, "autocomplete-plus:confirm")
+})
 
 atom.commands.add("atom-workspace", {
   "user:clip-list-of-active-community-packages"() {
     clipListOfActiveCommunityPackages()
+  },
+  "user:clip-list-of-loaded-community-packages"() {
+    clipListOfLoadedCommunityPackages()
   },
   "user:inspect-element"() {
     atom.openDevTools()

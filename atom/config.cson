@@ -6,6 +6,8 @@
   "atom-ide-ui":
     use:
       "atom-ide-diagnostics-ui": false
+  "autocomplete-emojis":
+    enableUnicodeEmojis: false
   "autocomplete-plus":
     suppressActivationForEditorClasses: [
       "vim-mode-plus.normal-mode"
@@ -17,8 +19,15 @@
   "choose-pane":
     labelChars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   "clip-history": {}
+  "command-palette":
+    copySelectedItemTextWhenEmptySelection: "command-name"
+    numberOfRecentlyConfirmedCommandsShowsAtTop: 3
   core:
     _disabledPackages: [
+      "nuclide"
+      "submode"
+      "mprettier"
+      "language-rust"
       "package-that-throws-an-exception"
       "package-with-broken-package-json"
       "package-with-broken-keymap"
@@ -84,9 +93,22 @@
       "cursor-history"
       "project-folder"
     ]
+    audioBeep: false
     automaticallyUpdate: false
     closeDeletedFileTabs: true
     closeEmptyWindows: false
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".flowconfig"
+        ".hgrc"
+      ]
+      "source.json": [
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
     disabledPackages: [
       "package-that-throws-an-exception"
       "package-with-broken-package-json"
@@ -100,9 +122,7 @@
       "autosave"
       "language-elm"
       "color-picker"
-      "bookmarks"
       "recent-finder"
-      "github"
       "atom-hot-package-loader"
       "flow-ide"
       "language-julia"
@@ -116,13 +136,30 @@
       "atom-ide-ui"
       "language-babel"
       "package-generator"
-      "linter"
-      "busy-signal"
-      "intentions"
       "linter-coffeelint"
+      "submode"
+      "vim-mode-plus-replace-with-execution"
+      "keystroke"
+      "nuclide"
+      "bookmarks"
+      "busy-signal"
       "linter-eslint"
+      "linter"
       "linter-ui-default"
-      "Hydrogen"
+      "intentions"
+      "vim-mode-plus-auto-ime"
+      "vim-mode-plus-move-to-symbols"
+      "language-rust"
+      "git-time-machine"
+      "git-plus"
+      "language-patch"
+      "git-control"
+      "git-log"
+      "git-history"
+      "prettier-atom"
+      "split-diff"
+      "git-diff-details"
+      "github"
     ]
     openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
@@ -139,7 +176,7 @@
     searchAllPanes: false
   "demo-mode":
     autoHideTimeout: 1000
-    maxKeystrokeToShow: 5
+    maxKeystrokeToShow: 3
   dev:
     _group___abc2: {}
     trackActivePaneItem: false
@@ -148,7 +185,7 @@
   editor:
     atomicSoftTabs: false
     fontFamily: "FiraCode-Retina"
-    fontSize: 20
+    fontSize: 22
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -157,6 +194,13 @@
   "find-and-replace":
     projectSearchResultsPaneSplitDirection: "right"
     scrollToResultOnLiveSearch: true
+  "git-diff":
+    wrapAroundOnMoveToDiff: false
+  "git-diff-details":
+    enableSyntaxHighlighting: true
+  "git-plus":
+    commits: {}
+    general: {}
   "ide-typescript": {}
   "js-hyperclick":
     jumpToImport: true
@@ -170,7 +214,9 @@
     ]
   linter:
     lintOnChange: false
-  "linter-eslint": {}
+  "linter-eslint":
+    disableWhenNoEslintConfig: false
+    useGlobalEslint: true
   "linter-ui-default":
     panelHeight: 69
     showStatusBar: false
@@ -178,15 +224,42 @@
   "markdown-table-formatter":
     autoSelectEntireDocument: false
     formatOnSave: false
+  mgit: {}
+  mprettier:
+    formatOnSave:
+      disabledParsers: [
+        "markdown"
+        "postcss"
+        "json"
+      ]
+      enable: true
+      skipWhenPrettierIsNotProjectDependencies: true
+    prettierOptions:
+      bracketSpacing: false
+      jsxBracketSameLine: true
+      printWidth: 120
+      semi: false
+      trailingComma: "es5"
+    prettierToUseInOrder:
+      globallyInstalled: true
+      inCurrentProject: false
+    scopesForParser: {}
+    skipPrettierWhenFormatByStandardForJavascriptIfStandardIsProjectDependencies: false
   narrow:
     AtomScan: {}
+    Fold:
+      foldLevel: 1
     ProjectSymbols: {}
     Scan: {}
+    Search: {}
     SelectFiles:
       rememberQuery: true
     confirmOnUpdateRealFile: false
     notifiedVimModePlusSpecificDefaultKeymap: true
   "nord-atom-ui": {}
+  nuclide:
+    "nuclide-home":
+      showHome: false
   paner:
     debug: true
   "prettier-atom":
@@ -217,7 +290,17 @@
     locales: [
       "en-US"
     ]
+  "split-diff":
+    colors: {}
   "status-bar": {}
+  submode:
+    submode:
+      "gt-mode":
+        commands: [
+          "pane:show-next-item"
+          "pane:show-previous-item"
+        ]
+        target: "atom-pane"
   "symbols-view":
     quickJumpToFileSymbol: false
     useEditorGrammarAsCtagsLanguage: false
@@ -275,6 +358,7 @@
     keymapSemicolonAndCommaToFindPreConfirmedOnFindInput: true
     keymapSemicolonToInnerAnyPairInOperatorPendingMode: true
     keymapYToYankToLastCharacterOfLine: true
+    replaceByDiffOnSurround: true
     reuseFindForRepeatFind: true
     sequentialPaste: true
     setCursorToStartOfChangeOnUndoRedo: false
