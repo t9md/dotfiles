@@ -22,7 +22,32 @@ function consumeService(packageName, functionName, fn) {
   }
 }
 
-consumeService("vim-mode-plus", "provideVimModePlus", service => {
+function consumeVimModePlusService(fn) {
+  const consume = (pack) => fn(pack.mainModule.provideVimModePlus())
+
+  const pack = atom.packages.getActivePackage('vim-mode-plus')
+  if (pack) {
+    consume(pack)
+  } else {
+    const disposable = atom.packages.onDidActivatePackage(pack => {
+      if (pack.name === 'vim-mode-plus') {
+        disposable.dispose()
+        consume(pack)
+      }
+    })
+  }
+}
+
+consumeVimModePlusService(service => {
+  class DeleteWithBackholeRegister extends service.getClass("Delete") {
+    execute() {
+      this.vimState.register.name = "_"
+      super.execute()
+    }
+  }
+  DeleteWithBackholeRegister.commandPrefix = "vim-mode-plus-user"
+  DeleteWithBackholeRegister.registerCommand()
+
   return
   const Base = service.Base
   const TransformStringByExternalCommand = Base.getClass("TransformStringByExternalCommand")
@@ -63,14 +88,6 @@ consumeService("vim-mode-plus", "provideVimModePlus", service => {
   }
   CoffeeInspect.registerCommand()
 
-  class DeleteWithBackholeRegister extends Base.getClass("Delete") {
-    static commandPrefix = "vim-mode-plus-user"
-    execute() {
-      this.vimState.register.name = "_"
-      super.execute()
-    }
-  }
-  DeleteWithBackholeRegister.registerCommand()
 
   class InsertCharacter extends Base.getClass("Operator") {
     static commandPrefix = "vim-mode-plus-user"
