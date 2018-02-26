@@ -20,6 +20,10 @@
     $1
     ```
     """
+'.source.ruby':
+  'pp':
+    prefix: 'pp'
+    body: "require \"pp\""
 '.source.js':
   's':
     prefix: 's'
@@ -41,6 +45,13 @@
         super(...args)
         ${1}
       }
+      """
+  'run':
+    prefix: 'ru'
+    body: """
+      run('${1:subject}', () => {
+        ${2}
+      })
       """
   'args':
     prefix: 'a'

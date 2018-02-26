@@ -17,7 +17,7 @@
       "narrow"
     ]
   "choose-pane":
-    labelChars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    labelChars: "HJKL;"
   "clip-history": {}
   "command-palette":
     copySelectedItemTextWhenEmptySelection: "command-name"
@@ -95,8 +95,6 @@
     ]
     audioBeep: false
     automaticallyUpdate: false
-    closeDeletedFileTabs: true
-    closeEmptyWindows: false
     customFileTypes:
       "source.ini": [
         ".buckconfig"
@@ -141,7 +139,6 @@
       "vim-mode-plus-replace-with-execution"
       "keystroke"
       "nuclide"
-      "bookmarks"
       "busy-signal"
       "linter-eslint"
       "linter"
@@ -156,18 +153,22 @@
       "git-control"
       "git-log"
       "git-history"
-      "prettier-atom"
       "split-diff"
       "git-diff-details"
+      "prettier-atom"
       "github"
+      "hyperclick"
+      "js-hyperclick"
+      "atom-clock"
     ]
     openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
       "intentions"
     ]
+    telemetryConsent: "no"
     themes: [
       "one-dark-ui"
-      "one-dark-vivid-syntax"
+      "duotone-blue-dark-syntax"
     ]
     titleBar: "hidden"
   "cursor-history":
@@ -182,10 +183,12 @@
     trackActivePaneItem: false
     trackDidAddPane: false
     trackDidOpen: false
+  "duotone-dark-syntax":
+    color: {}
   editor:
     atomicSoftTabs: false
     fontFamily: "FiraCode-Retina"
-    fontSize: 22
+    fontSize: 19
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -202,13 +205,15 @@
     commits: {}
     general: {}
   "ide-typescript": {}
+  "inline-git-diff":
+    statusBarStyle: "icon"
   "js-hyperclick":
     jumpToImport: true
   keystroke:
     commands: [
       {
-        name: "escape-and-move-right"
         keystroke: "escape l"
+        name: "escape-and-move-right"
         scope: "atom-text-editor"
       }
     ]
@@ -221,6 +226,7 @@
     panelHeight: 69
     showStatusBar: false
     useBusySignal: false
+  "markdown-preview": {}
   "markdown-table-formatter":
     autoSelectEntireDocument: false
     formatOnSave: false
@@ -239,6 +245,7 @@
       jsxBracketSameLine: true
       printWidth: 120
       semi: false
+      singleQuote: true
       trailingComma: "es5"
     prettierToUseInOrder:
       globallyInstalled: true
@@ -247,15 +254,12 @@
     skipPrettierWhenFormatByStandardForJavascriptIfStandardIsProjectDependencies: false
   narrow:
     AtomScan: {}
-    Fold:
-      foldLevel: 1
-    ProjectSymbols: {}
+    Fold: {}
     Scan: {}
-    Search: {}
     SelectFiles:
       rememberQuery: true
     confirmOnUpdateRealFile: false
-    notifiedVimModePlusSpecificDefaultKeymap: true
+    locationToOpen: "center"
   "nord-atom-ui": {}
   nuclide:
     "nuclide-home":
@@ -267,6 +271,7 @@
       excludedGlobs: [
         "tryit.js"
       ]
+      showInStatusBar: true
     prettierOptions:
       bracketSpacing: false
       jsxBracketSameLine: true
@@ -305,13 +310,19 @@
     quickJumpToFileSymbol: false
     useEditorGrammarAsCtagsLanguage: false
   "theme-switch":
-    logToConsole2: "a"
+    logToConsole: true
     profiles: [
       "one-light-ui one-light-syntax"
-      "one-dark-ui one-dark-vivid-syntax"
+      "one-dark-ui one-dark-syntax"
+      "one-dark-ui oceanic-next"
+      "one-dark-ui duotone-dark-syntax"
+      "one-dark-ui duotone-blue-dark-syntax"
     ]
   toggle: {}
   "toggle-quotes": {}
+  "tone-syntax":
+    color:
+      syncUI: false
   transformer: {}
   "tree-view":
     focusOnReveal: false
@@ -338,6 +349,7 @@
       "vim-mode-plus-replace-with-execution"
       "vim-mode-plus-ex-mode"
       "narrow"
+      "narrow-git-ls"
       "quick-highlight"
       "demo-mode"
     ]
@@ -345,6 +357,8 @@
     findCharsMax: 100
     findConfirmByTimeout: 200
     flashOnMoveToOccurrence: true
+    hideCommandsFromCommandPalette: false
+    hideStatusBarOnMaximizePane: false
     hideTabBarOnMaximizePane: false
     highlightSearch: false
     highlightSearchExcludeScopes: [

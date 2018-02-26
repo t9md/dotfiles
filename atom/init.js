@@ -151,6 +151,9 @@ atom.commands.add("atom-workspace", {
   "user:hello"() {
     console.log("hello!")
   },
+  "user:hello:hello"() {
+    console.log("hello!2")
+  },
   "user:clear-console"() {
     console.clear()
   },
@@ -170,3 +173,44 @@ atom.commands.add("atom-workspace", {
     console.log(JSON.stringify({configSchema: CONFIG}, null, "  "))
   },
 })
+// atom.commands.add('atom-workspace', {
+//   'workspace:hello1': () => console.log('hello'),
+//   'workspace:hello2': () => console.log('hello'),
+//   'workspace:world1': () => console.log('world'),
+//   'workspace:world2': () => console.log('world'),
+// })
+//
+// atom.commands.add('atom-text-editor', {
+//   'aaa:editor-cmd': () => console.log('hello'),
+//   'editor:hello1': () => console.log('hello'),
+//   'editor:hello2': () => console.log('world'),
+//   'editor:world1': () => console.log('world'),
+//   'editor:world2': () => console.log('world'),
+// })
+// atom.commands.add('atom-text-editor.has-selection', {
+//   'aaa:editor-cmd-has-selection': () => console.log('hello'),
+// })
+
+
+// function clipKeymap() {
+//   const disposable = atom.keymaps.addKeystrokeResolver(event => {
+//     disposable.dispose()
+//     const keymap = JSON.stringify(event.keymap, null, '  ')
+//     atom.clipboard.write(keymap)
+//   })
+// }
+// atom.commands.add('atom-workspace', {
+//   'user:clip-keymap': () => clipKeymap(),
+// })
+
+// atom.keymaps.addKeystrokeResolver(({event}) => {
+//   // event.
+//   // delete e
+//   // delete e.keymap
+//   // console.log(e);
+//   const {keyCode, key} = event
+//   console.log(keyCode, key);
+//   // if (keyCode === 221) {
+//   //   return 'j'
+//   // }
+// })
