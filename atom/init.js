@@ -88,7 +88,6 @@ consumeVimModePlusService(service => {
   }
   CoffeeInspect.registerCommand()
 
-
   class InsertCharacter extends Base.getClass("Operator") {
     static commandPrefix = "vim-mode-plus-user"
     target = "Empty"
