@@ -157,9 +157,10 @@
       "git-diff-details"
       "prettier-atom"
       "github"
-      "hyperclick"
       "js-hyperclick"
       "atom-clock"
+      "hyperclick"
+      "autocomplete-emojis"
     ]
     openEmptyEditorOnStart: false
     packagesWithKeymapsDisabled: [
@@ -188,7 +189,7 @@
   editor:
     atomicSoftTabs: false
     fontFamily: "FiraCode-Retina"
-    fontSize: 19
+    fontSize: 20
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -204,6 +205,7 @@
   "git-plus":
     commits: {}
     general: {}
+  "google-translate": {}
   "ide-typescript": {}
   "inline-git-diff":
     statusBarStyle: "icon"
@@ -254,10 +256,13 @@
     skipPrettierWhenFormatByStandardForJavascriptIfStandardIsProjectDependencies: false
   narrow:
     AtomScan: {}
-    Fold: {}
+    Fold:
+      foldLevel: 1
     Scan: {}
     SelectFiles:
       rememberQuery: true
+    Symbols:
+      locationToOpen: "bottom"
     confirmOnUpdateRealFile: false
     locationToOpen: "center"
   "nord-atom-ui": {}
@@ -309,6 +314,7 @@
   "symbols-view":
     quickJumpToFileSymbol: false
     useEditorGrammarAsCtagsLanguage: false
+  tabs: {}
   "theme-switch":
     logToConsole: true
     profiles: [
@@ -332,6 +338,7 @@
     basename: "tryit"
     root: "~/tryit"
   "vim-mode-plus":
+    autoDisableInputMethodWhenLeavingInsertMode: true
     charactersToAddSpaceOnSurround: [
       ")"
       "}"
@@ -348,6 +355,7 @@
       "vim-mode-plus-jasmine-increase-focus"
       "vim-mode-plus-replace-with-execution"
       "vim-mode-plus-ex-mode"
+      "google-translate"
       "narrow"
       "narrow-git-ls"
       "quick-highlight"
@@ -355,9 +363,9 @@
     ]
     findAcrossLines: true
     findCharsMax: 100
-    findConfirmByTimeout: 200
+    findConfirmByTimeout: 300
     flashOnMoveToOccurrence: true
-    hideCommandsFromCommandPalette: false
+    hideCommandsFromCommandPalette: true
     hideStatusBarOnMaximizePane: false
     hideTabBarOnMaximizePane: false
     highlightSearch: false

@@ -4,6 +4,11 @@
 # 'atom-workspace:not(.atom-text-editor)':
   # 'ctrl-p': 'user:open-tryit-coffee'
 
+'atom-workspace':
+#   'space f f': 'fuzzy-finder:toggle-file-finder'
+#   'space f b': 'fuzzy-finder:toggle-buffer-finder'
+  'cmd-h': 'outlet:toggle'
+
 'atom-workspace:not([mini])':
   'f12': 'timecop:view'
   # 'f12': 'demo-mode:toggle'
@@ -52,13 +57,14 @@
   # [hidrogen]
   'cmd-m': 'hydrogen:toggle-bubble'
   'ctrl-cmd-h': 'hydrogen:restart-kernel'
-  'cmd-h': 'hydrogen:restart-kernel-and-re-evaluate-bubbles'
+  # 'cmd-h': 'hydrogen:restart-kernel-and-re-evaluate-bubbles'
   'ctrl-cmd-enter': 'hydrogen:run'
 
 'atom-text-editor.vim-mode-plus.visual-mode.blockwise':
   'G': 'DONT_MOVE_TO_LAST_LINE' # t9md/atom-vim-mode-plus#214
 
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'g t t': "vim-mode-plus-user:google-translate"
   'shift-cmd-enter': 'vim-mode-plus:maximize-pane-without-center'
   'g w': 'vim-mode-plus:move-to-next-subword'
   'g b': 'vim-mode-plus:move-to-previous-subword'
@@ -83,7 +89,7 @@
   # 's': 'vim-mode-plus:select'
 
   'ctrl-z':      'narrow:reopen'
-  'space f':     'narrow:fold'
+  'space F':     'narrow:fold'
   'cmd-o':       'narrow:symbols-by-current-word'
   'cmd-shift-o': 'narrow:project-symbols-by-current-word'
   'cmd-r':       'narrow:symbols'
@@ -95,6 +101,11 @@
   'space a':     'narrow:atom-scan'
   'space A':     'narrow:atom-scan-by-current-word'
   'space G':     'narrow:git-diff-all'
+
+  'space o h': 'outlet:toggle'
+  'space o r': 'outlet:relocate'
+  'space o c': 'outlet:close'
+  'space o f': 'outlet:focus'
 
   # [check purpose]
   # 'm s': 'vim-mode-plus:map-surround'
@@ -128,7 +139,7 @@
   'e': 'vim-mode-plus:move-to-end-of-smart-word'
   'g p': 'vim-mode-plus:put-after-with-auto-indent'
   'g P': 'vim-mode-plus:put-before-with-auto-indent'
-  'g _': 'vim-mode-plus:snake-case'
+  # 'g _': 'vim-mode-plus:snake-case'
   'g >': 'vim-mode-plus:rotate-arguments-of-inner-pair'
   'g <': 'vim-mode-plus:rotate-arguments-backwards-of-inner-pair'
 
@@ -200,6 +211,8 @@
 
   # open-on-github, github-diff: g
   # -------------------------
+  'space f f': 'fuzzy-finder:toggle-file-finder'
+  'space f b': 'fuzzy-finder:toggle-buffer-finder'
   'space g o': 'open-on-github:file'
   'space g b': 'open-on-github:blame'
   'space g h': 'open-on-github:history'
@@ -328,7 +341,7 @@
   'ctrl-y': 'clip-history:paste'
   'cmd-y': 'clip-history:paste-newer'
   'ctrl-Y': 'clip-history:paste-last'
-  'ctrl-.': 'vim-mode-plus:insert-last-inserted'
+  'ctrl-.': '[vim-mode-plus](https://atom.io/packages/vim-mode-plus)m-mode-plus:insert-last-inserted'
   'ctrl-{': 'vim-mode-plus:move-to-previous-fold-start'
   'ctrl-}': 'vim-mode-plus:move-to-next-fold-start'
 
@@ -515,6 +528,21 @@
   '}': 'abort!'
   '~': 'abort!'
 
+# 'atom-workspace.has-google-translate atom-text-editor.vim-mode-plus.normal-mode':
+#   # 'ctrl-g': 'google-translate:hide'
+#   'ctrl-cmd-t': 'google-translate:relocate'
+#   'cmd-h': 'google-translate:hide'
+
+'atom-text-editor[outlet]':
+  'cmd-w': 'core:close'
+
+'atom-workspace.has-outlet atom-text-editor.vim-mode-plus.normal-mode':
+  'cmd-f': 'outlet:focus'
+
+'atom-workspace.has-visible-outlet atom-text-editor.vim-mode-plus.normal-mode':
+  'ctrl-g': 'outlet:close'
+  'ctrl-cmd-t': 'outlet:relocate'
+
 # Narrow
 # -------------------------
 'atom-workspace:not(.has-narrow) atom-text-editor.vim-mode-plus:not(.insert-mode)':
@@ -527,6 +555,7 @@
   'cmd-[': 'narrow:previous-query-history'
   'cmd-]': 'narrow:next-query-history'
   'cmd-e': 'narrow:query-current-word'
+  'ctrl-g': 'narrow:close'
 
 'atom-workspace.has-narrow atom-text-editor.vim-mode-plus.normal-mode:not(.narrow-editor)':
   ';': 'narrow:focus'
@@ -545,13 +574,11 @@
   'p': 'narrow-ui:move-to-previous-file-item'
   # 'cmd-t': 'narrow-ui:switch-ui-location'
 
-
 'atom-text-editor.narrow.narrow-editor.vim-mode-plus.insert-mode.prompt':
   'up': 'narrow:previous-query-history'
   'down': 'narrow:next-query-history'
-  'ctrl-p': 'narrow:previous-query-history'
-  'ctrl-n': 'narrow:next-query-history'
-  # 'cmd-t': 'narrow-ui:switch-ui-location'
+  # 'ctrl-p': 'narrow:previous-query-history'
+  # 'ctrl-n': 'narrow:next-query-history'
 
 'atom-text-editor.narrow.narrow-editor.vim-mode-plus.normal-mode.prompt':
   'i': 'narrow-ui:move-to-prompt'
@@ -559,4 +586,4 @@
 # narrow-editor insert and normal
 'atom-text-editor.narrow.narrow-editor':
   'cmd-s': 'narrow-ui:update-real-file'
-  'cmd-t': 'narrow-ui:switch-ui-location'
+  'cmd-t': 'narrow-ui:relocate'

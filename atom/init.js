@@ -39,6 +39,8 @@ function consumeVimModePlusService(fn) {
 }
 
 consumeVimModePlusService(service => {
+  return
+  // To evaluate constom-operation feat
   class DeleteWithBackholeRegister extends service.getClass("Delete") {
     execute() {
       this.vimState.register.name = "_"
@@ -48,9 +50,7 @@ consumeVimModePlusService(service => {
   DeleteWithBackholeRegister.commandPrefix = "vim-mode-plus-user"
   DeleteWithBackholeRegister.registerCommand()
 
-  return
-  const Base = service.Base
-  const TransformStringByExternalCommand = Base.getClass("TransformStringByExternalCommand")
+  const TransformStringByExternalCommand = service.getClass("TransformStringByExternalCommand")
 
   class CustomSort extends TransformStringByExternalCommand {
     static commandPrefix = "vim-mode-plus-user"
@@ -148,13 +148,27 @@ function clipListOfLoadedCommunityPackages(arg) {
   atom.clipboard.write(texts.join("\n") + "\n")
 }
 
-atom.commands.add("atom-text-editor", "user:autocomplete-plus-select-next-and-confirm", function() {
-  const editor = this.getModel()
-  atom.commands.dispatch(editor.element, "core:move-down")
-  atom.commands.dispatch(editor.element, "autocomplete-plus:confirm")
-})
+function getVisibleEditors () {
+  return atom.workspace
+    .getPanes()
+    .map(pane => pane.getActiveEditor())
+    .filter(editor => editor)
+}
+
+function destroyFirstVisibleOutlet() {
+  const visibleEditors = getVisibleEditors()
+  const outlet = atom.workspace.getTextEditors().find(editor => {
+    return editor.element.classList.contains('outlet') && visibleEditors.includes(editor)
+  })
+  if (outlet) {
+    outlet.destroy()
+  }
+}
 
 atom.commands.add("atom-workspace", {
+  "user:destroy-first-visible-outlet"() {
+    destroyFirstVisibleOutlet()
+  },
   "user:clip-list-of-active-community-packages"() {
     clipListOfActiveCommunityPackages()
   },
@@ -167,9 +181,6 @@ atom.commands.add("atom-workspace", {
   },
   "user:hello"() {
     console.log("hello!")
-  },
-  "user:hello:hello"() {
-    console.log("hello!2")
   },
   "user:clear-console"() {
     console.clear()
@@ -190,35 +201,6 @@ atom.commands.add("atom-workspace", {
     console.log(JSON.stringify({configSchema: CONFIG}, null, "  "))
   },
 })
-// atom.commands.add('atom-workspace', {
-//   'workspace:hello1': () => console.log('hello'),
-//   'workspace:hello2': () => console.log('hello'),
-//   'workspace:world1': () => console.log('world'),
-//   'workspace:world2': () => console.log('world'),
-// })
-//
-// atom.commands.add('atom-text-editor', {
-//   'aaa:editor-cmd': () => console.log('hello'),
-//   'editor:hello1': () => console.log('hello'),
-//   'editor:hello2': () => console.log('world'),
-//   'editor:world1': () => console.log('world'),
-//   'editor:world2': () => console.log('world'),
-// })
-// atom.commands.add('atom-text-editor.has-selection', {
-//   'aaa:editor-cmd-has-selection': () => console.log('hello'),
-// })
-
-
-// function clipKeymap() {
-//   const disposable = atom.keymaps.addKeystrokeResolver(event => {
-//     disposable.dispose()
-//     const keymap = JSON.stringify(event.keymap, null, '  ')
-//     atom.clipboard.write(keymap)
-//   })
-// }
-// atom.commands.add('atom-workspace', {
-//   'user:clip-keymap': () => clipKeymap(),
-// })
 
 // atom.keymaps.addKeystrokeResolver(({event}) => {
 //   // event.
