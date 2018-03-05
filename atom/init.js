@@ -132,53 +132,7 @@ async function hotReloadPackages() {
   }
 }
 
-function clipListOfActiveCommunityPackages(arg) {
-  const texts = atom.packages
-    .getActivePackages()
-    .filter(pack => !atom.packages.isBundledPackage(pack.name))
-    .map(pack => pack.name + ": " + pack.metadata.version)
-  atom.clipboard.write(texts.join("\n") + "\n")
-}
-
-function clipListOfLoadedCommunityPackages(arg) {
-  const texts = atom.packages
-    .getLoadedPackages()
-    .filter(pack => !atom.packages.isBundledPackage(pack.name))
-    .map(pack => pack.name + ": " + pack.metadata.version)
-  atom.clipboard.write(texts.join("\n") + "\n")
-}
-
-function getVisibleEditors () {
-  return atom.workspace
-    .getPanes()
-    .map(pane => pane.getActiveEditor())
-    .filter(editor => editor)
-}
-
-function destroyFirstVisibleOutlet() {
-  const visibleEditors = getVisibleEditors()
-  const outlet = atom.workspace.getTextEditors().find(editor => {
-    return editor.element.classList.contains('outlet') && visibleEditors.includes(editor)
-  })
-  if (outlet) {
-    outlet.destroy()
-  }
-}
-
 atom.commands.add("atom-workspace", {
-  "user:destroy-first-visible-outlet"() {
-    destroyFirstVisibleOutlet()
-  },
-  "user:clip-list-of-active-community-packages"() {
-    clipListOfActiveCommunityPackages()
-  },
-  "user:clip-list-of-loaded-community-packages"() {
-    clipListOfLoadedCommunityPackages()
-  },
-  "user:inspect-element"() {
-    atom.openDevTools()
-    atom.executeJavaScriptInDevTools("DevToolsAPI.enterInspectElementMode()")
-  },
   "user:hello"() {
     console.log("hello!")
   },
@@ -191,14 +145,6 @@ atom.commands.add("atom-workspace", {
   },
   "user:package-hot-reload"() {
     hotReloadPackages()
-  },
-  "user:vmp-version"() {
-    console.log(atom.packages.getActivePackage("vim-mode-plus").metadata.version)
-  },
-  "user:clip-as-json"() {
-    // Broken
-    const text = atom.workspace.getActiveTextEditor().getSelectedText()
-    console.log(JSON.stringify({configSchema: CONFIG}, null, "  "))
   },
 })
 
