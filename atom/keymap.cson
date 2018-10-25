@@ -10,7 +10,10 @@
   'cmd-h': 'outlet:toggle'
 
 'atom-workspace:not([mini])':
-  'f12': 'timecop:view'
+  # 'f12': 'timecop:view'
+  # 'f12': "google-translate:translate-paragraph"
+  'f12': "vim-mode-plus-user:google-translate-paragraph"
+
   # 'f12': 'demo-mode:toggle'
   'cmd-ctrl-shift-left': 'window:move-active-item-to-pane-on-left'
   'cmd-ctrl-shift-right': 'window:move-active-item-to-pane-on-right'
@@ -46,6 +49,12 @@
   'ctrl-cmd-e t': 'toggle:open-config'
 
 'atom-text-editor':
+  'ctrl-cmd-up': "user:sn-mark-parent"
+  'ctrl-cmd-down': "user:sn-clear"
+  # 'ctrl-c': 'core:copy'
+  'cmd-up': 'editor:select-larger-syntax-node'
+  'cmd-down': 'editor:select-smaller-syntax-node'
+
   'ctrl-cmd-p': 'mprettier:format'
 
   # [cursor history]
@@ -53,6 +62,7 @@
   'ctrl-o': 'cursor-history:prev'
   'ctrl-cmd-i': 'cursor-history:next-within-editor'
   'ctrl-cmd-o': 'cursor-history:prev-within-editor'
+  'ctrl-c': 'user:hello'
 
   # [hidrogen]
   'cmd-m': 'hydrogen:toggle-bubble'
@@ -64,7 +74,8 @@
   'G': 'DONT_MOVE_TO_LAST_LINE' # t9md/atom-vim-mode-plus#214
 
 'atom-text-editor.vim-mode-plus:not(.insert-mode)':
-  'g t t': "vim-mode-plus-user:google-translate"
+  'g t': "vim-mode-plus-user:google-translate"
+  '`': "vim-mode-plus-user:google-translate"
   'shift-cmd-enter': 'vim-mode-plus:maximize-pane-without-center'
   'g w': 'vim-mode-plus:move-to-next-subword'
   'g b': 'vim-mode-plus:move-to-previous-subword'
@@ -75,12 +86,19 @@
 
   'g =': 'vim-mode-plus:align-occurrence'
 
-  # 'space k': 'keystroke 5 k'
+  'space k': 'keystroke 5 k'
   '\\': 'choose-pane:start'
-  'q': 'choose-pane:start'
+  # 'q': 'choose-pane:start'
 
-  '(': 'vim-mode-plus:move-to-previous-function-and-redraw-cursor-line-at-upper-middle'
-  ')': 'vim-mode-plus:move-to-next-function-and-redraw-cursor-line-at-upper-middle'
+  # '(': 'vim-mode-plus:move-to-previous-function-and-redraw-cursor-line-at-upper-middle'
+  # ')': 'vim-mode-plus:move-to-next-function-and-redraw-cursor-line-at-upper-middle'
+
+  # '(': 'vim-mode-plus:move-to-previous-fold-end-with-same-indent'
+  # ')': 'vim-mode-plus:move-to-next-fold-end-with-same-indent'
+  # '(': 'vim-mode-plus:move-to-previous-fold-end'
+  # ')': 'vim-mode-plus:move-to-next-fold-end'
+  '(': 'vim-mode-plus:move-to-previous-fold-start-with-same-indent'
+  ')': 'vim-mode-plus:move-to-next-fold-start-with-same-indent'
 
   'ctrl-shift-k': 'vim-mode-plus:delete-line'
 
@@ -105,7 +123,7 @@
   'space o h': 'outlet:toggle'
   'space o r': 'outlet:relocate'
   'space o c': 'outlet:close'
-  'space o f': 'outlet:focus'
+  'space o f': 'outlet:toggle-focus'
 
   # [check purpose]
   # 'm s': 'vim-mode-plus:map-surround'
@@ -134,7 +152,7 @@
   'g enter': 'vim-mode-plus:toggle-persistent-selection'
   'space enter': 'vim-mode-plus:clear-persistent-selections'
   'g h': 'vim-mode-plus-user:quick-highlight'
-  'w': 'vim-mode-plus:move-to-next-smart-word'
+  # 'w': 'vim-mode-plus:move-to-next-smart-word'
   'b': 'vim-mode-plus:move-to-previous-smart-word'
   'e': 'vim-mode-plus:move-to-end-of-smart-word'
   'g p': 'vim-mode-plus:put-after-with-auto-indent'
@@ -193,6 +211,8 @@
   'f8': 'user:package-hot-reload'
 
   # 'f9': 'hydrogen:run-all'
+  'f9': 'user:toggle-use-tree-sitter-parsers'
+
 
   # "'": 'vim-mode-plus:move-to-next-string'
 
@@ -229,7 +249,7 @@
   'space g d': 'git-diff:toggle-diff-list'
   'g d': 'inline-git-diff:toggle'
   # '_': 'vim-mode-plus-user:insert-character'
-  'g s': 'mgit:status'
+  # 'g s': 'mgit:status'
   # 'g s': 'mgit:start-commit'
 
   '_': 'toggle:there'
@@ -341,7 +361,7 @@
   'ctrl-y': 'clip-history:paste'
   'cmd-y': 'clip-history:paste-newer'
   'ctrl-Y': 'clip-history:paste-last'
-  'ctrl-.': '[vim-mode-plus](https://atom.io/packages/vim-mode-plus)m-mode-plus:insert-last-inserted'
+  'ctrl-.': 'vim-mode-plus:insert-last-inserted'
   'ctrl-{': 'vim-mode-plus:move-to-previous-fold-start'
   'ctrl-}': 'vim-mode-plus:move-to-next-fold-start'
 
@@ -537,7 +557,7 @@
   'cmd-w': 'core:close'
 
 'atom-workspace.has-outlet atom-text-editor.vim-mode-plus.normal-mode':
-  'cmd-f': 'outlet:focus'
+  'cmd-f': 'outlet:toggle-focus'
 
 'atom-workspace.has-visible-outlet atom-text-editor.vim-mode-plus.normal-mode':
   'ctrl-g': 'outlet:close'
@@ -570,6 +590,7 @@
   # 'g g': 'narrow-ui:move-to-prompt'
   's': 'narrow-ui:select-files'
   ';': 'narrow-ui:confirm-keep-open'
+  'cmd-f': 'narrow-ui:confirm-keep-open'
   'n': 'narrow-ui:move-to-next-file-item'
   'p': 'narrow-ui:move-to-previous-file-item'
   # 'cmd-t': 'narrow-ui:switch-ui-location'

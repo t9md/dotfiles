@@ -9,19 +9,24 @@
   "autocomplete-emojis":
     enableUnicodeEmojis: false
   "autocomplete-plus":
+    fileBlacklist: [
+      "*.md"
+    ]
     suppressActivationForEditorClasses: [
       "vim-mode-plus.normal-mode"
       "vim-mode-plus.visual-mode"
       "vim-mode-plus.operator-pending-mode"
       "vim-mode-plus.insert-mode.replace"
       "narrow"
+      "suppress-autocomplete-plus"
     ]
   "choose-pane":
     labelChars: "HJKL;"
   "clip-history": {}
   "command-palette":
-    copySelectedItemTextWhenEmptySelection: "command-name"
-    numberOfRecentlyConfirmedCommandsShowsAtTop: 3
+    allowCoreCopyWithEmptySelectionCopySelectedItemText: "display-name"
+    surroundByBacktickWhenCopyCommandName: true
+    surroundByBacktickWhenCopyDisplayName: true
   core:
     _disabledPackages: [
       "nuclide"
@@ -137,7 +142,6 @@
       "linter-coffeelint"
       "submode"
       "vim-mode-plus-replace-with-execution"
-      "keystroke"
       "nuclide"
       "busy-signal"
       "linter-eslint"
@@ -189,7 +193,7 @@
   editor:
     atomicSoftTabs: false
     fontFamily: "FiraCode-Retina"
-    fontSize: 20
+    fontSize: 22
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -320,6 +324,7 @@
     profiles: [
       "one-light-ui one-light-syntax"
       "one-dark-ui one-dark-syntax"
+      "one-dark-ui one-dark-vivid-syntax"
       "one-dark-ui oceanic-next"
       "one-dark-ui duotone-dark-syntax"
       "one-dark-ui duotone-blue-dark-syntax"
@@ -365,7 +370,6 @@
     findCharsMax: 100
     findConfirmByTimeout: 300
     flashOnMoveToOccurrence: true
-    hideCommandsFromCommandPalette: true
     hideStatusBarOnMaximizePane: false
     hideTabBarOnMaximizePane: false
     highlightSearch: false
